@@ -2,10 +2,10 @@
    CONFIGURACION GENERAL DE LA APLICACION
    ======================================== */
 
+/* Oculta mensajes de error de Shiny */
 .shiny-output-error {
   visibility: hidden;
 }
-
 .shiny-output-error:before {
   visibility: hidden;
 }
@@ -21,11 +21,9 @@
 body {
   font-family: 'Roboto';
 }
-
 .box-title {
   font-family: 'Source Serif Pro';
 }
-
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Serif Pro';
 }
@@ -43,7 +41,6 @@ dropdown-menu.inner {
   white-space: normal !important;
   max-width: 100% !important;
 }
-
 .dropdown-menu.inner li a {
   white-space: normal !important;
   word-break: break-word !important;
@@ -56,19 +53,18 @@ dropdown-menu.inner {
   font-weight: bold !important;
 }
 
+/* Tabs: color y animacion */
 .nav-tabs > li > a, .nav-tabs .nav-link {
   color: #000 !important;
   font-weight: bold !important;
   transition: color 0.3s, border-bottom 0.3s;
   border-bottom: 2px solid transparent;
 }
-
 .nav-tabs > li > a:hover, .nav-tabs .nav-link:hover {
   color: #b3001b !important;
   border-bottom: 2px solid #d90429;
   background-color: transparent !important;
 }
-
 .nav-tabs > li.active > a, .nav-tabs .nav-link.active {
   color: #d90429 !important;
   font-weight: bold !important;
@@ -86,12 +82,12 @@ dropdown-menu.inner {
   cursor: pointer !important;
 }
 
+/* SweetAlert2 — mini popup */
 .swal2-popup.swal2-mini {
   width: 300px !important;
   height: 200px !important;
   padding: 10px !important;
 }
-
 .swal2-confirm {
   background-color: #28a745 !important;
   color: white !important;
@@ -99,7 +95,6 @@ dropdown-menu.inner {
   font-size: 12px !important;
   padding: 5px 15px !important;
 }
-
 .swal2-cancel {
   background-color: #dc3545 !important;
   color: white !important;
@@ -107,7 +102,6 @@ dropdown-menu.inner {
   font-size: 12px !important;
   padding: 5px 15px !important;
 }
-
 .swal2-title, .swal2-html-container {
   margin: 0 !important;
   padding: 0 !important;
@@ -140,7 +134,7 @@ dropdown-menu.inner {
   line-height: 1.3;
 }
 
-/* Footer dark — para cajas con fondo de color o contexto de alerta */
+/* Footer dark — cajas con fondo de color o contexto de alerta */
 .caja-modal-footer-dark {
   font-size: 10px;
   color: #555;
@@ -151,7 +145,7 @@ dropdown-menu.inner {
   line-height: 1.3;
 }
 
-/* Footer danger — para indicadores criticos en rojo */
+/* Footer danger — indicadores criticos en rojo */
 .caja-modal-footer-danger {
   font-size: 10px;
   color: #c0392b;
@@ -161,4 +155,132 @@ dropdown-menu.inner {
   font-style: italic;
   font-weight: 500;
   line-height: 1.3;
+}
+
+/* ========================================
+   TABLAS REACTABLE — estilos globales
+   ======================================== */
+
+/* ------------------------------------------
+   Contenedor general del modulo TablaReactable
+   ------------------------------------------ */
+
+.rt-contenedor {
+  margin-bottom: 8px;
+}
+
+/* Titulo principal — negrita, texto tipo titulo */
+.rt-titulo {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+/* Subtitulo — 80% del titulo, tono secundario */
+.rt-subtitulo {
+  font-size: 80%;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+/* ------------------------------------------
+   Encabezado de tabla
+   ------------------------------------------ */
+
+/* Borde superior e inferior negro 1px sobre todas las celdas de header */
+.reactable-wrap .rt-thead .rt-th,
+.reactable-wrap .rt-thead.-header .rt-th {
+  border-top: 1px solid #000 !important;
+  border-bottom: 1px solid #000 !important;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #fff;
+  padding: 6px 8px;
+}
+
+/* ------------------------------------------
+   Cuerpo de tabla — bordes globales dashed gris claro
+   ------------------------------------------ */
+
+.reactable-wrap .rt-tbody .rt-td {
+  border-right: 1px dashed #ccc !important;
+  border-bottom: 1px dashed #ccc !important;
+  font-size: 12px;
+  padding: 5px 8px;
+}
+
+/* Elimina borde derecho sobrante en la ultima celda de cada fila */
+.reactable-wrap .rt-tbody .rt-tr .rt-td:last-child {
+  border-right: none !important;
+}
+
+/* ------------------------------------------
+   Primera(s) columna(s) posicionales del cuerpo
+   El modulo asigna clase .rt-col-header a cada celda de la columna marcada
+   ------------------------------------------ */
+
+.reactable-wrap .rt-tbody .rt-td.rt-col-header {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+/* ------------------------------------------
+   Fila OTROS — cursiva, fondo gris claro
+   Clase .rt-fila-otros asignada via rowClass en TablaReactable()
+   ------------------------------------------ */
+
+.reactable-wrap .rt-tbody .rt-tr.rt-fila-otros .rt-td {
+  font-style: italic !important;
+  background-color: #f0f0f0 !important;
+  color: #555;
+}
+
+/* Primera columna de fila OTROS: mantiene negrita + cursiva */
+.reactable-wrap .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
+  font-style: italic !important;
+  font-weight: 700 !important;
+  background-color: #f0f0f0 !important;
+}
+
+/* ------------------------------------------
+   Fila TOTAL — negrita, fondo gris mas oscuro
+   Clase .rt-fila-total asignada via rowClass en TablaReactable()
+   ------------------------------------------ */
+
+.reactable-wrap .rt-tbody .rt-tr.rt-fila-total .rt-td {
+  font-weight: 700 !important;
+  background-color: #d6d6d6 !important;
+  color: #111;
+  border-bottom: 1px solid #aaa !important;
+}
+
+/* Primera columna de fila TOTAL: mantiene uppercase + negrita */
+.reactable-wrap .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  background-color: #d6d6d6 !important;
+}
+
+/* ------------------------------------------
+   Hover sobre filas interactivas
+   ------------------------------------------ */
+
+.reactable-wrap .rt-tbody .rt-tr-group:hover .rt-td {
+  background-color: #fafafa;
+}
+
+/* El hover no debe pisar los fondos semanticos de OTROS y TOTAL */
+.reactable-wrap .rt-tbody .rt-tr.rt-fila-otros:hover .rt-td {
+  background-color: #e8e8e8 !important;
+}
+.reactable-wrap .rt-tbody .rt-tr.rt-fila-total:hover .rt-td {
+  background-color: #c8c8c8 !important;
 }
