@@ -284,3 +284,48 @@ dropdown-menu.inner {
 .reactable-wrap .rt-tbody .rt-tr.rt-fila-total:hover .rt-td {
   background-color: #c8c8c8 !important;
 }
+
+/* ------------------------------------------
+   Encabezados ordenables — clase .rt-sortable en contenedor raiz
+   Activa cursor pointer y flecha de ordenamiento al hacer hover
+   ------------------------------------------ */
+
+.rt-sortable .rt-thead .rt-th {
+  cursor: pointer !important;
+  user-select: none;
+}
+
+/* Indicador visual de hover en encabezado sortable */
+.rt-sortable .rt-thead .rt-th:hover {
+  background-color: #f5f5f5 !important;
+  color: #d90429;
+}
+
+/* Flecha de ordenamiento activa — reactable usa atributo aria-sort */
+.rt-sortable .rt-thead .rt-th[aria-sort="ascending"]::after {
+  content: " \25B2";
+  font-size: 9px;
+  color: #d90429;
+  vertical-align: middle;
+}
+.rt-sortable .rt-thead .rt-th[aria-sort="descending"]::after {
+  content: " \25BC";
+  font-size: 9px;
+  color: #d90429;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------
+   Nota de interaccion automatica
+   Reutiliza .caja-modal-footer pero con margen superior positivo
+   (la nota va debajo de la tabla, no dentro de una caja)
+   ------------------------------------------ */
+
+.rt-contenedor .caja-modal-footer,
+.rt-contenedor .caja-modal-footer-warning,
+.rt-contenedor .caja-modal-footer-dark,
+.rt-contenedor .caja-modal-footer-danger {
+  margin-top: 4px !important;
+  margin-left: 2px !important;
+  margin-bottom: 2px !important;
+}
