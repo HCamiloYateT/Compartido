@@ -316,6 +316,19 @@ dropdown-menu.inner {
 }
 
 /* ------------------------------------------
+   Padding compacto de celdas — override del tema reactable
+   El modulo ya pasa compact = TRUE y padding "3px 6px" via reactableTheme,
+   pero el CSS global garantiza consistencia ante overrides externos.
+   ------------------------------------------ */
+
+.rt-contenedor .rt-td {
+  padding: 3px 6px !important;
+}
+.rt-contenedor .rt-th {
+  padding: 5px 6px !important;
+}
+
+/* ------------------------------------------
    Nota de interaccion automatica
    Reutiliza .caja-modal-footer pero con margen superior positivo
    (la nota va debajo de la tabla, no dentro de una caja)
