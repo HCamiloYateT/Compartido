@@ -1,47 +1,73 @@
 # Compartido
 
-Repositorio de recursos compartidos para aplicaciones del área de analítica.
+Repositorio de recursos compartidos para aplicaciones de analítica y prototipos de dashboards en **Shiny + bs4Dash**.
 
 ## Objetivo
 
-Centralizar elementos visuales reutilizables (estilos e imágenes) para mantener una identidad consistente entre aplicaciones.
+Centralizar elementos reutilizables para acelerar el desarrollo y mantener una identidad visual consistente:
 
-## Estructura del repositorio
+- estilos CSS comunes,
+- imágenes institucionales,
+- y una plantilla funcional de app `bs4Dash`.
+
+## Estructura actual del repositorio
 
 ```text
 Compartido/
 ├── README.md
 ├── Styles/
+│   ├── README.md
 │   └── style.css
-└── img/
-    ├── Readme.md
-    ├── logo.png
-    └── logo2.png
+├── img/
+│   ├── Readme.md
+│   ├── logo.png
+│   └── logo2.png
+└── bs4Dash/
+    ├── AppPrueba.R
+    ├── ValoresPrueba.R
+    └── APP/
+        ├── README.md
+        ├── global.R
+        ├── ui.R
+        ├── server.R
+        └── R/
+            ├── functions/utils.R
+            ├── misc/data_dummy.R
+            ├── misc/values.R
+            ├── modules/EjemploModulo.R
+            └── ui/
+                ├── header.R
+                ├── sidebar.R
+                ├── body.R
+                ├── controlbar.R
+                ├── footer.R
+                └── preloader.R
 ```
 
-## Contenido
+## Contenido principal
 
-### 1) Hoja de estilos globales
+### 1) Estilos compartidos
 
-Archivo: `Styles/style.css`
+- **Archivo:** `Styles/style.css`
+- **Documentación:** `Styles/README.md`
 
-Incluye estilos compartidos para aplicaciones web (especialmente dashboards), entre ellos:
-
-- ajustes globales de interfaz,
-- tipografías de títulos y texto,
-- estilos de tabs,
-- clases de apoyo para modales,
-- estilos de tablas `reactable`.
-
-> Recomendación: importar este CSS como base y extenderlo en cada proyecto solo cuando sea necesario.
+Incluye reglas globales para interfaz, tipografías, componentes UI y estilos para tablas `reactable`.
 
 ### 2) Recursos gráficos
 
-Carpeta: `img/`
+- **Carpeta:** `img/`
+- **Documentación:** `img/Readme.md`
 
-Contiene logos institucionales para uso en interfaces, encabezados o pantallas de inicio.
+Contiene logos reutilizables (`logo.png`, `logo2.png`) para encabezados, login/preloaders y branding de apps.
 
-Ver detalle en `img/Readme.md`.
+### 3) Plantilla base Shiny + bs4Dash
+
+- **Carpeta principal:** `bs4Dash/APP/`
+- **Documentación:** `bs4Dash/APP/README.md`
+
+Incluye una app lista para ejecutar con estructura modular (`R/ui`, `R/modules`, `R/functions`, `R/misc`), datos dummy y componentes de interfaz separados por responsabilidad.
+
+También se incluyen scripts de apoyo en `bs4Dash/AppPrueba.R` y `bs4Dash/ValoresPrueba.R` para pruebas rápidas.
 
 ## Uso sugerido
 
@@ -49,39 +75,52 @@ Ver detalle en `img/Readme.md`.
 
 Opciones habituales:
 
-1. **Submódulo de Git** (recomendado cuando se desea trazabilidad de versiones).
-2. **Copia controlada** en la etapa de build/deploy.
-3. **Referencia por ruta compartida** dentro de la infraestructura interna.
+1. **Submódulo de Git** para mantener trazabilidad de versiones.
+2. **Copia controlada** durante build/deploy.
+3. **Referencia por ruta compartida** en infraestructura interna.
 
-### Importar estilos
+### Importar estilos en una app
 
-Ejemplo HTML:
+**HTML**
 
 ```html
 <link rel="stylesheet" href="Styles/style.css">
 ```
 
-Ejemplo en Shiny (R):
+**Shiny (R)**
 
 ```r
 tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "Styles/style.css"))
 ```
 
+### Ejecutar plantilla bs4Dash
+
+```r
+shiny::runApp("bs4Dash/APP")
+```
+
+## Requisitos para la plantilla bs4Dash
+
+```r
+install.packages(c("shiny", "bs4Dash"))
+```
+
 ## Buenas prácticas para contribuir
 
-- Mantener nombres de archivos descriptivos y estables.
-- Evitar cambios disruptivos en clases CSS compartidas; preferir extender antes que romper.
-- Documentar cualquier nuevo recurso en el README correspondiente.
-- Optimizar imágenes antes de agregarlas al repositorio.
+- Mantener nombres descriptivos y estables.
+- Evitar cambios disruptivos en clases CSS compartidas.
+- Documentar nuevos recursos o cambios de estructura en los README correspondientes.
+- Optimizar imágenes antes de agregarlas.
+- Validar ejecución básica de la plantilla (`runApp`) cuando se modifique `bs4Dash/APP`.
 
 ## Versionado recomendado
 
-Cuando haya cambios relevantes, considerar versionar con tags (`vMAJOR.MINOR.PATCH`):
+Cuando haya cambios relevantes, usar tags (`vMAJOR.MINOR.PATCH`):
 
-- **MAJOR**: cambios incompatibles en estilos/clases,
-- **MINOR**: nuevas clases o recursos compatibles,
-- **PATCH**: correcciones menores sin impacto funcional.
+- **MAJOR**: cambios incompatibles.
+- **MINOR**: nuevas capacidades compatibles.
+- **PATCH**: correcciones menores.
 
-## Contacto de mantenimiento
+## Mantenimiento
 
-Definir aquí el equipo o persona responsable de aprobar cambios en recursos compartidos.
+Responsable sugerido: equipo de analítica/plataforma que gestione assets compartidos y revise cambios en estilo base y plantilla.
