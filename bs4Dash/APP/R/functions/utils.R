@@ -1,6 +1,21 @@
-# Paleta corporativa Racafe ----
-paleta_racafe <- function(n = 5) {
-  cols <- c("#c0392b", "#e74c3c", "#922b21", "#f1948a", "#fadbd8",
-            "#e67e22", "#d35400", "#f0b27a", "#2c3e50", "#85929e")
-  cols[seq_len(min(n, length(cols)))]
+# Utilidades -------------------------------------------------------------------
+# Incluye helpers para formato de texto y transformación de valores en la UI.
+
+FormatearTexto <- function(texto, tamano_pct = 1, color = "#17202a", negrita = FALSE) {
+  tags$span(
+    style = paste0(
+      "font-size:", tamano_pct, "em;",
+      "color:", color, ";",
+      if (isTRUE(negrita)) "font-weight:bold;" else ""
+    ),
+    texto
+  )
+}
+
+str_to_title <- function(texto) {
+  tools::toTitleCase(tolower(texto))
+}
+
+formatear_booleano <- function(x) {
+  ifelse(isTRUE(x), "Sí", "No")
 }
