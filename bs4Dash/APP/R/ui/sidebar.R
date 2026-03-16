@@ -1,30 +1,18 @@
 # Sidebar ----------------------------------------------------------------------
+# Define menú lateral y monta un módulo de prueba con datos dummy.
 
-# Menu lateral de navegacion ----
 sidebar <- bs4DashSidebar(
-  status        = "danger",
-  expandOnHover = FALSE,
+  skin = "light",
+  status = "primary",
+  elevation = 3,
   bs4SidebarMenu(
     id = "menu_principal",
     bs4SidebarMenuItem(
-      "Dashboard",
-      tabName = "tab_dashboard",
-      icon    = icon("gauge")
-    ),
-    bs4SidebarMenuItem(
-      "Clientes",
-      tabName = "tab_clientes",
-      icon    = icon("users")
-    ),
-    bs4SidebarMenuItem(
-      "Ventas",
-      tabName = "tab_ventas",
-      icon    = icon("chart-line")
-    ),
-    bs4SidebarMenuItem(
-      "Leads",
-      tabName = "tab_leads",
-      icon    = icon("bullseye")
+      text = "Inicio",
+      tabName = "tab_inicio",
+      icon = icon("house")
     )
-  )
+  ),
+  hr(),
+  ModuloPruebaUI("mod_sidebar", titulo = "Dummy en Sidebar")
 )

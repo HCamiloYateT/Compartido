@@ -1,9 +1,10 @@
 # Controlbar -------------------------------------------------------------------
+# Añade un panel lateral derecho simple con instrucciones de uso.
 
-# Barra de control lateral (panel derecho) ----
 controlbar <- bs4DashControlbar(
-  skin      = "light",
-  pinned    = FALSE,
-  collapsed = TRUE,
-  width     = 250
+  skin = "light",
+  title = "Ayuda rápida",
+  p("1) Descarga el proyecto."),
+  p("2) Ejecuta runApp('bs4Dash/APP')."),
+  p("3) Personaliza módulos y datos.")
 )

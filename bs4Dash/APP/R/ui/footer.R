@@ -1,18 +1,17 @@
 # Footer -----------------------------------------------------------------------
+# Pie de página fijo con última actualización y versión de la plantilla.
 
-# Pie de pagina con version y logo institucional ----
 footer <- bs4DashFooter(
-  left = FormatearTexto(
-    str_to_title(paste(tit_app, "Version 1")),
-    tamano_pct = 0.6
+  left = div(
+    style = "display:flex; align-items:center; margin:0;",
+    tags$span(style = "margin-left:5px;", uiOutput("last_update_info"))
   ),
-  right = tags$a(
-    href   = "https://analitica.racafe.com/PortalAnalitica/",
-    target = "_blank",
-    tags$img(
-      src    = "logo.png",
-      height = "25px",
-      style  = "vertical-align: middle;"
+  right = div(
+    style = "display:flex; align-items:center; margin:0;",
+    FormatearTexto(
+      str_to_title(paste(tit_app, "Versión 2.0")),
+      tamano_pct = 0.6
     )
-  )
+  ),
+  fixed = TRUE
 )

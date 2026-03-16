@@ -1,50 +1,53 @@
-# App Template - Racafe CRM
+# Plantilla bs4Dash (lista para usar)
 
-## Estructura del proyecto
+Aplicación base en **Shiny + bs4Dash** pensada para múltiples usuarios y ejecutable al descargar el proyecto.
 
+## Objetivo
+
+- Estructura clara por carpetas (`misc`, `functions`, `modules`, `ui`).
+- Datos dummy simples para pruebas rápidas.
+- Módulo de prueba que imprime datos en sidebar y body.
+- Recursos visuales desde rutas compartidas públicas.
+
+## Recursos compartidos utilizados
+
+- Logo app: `https://raw.githubusercontent.com/HCamiloYateT/Compartido/refs/heads/main/img/logo2.png`
+- Logo Racafe: `https://raw.githubusercontent.com/HCamiloYateT/Compartido/main/img/logo.png`
+- CSS base: `https://raw.githubusercontent.com/HCamiloYateT/Compartido/refs/heads/main/Styles/style.css`
+
+## Estructura incluida
+
+```text
+bs4Dash/APP/
+├── global.R
+├── ui.R
+├── server.R
+├── README.md
+└── R/
+    ├── misc/
+    │   ├── data_dummy.R
+    │   └── values.R
+    ├── functions/
+    │   └── utils.R
+    ├── modules/
+    │   └── EjemploModulo.R
+    └── ui/
+        ├── header.R
+        ├── sidebar.R
+        ├── body.R
+        ├── controlbar.R
+        ├── footer.R
+        └── preloader.R
 ```
-app_template/
-├── global.R              # Configuracion regional, librerias, carga de modulos
-├── ui.R                  # Definicion bs4DashPage
-├── server.R              # Logica del servidor
-├── R/
-│   ├── preloader.R       # Estilos y creador de preloaders (page / modal)
-│   ├── header.R          # Navbar bs4Dash con brand y usuario
-│   ├── sidebar.R         # Menu lateral de navegacion
-│   ├── body.R            # Cuerpo con CSS remoto, waiter y tabs
-│   ├── controlbar.R      # Panel lateral derecho
-│   └── footer.R          # Pie de pagina con version y logo
-├── www/
-│   ├── logo.png          # Logo Racafe (descargado via download_assets.sh)
-│   └── logo2.png         # Logo app (descargado via download_assets.sh)
-└── download_assets.sh    # Script para descargar imagenes desde GitHub
+
+## Requisitos
+
+```r
+install.packages(c("shiny", "bs4Dash"))
 ```
 
-## Setup inicial
+## Ejecución
 
-```bash
-# Descargar imagenes
-bash download_assets.sh
+```r
+shiny::runApp("bs4Dash/APP")
 ```
-
-## Librerias requeridas
-- shiny, bs4Dash, shinyjs, shinytoastr, shinyWidgets
-- waiter, DBI, tidyverse, lubridate, DT
-- scales, plotly, racafe, racafeModulos
-
-## Variables de entorno
-| Variable      | Default | Descripcion                    |
-|---------------|---------|-------------------------------|
-| APP_VERBOSE   | false   | Activa logs detallados         |
-| APP_DEBUG     | false   | Activa fullstacktrace en Shiny |
-
-## Preloaders disponibles
-- `preloader`              -> carga inicial (tipo page)
-- `preloader_actualizando` -> actualizacion de datos (tipo modal)
-- `preloader_procesando`   -> procesamiento en curso (tipo modal)
-
-## CSS
-Cargado remotamente desde:
-https://raw.githubusercontent.com/HCamiloYateT/Compartido/refs/heads/main/Styles/style.css
-
-> Para produccion se recomienda copiar el CSS a www/style.css y usar includeCSS("www/style.css")
