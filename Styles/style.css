@@ -349,3 +349,199 @@ dropdown-menu.inner {
   margin-left: 2px !important;
   margin-bottom: 2px !important;
 }
+
+/* === Filtros del kanban === */
+.tsk-filtros-wrap {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+.tsk-filtros-wrap .form-group { margin-bottom: 0; }
+.tsk-filtros-label {
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  margin-bottom: 4px;
+}
+.tsk-filtros-switches {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  height: 100%;
+}
+.tsk-filtros-switches .material-switch { margin-bottom: 0; }
+.tsk-filtros-acciones {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  padding-bottom: 2px;
+}
+
+/* === Kanban contenedor con scroll vertical fijo === */
+.tsk-kanban-outer {
+  width: 100%;
+  overflow-x: hidden;
+}
+.tsk-kanban-wrap {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  width: 100%;
+}
+.tsk-kanban-col {
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+.tsk-kanban-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.tsk-col-title { font-weight: 700; font-size: 0.88em; letter-spacing: .5px; }
+.tsk-col-badge {
+  background: rgba(255, 255, 255, .25);
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+/* Scroll vertical por columna — altura fija del tablero */
+.tsk-kanban-col-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: 68vh;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f0f0f0;
+}
+.tsk-kanban-col-body::-webkit-scrollbar { width: 5px; }
+.tsk-kanban-col-body::-webkit-scrollbar-track { background: #f0f0f0; }
+.tsk-kanban-col-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+/* === Card === */
+.tsk-card {
+  border-radius: 6px;
+  border-left-width: 4px;
+  border-left-style: solid;
+  padding: 10px 12px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .07);
+  transition: box-shadow .2s, transform .15s;
+  cursor: pointer;
+}
+.tsk-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .13);
+  transform: translateY(-1px);
+}
+.tsk-card--done     { opacity: .65; }
+.tsk-card--archived { opacity: .5; }
+
+.tsk-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+.tsk-card-title-wrap { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
+.tsk-card-title {
+  font-weight: 600;
+  font-size: 0.87em;
+  line-height: 1.3;
+  font-family: 'Source Serif Pro', serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tsk-card-actions     { display: flex; gap: 2px; flex-shrink: 0; }
+.tsk-card-actions .btn { padding: 2px 5px !important; }
+
+/* === Progress bar === */
+.tsk-progress-wrap  { margin: 5px 0 3px; }
+.tsk-progress-bar   { height: 4px; background: #e0e0e0; border-radius: 2px; overflow: hidden; }
+.tsk-progress-fill  { height: 100%; border-radius: 2px; transition: width .3s; }
+.tsk-progress-label { font-size: 0.74em; color: #999; }
+
+/* === Meta === */
+.tsk-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.79em;
+  color: #666;
+  margin-top: 3px;
+}
+.tsk-card-comment {
+  font-size: 0.77em;
+  color: #555;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 4px 7px;
+  margin-top: 5px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+.tsk-tags-wrap { display: flex; flex-wrap: wrap; gap: 3px; margin: 5px 0 2px; }
+.tsk-badge {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 0.73em;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 1px;
+}
+
+/* === Modal detalle de tarjeta === */
+.tsk-modal-detalle    { margin: 0; }
+.tsk-modal-header-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.tsk-modal-desc       { margin: 8px 0; font-size: 0.9em; }
+.tsk-modal-section    { margin: 8px 0; }
+
+/* === Checklist dentro del modal === */
+.tsk-checklist-modal  { margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+.tsk-checklist-item   { display: flex; align-items: center; gap: 8px; font-size: 0.87em; }
+.tsk-item-done        { color: #1a7a3f; }
+.tsk-item-pending     { color: #aaa; }
+.tsk-item-label-done  { text-decoration: line-through; color: #999; }
+
+/* === Formulario — switch ancho contenido === */
+.tsk-switch-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tsk-switch-inline .bootstrap-switch { margin-bottom: 0; }
+
+/* === Item de actividad dinamico en formulario === */
+.tsk-form-item { margin-top: 5px; }
+
+/* === Estado vacio de columna === */
+.tsk-empty-col {
+  text-align: center;
+  padding: 24px 8px;
+  color: #bbb;
+  font-size: 0.85em;
+}
