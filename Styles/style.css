@@ -239,6 +239,48 @@ dropdown-menu.inner {
   color: #1a1a1a;
 }
 
+/* ========================================
+   CALCULADORAS
+   ======================================== */
+
+/* Encabezado de columna en tablas de producto/viabilidad */
+.calc-header-col {
+  font-weight: bold;
+  font-size: 14pt;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+.calc-header-col--left {
+  text-align: left;
+}
+
+/* Celda de output alineada a la derecha */
+.calc-output-right {
+  text-align: right;
+}
+
+/* Celda de output centrada (viabilidad) */
+.calc-output-center {
+  text-align: center;
+}
+
+/* Boton calcular centrado */
+.calc-btn-wrap {
+  text-align: center;
+}
+
+.calc-btn-wrap > div {
+  display: inline-block;
+  width: 40%;
+}
+
+/* Selector de segmento centrado */
+.calc-segmento-wrap {
+  width: 40%;
+  margin: 0 auto 15px auto;
+}
+
 /* ------------------------------------------
    Fila OTROS — cursiva, fondo gris claro
    Clase .rt-fila-otros asignada via rowClass en TablaReactable()
