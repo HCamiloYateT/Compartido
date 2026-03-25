@@ -260,9 +260,16 @@ dropdown-menu.inner {
   text-align: right;
 }
 
-/* Celda de output centrada (viabilidad) */
+/* Celda de output centrada (viabilidad y parametros de producto) */
 .calc-output-center {
   text-align: center;
+}
+
+/* Fila de producto: alinea verticalmente texto y campos de entrada */
+.calc-producto-row.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
 /* Boton calcular centrado */
