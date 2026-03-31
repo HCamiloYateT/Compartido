@@ -1,0 +1,13 @@
+// Ejecuta cuando el DOM está completamente cargado
+$(function () {
+  
+  // Selecciona todos los elementos que tienen atributo "title"
+  // y activa el tooltip de Bootstrap en ellos
+  $('[title]').tooltip({
+    
+    // Define la posición del tooltip (a la derecha del elemento)
+    placement: 'right'
+    
+  });
+  
+});
