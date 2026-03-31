@@ -1,0 +1,44 @@
+# ============================================================
+# .gitignore - Versionar solo scripts R
+# ============================================================
+
+# Ignorar todo por defecto
+*
+
+# Mantener estructura de carpetas para poder incluir archivos permitidos
+!*/
+
+# Incluir el propio .gitignore
+!.gitignore
+
+# Versionar únicamente scripts R
+!*.R
+!*.r
+
+# Exclusiones explícitas frecuentes (aunque ya quedan fuera por la regla *)
+*.rds
+*.RData
+*.rda
+*.xlsx
+*.xls
+*.csv
+*.json
+*.pdf
+*.Rmd
+*.log
+*.db
+*.png
+*.jpg
+*.jpeg
+*.dcf
+*.Rproj
+renv/
+renv.lock
+.Rproj.user/
+.Rhistory
+rsconnect/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
