@@ -260,6 +260,67 @@ dropdown-menu.inner {
   text-align: right;
 }
 
+/* ========================================
+   PRELOADERS
+   ======================================== */
+
+/* Contenedor base compartido por los tres preloaders
+   Posicionado en centro de pantalla con tarjeta flotante */
+.preloader-card {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+}
+
+/* Logo compartido en los tres preloaders */
+.preloader-logo {
+  width: 70px;
+  margin-bottom: 16px;
+}
+
+/* Texto descriptivo compartido */
+.preloader-texto {
+  color: #333333;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+/* Spinner compartido: color rojo corporativo en las tres variantes */
+.preloader-spinner-inicio,
+.preloader-spinner-actualizar,
+.preloader-spinner-calculando {
+  width: 2rem;
+  height: 2rem;
+  color: #dc3545;
+}
+
+/* Carga inicial: borde solido */
+.preloader-spinner-inicio {
+  border-width: 0.25em;
+}
+
+/* Actualizacion: grow pulsante (hereda color rojo) */
+.preloader-spinner-actualizar {
+  /* sin overrides adicionales: bootstrap spinner-grow usa currentColor */
+}
+
+/* Calculando: borde solido mas grueso para diferenciarlo visualmente */
+.preloader-spinner-calculando {
+  border-width: 0.3em;
+}
+
 /* Celda de output centrada (viabilidad y parametros de producto) */
 .calc-output-center {
   text-align: center;
