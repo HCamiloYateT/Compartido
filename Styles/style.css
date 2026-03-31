@@ -666,3 +666,50 @@ dropdown-menu.inner {
 .tsk-switch-inline { display: inline-flex; align-items: center; gap: 8px; }
 .tsk-switch-inline .bootstrap-switch { margin-bottom: 0; }
 .tsk-form-item { margin-top: 5px; }
+
+/* ========================================
+   BADGES DE ESTADO DE APLICACION
+   Etiquetas visuales para identificar el entorno activo en el navbar
+   ======================================== */
+
+.app-badge {
+  display: inline-block;
+  font-size: 0.67rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Prototipo: gris oscuro — entorno de desarrollo inicial */
+.app-badge--prototipo {
+  background-color: #6c757d;
+}
+
+/* Pruebas: naranja — entorno QA o UAT */
+.app-badge--pruebas {
+  background-color: #fd7e14;
+}
+
+/* Staging: azul — entorno previo a produccion */
+.app-badge--staging {
+  background-color: #0d6efd;
+}
+
+/* Produccion: verde — entorno productivo estable */
+.app-badge--produccion {
+  background-color: #198754;
+}
+
+/* Demo: morado — entorno de demostracion a cliente */
+.app-badge--demo {
+  background-color: #6f42c1;
+}
+
+/* Mantenimiento: rojo — app en ventana de mantenimiento */
+.app-badge--mantenimiento {
+  background-color: #dc3545;
+}
