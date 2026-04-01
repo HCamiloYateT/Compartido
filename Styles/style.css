@@ -715,13 +715,21 @@ dropdown-menu.inner {
 }
 
 .racafe-btn-guardar {
+  --racafe-btn-hover: firebrick;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
   border-radius: 4px;
   line-height: 1.1;
+}
+
+.racafe-btn-guardar--vertical {
+  flex-direction: column;
+}
+
+.racafe-btn-guardar--horizontal {
+  flex-direction: row;
 }
 
 .racafe-btn-guardar .racafe-btn-icon {
@@ -734,6 +742,29 @@ dropdown-menu.inner {
   font-weight: 500;
   text-align: center;
   white-space: nowrap;
+}
+
+.racafe-btn-guardar:hover,
+.racafe-btn-guardar:focus,
+.racafe-btn-guardar:active {
+  background-color: var(--racafe-btn-hover) !important;
+  border-color: var(--racafe-btn-hover) !important;
+  color: #fff !important;
+}
+
+.racafe-btn-guardar--horizontal .racafe-btn-label {
+  text-align: left;
+}
+
+.racafe-btn-guardar--xxs {
+  min-width: 46px;
+  min-height: 40px;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.66rem;
+}
+
+.racafe-btn-guardar--xxs .racafe-btn-icon {
+  font-size: 0.8rem;
 }
 
 .racafe-btn-guardar--xs {
@@ -778,4 +809,26 @@ dropdown-menu.inner {
 
 .racafe-btn-guardar--lg .racafe-btn-icon {
   font-size: 1.55rem;
+}
+
+.racafe-btn-guardar--xl {
+  min-width: 138px;
+  min-height: 106px;
+  padding: 0.85rem 1.15rem;
+  font-size: 1.08rem;
+}
+
+.racafe-btn-guardar--xl .racafe-btn-icon {
+  font-size: 1.75rem;
+}
+
+.racafe-btn-guardar--xxl {
+  min-width: 160px;
+  min-height: 124px;
+  padding: 1rem 1.3rem;
+  font-size: 1.2rem;
+}
+
+.racafe-btn-guardar--xxl .racafe-btn-icon {
+  font-size: 1.95rem;
 }
