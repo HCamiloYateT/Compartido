@@ -209,12 +209,13 @@ dropdown-menu.inner {
 }
 
 /* ------------------------------------------
-   Cuerpo de tabla — bordes globales dashed gris claro
+   Cuerpo de tabla — sin bordes por defecto
+   (solo rt-estilo-analitica conserva bordes en celdas de cuerpo)
    ------------------------------------------ */
 
 .reactable-wrap .rt-tbody .rt-td {
-  border-right: 1px dashed #ccc !important;
-  border-bottom: 1px dashed #ccc !important;
+  border-right: none !important;
+  border-bottom: none !important;
   font-size: 12px;
   padding: 0;
   margin: 0;
@@ -519,7 +520,7 @@ dropdown-menu.inner {
 }
 .rt-estilo-minimal .rt-tbody .rt-td {
   border-right: none !important;
-  border-bottom: 0.5px solid #ebebeb !important;
+  border-bottom: none !important;
 }
 .rt-estilo-minimal .rt-tbody .rt-tr .rt-td:last-child {
   border-right: none !important;
@@ -547,7 +548,7 @@ dropdown-menu.inner {
   background-color: #f9f9f9 !important;
   font-style: italic !important;
   color: #666 !important;
-  border-bottom: 0.5px solid #ebebeb !important;
+  border-bottom: none !important;
 }
 .rt-estilo-minimal .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
   background-color: #f9f9f9 !important;
@@ -639,7 +640,7 @@ dropdown-menu.inner {
 }
 .rt-estilo-financial .rt-tbody .rt-td {
   border-right: none !important;
-  border-bottom: 0.5px solid #e2e2e2 !important;
+  border-bottom: none !important;
   font-variant-numeric: tabular-nums;
 }
 .rt-estilo-financial .rt-tbody .rt-td.rt-col-header {
@@ -704,7 +705,7 @@ dropdown-menu.inner {
 }
 .rt-estilo-accent .rt-tbody .rt-td {
   border-right: none !important;
-  border-bottom: 0.5px solid #ebebeb !important;
+  border-bottom: none !important;
 }
 .rt-estilo-accent .rt-tbody .rt-td.rt-col-header {
   font-size: 12px !important;
