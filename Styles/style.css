@@ -469,6 +469,32 @@ dropdown-menu.inner {
    ======================================== */
 
 /* ------------------------------------------
+   Regla transversal para estilos no analiticos:
+   - Solo bordes horizontales en encabezado
+   - Sin bordes en celdas del cuerpo
+   - Fila TOTAL con bordes horizontales (sin verticales)
+   ------------------------------------------ */
+
+.rt-contenedor[class*="rt-estilo-"]:not(.rt-estilo-analitica) .rt-thead .rt-th {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: 1px solid #1a1a1a !important;
+  border-bottom: 1px solid #1a1a1a !important;
+}
+.rt-contenedor[class*="rt-estilo-"]:not(.rt-estilo-analitica) .rt-tbody .rt-td {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+.rt-contenedor[class*="rt-estilo-"]:not(.rt-estilo-analitica) .rt-tbody .rt-tr.rt-fila-total .rt-td {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: 1px solid #aaa !important;
+  border-bottom: 1px solid #aaa !important;
+}
+
+/* ------------------------------------------
    rt-estilo-analitica
    Replica explicita del comportamiento global. Util para forzar
    el estilo institucional cuando hay overrides locales en la app.
@@ -720,7 +746,7 @@ dropdown-menu.inner {
   font-weight: 600 !important;
 }
 .rt-estilo-accent .rt-tbody .rt-tr.rt-fila-total .rt-td:first-child {
-  border-left: 3px solid #DA291C !important;
+  border-left: none !important;
 }
 .rt-estilo-accent .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
   background-color: #FDEBEA !important;
