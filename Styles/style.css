@@ -210,7 +210,6 @@ dropdown-menu.inner {
 
 /* ------------------------------------------
    Cuerpo de tabla — sin bordes por defecto
-   (solo rt-estilo-analitica conserva bordes en celdas de cuerpo)
    ------------------------------------------ */
 
 .reactable-wrap .rt-tbody .rt-td {
@@ -463,76 +462,11 @@ dropdown-menu.inner {
 
 /* ========================================
    ESTILOS DE TABLA — variantes de TablaReactable
-   Cada estilo se activa via clase rt-estilo-{nombre} en el contenedor.
-   Los selectores usan especificidad superior a las reglas globales
-   para garantizar la sobreescritura sin necesidad de !important en todos.
    ======================================== */
 
 /* ------------------------------------------
-   Regla transversal para estilos no analiticos:
-   - Solo bordes horizontales en encabezado
-   - Sin bordes en celdas del cuerpo
-   - Fila TOTAL con bordes horizontales (sin verticales)
-   ------------------------------------------ */
-
-.rt-contenedor[class*="rt-estilo-"]:not(.rt-estilo-analitica) .rt-thead .rt-th {
-  border-left: none !important;
-  border-right: none !important;
-  border-top: 1px solid #1a1a1a !important;
-  border-bottom: 1px solid #1a1a1a !important;
-}
-.rt-contenedor[class*="rt-estilo-"]:not(.rt-estilo-analitica) .rt-tbody .rt-td {
-  border-left: none !important;
-  border-right: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-}
-.rt-contenedor[class*="rt-estilo-"]:not(.rt-estilo-analitica) .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  border-left: none !important;
-  border-right: none !important;
-  border-top: 1px solid #aaa !important;
-  border-bottom: 1px solid #aaa !important;
-}
-
-/* ------------------------------------------
-   rt-estilo-analitica
-   Replica explicita del comportamiento global. Util para forzar
-   el estilo institucional cuando hay overrides locales en la app.
-   ------------------------------------------ */
-
-.rt-estilo-analitica .rt-thead .rt-th {
-  border-top: 1px solid #000 !important;
-  border-bottom: 1px solid #000 !important;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background-color: #fff !important;
-}
-.rt-estilo-analitica .rt-tbody .rt-td {
-  border-right: 1px dashed #ccc !important;
-  border-bottom: 1px dashed #ccc !important;
-}
-.rt-estilo-analitica .rt-tbody .rt-tr .rt-td:last-child {
-  border-right: none !important;
-}
-.rt-estilo-analitica .rt-tbody .rt-td.rt-col-header {
-  font-weight: 700 !important;
-  font-size: 14px !important;
-  text-transform: uppercase !important;
-  color: #1a1a1a !important;
-}
-.rt-estilo-analitica .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  background-color: #d6d6d6 !important;
-  font-weight: 700 !important;
-  border-bottom: 1px solid #aaa !important;
-}
-.rt-estilo-analitica .rt-tbody .rt-tr.rt-fila-otros .rt-td {
-  background-color: #f0f0f0 !important;
-  font-style: italic !important;
-}
-
-/* ------------------------------------------
    rt-estilo-minimal
+   Sin bordes en cuerpo; solo lineas horizontales en encabezado
    ------------------------------------------ */
 
 .rt-estilo-minimal .rt-thead .rt-th {
@@ -591,261 +525,62 @@ dropdown-menu.inner {
 }
 
 /* ------------------------------------------
-   rt-estilo-striped
+   rt-estilo-minimal2 (default)
+   Identico a minimal pero con bordes solidos 1px #A1A1A1 en cuerpo
    ------------------------------------------ */
 
-.rt-estilo-striped .rt-thead .rt-th {
-  border-top: none !important;
-  border-bottom: 0.5px solid #1a1a1a !important;
-  border-right: none !important;
-  background-color: #f5f5f5 !important;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.rt-estilo-striped .rt-tbody .rt-td {
-  border-right: none !important;
-  border-bottom: none !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr-group:nth-child(even) .rt-td {
-  background-color: #f5f5f5 !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  border-top: 1.5px solid #1a1a1a !important;
-  border-bottom: none !important;
-  background-color: #e8e8e8 !important;
-  color: #111 !important;
-  font-weight: 700 !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
-  background-color: #e8e8e8 !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr.rt-fila-otros .rt-td {
-  background-color: #f0f0f0 !important;
-  font-style: italic !important;
-  color: #666 !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
-  background-color: #f0f0f0 !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr-group:hover .rt-td {
-  background-color: #eef0f3 !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr-group:nth-child(even):hover .rt-td {
-  background-color: #e8eaed !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr.rt-fila-total:hover .rt-td {
-  background-color: #dcdcdc !important;
-}
-.rt-estilo-striped .rt-tbody .rt-tr.rt-fila-otros:hover .rt-td {
-  background-color: #e9e9e9 !important;
-}
-
-/* ------------------------------------------
-   rt-estilo-financial
-   ------------------------------------------ */
-
-.rt-estilo-financial {
-  border-radius: 4px;
-  overflow: hidden;
-}
-.rt-estilo-financial .rt-thead .rt-th {
-  background-color: #DA291C !important;
-  color: #fff !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  border-right: none !important;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.rt-estilo-financial .rt-thead .rt-th:first-child {
-  color: #fff !important;
-}
-.rt-estilo-financial .rt-tbody .rt-td {
-  border-right: none !important;
-  border-bottom: none !important;
-  font-variant-numeric: tabular-nums;
-}
-.rt-estilo-financial .rt-tbody .rt-td.rt-col-header {
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  color: #1a1a1a !important;
-}
-.rt-estilo-financial .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  background-color: #B2221A !important;
-  color: #fff !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  font-weight: 500 !important;
-  font-variant-numeric: tabular-nums;
-}
-.rt-estilo-financial .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
-  background-color: #B2221A !important;
-  color: #fff !important;
-  text-transform: none !important;
-}
-.rt-estilo-financial .rt-tbody .rt-tr.rt-fila-otros .rt-td {
-  background-color: #f5f5f5 !important;
-  font-style: normal !important;
-  color: #666 !important;
-}
-.rt-estilo-financial .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
-  background-color: #f5f5f5 !important;
-}
-.rt-estilo-financial .rt-tbody .rt-tr-group:hover .rt-td {
-  background-color: #f8f8f5 !important;
-}
-.rt-estilo-financial .rt-tbody .rt-tr.rt-fila-total:hover .rt-td {
-  background-color: #3a3a38 !important;
-}
-.rt-estilo-financial .rt-tbody .rt-tr.rt-fila-otros:hover .rt-td {
-  background-color: #efefef !important;
-}
-.rt-estilo-financial.rt-sortable .rt-thead .rt-th:hover {
-  background-color: #B2221A !important;
-  color: #fff !important;
-}
-.rt-estilo-financial.rt-sortable .rt-thead .rt-th[aria-sort="ascending"]::after,
-.rt-estilo-financial.rt-sortable .rt-thead .rt-th[aria-sort="descending"]::after {
-  color: #FFD9D6 !important;
-}
-
-/* ------------------------------------------
-   rt-estilo-accent
-   ------------------------------------------ */
-
-.rt-estilo-accent .rt-thead .rt-th {
-  border-top: none !important;
-  border-bottom: 2px solid #DA291C !important;
+.rt-estilo-minimal2 .rt-thead .rt-th {
+  border-top: 1px solid #A1A1A1 !important;
+  border-bottom: 1px solid #A1A1A1 !important;
   border-right: none !important;
   background-color: #fff !important;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #1a1a1a;
 }
-.rt-estilo-accent .rt-thead {
-  border-bottom: 2px solid #DA291C !important;
+.rt-estilo-minimal2 .rt-tbody .rt-td {
+  border-right: 1px solid #A1A1A1 !important;
+  border-bottom: 1px solid #A1A1A1 !important;
 }
-.rt-estilo-accent .rt-tbody .rt-td {
+.rt-estilo-minimal2 .rt-tbody .rt-tr .rt-td:last-child {
   border-right: none !important;
-  border-bottom: none !important;
 }
-.rt-estilo-accent .rt-tbody .rt-td.rt-col-header {
+.rt-estilo-minimal2 .rt-tbody .rt-td.rt-col-header {
   font-size: 12px !important;
   font-weight: 700 !important;
   text-transform: none !important;
   color: #1a1a1a !important;
 }
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  background-color: #FDEBEA !important;
-  color: #8E1E17 !important;
-  border-top: 0.5px solid #EAA39E !important;
-  border-bottom: none !important;
+.rt-estilo-minimal2 .rt-tbody .rt-tr.rt-fila-total .rt-td {
+  border-top: 1px solid #A1A1A1 !important;
+  border-bottom: 1px solid #A1A1A1 !important;
+  background-color: #f5f5f5 !important;
+  color: #1a1a1a !important;
   font-weight: 600 !important;
 }
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-total .rt-td:first-child {
-  border-left: none !important;
-}
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
-  background-color: #FDEBEA !important;
-  color: #8E1E17 !important;
-  text-transform: none !important;
-  font-size: 12px !important;
-}
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-otros .rt-td {
-  background-color: #FEF3F2 !important;
-  font-style: italic !important;
-  color: #B35A54 !important;
-}
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
-  background-color: #FEF3F2 !important;
-  font-size: 12px !important;
-}
-.rt-estilo-accent .rt-tbody .rt-tr-group:hover .rt-td {
-  background-color: #FEF3F2 !important;
-}
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-total:hover .rt-td {
-  background-color: #FADBD8 !important;
-}
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-otros:hover .rt-td {
-  background-color: #FDEBEA !important;
-}
-.rt-estilo-accent.rt-sortable .rt-thead .rt-th:hover {
-  background-color: #FEF3F2 !important;
-  color: #DA291C !important;
-}
-.rt-estilo-accent.rt-sortable .rt-thead .rt-th[aria-sort="ascending"]::after,
-.rt-estilo-accent.rt-sortable .rt-thead .rt-th[aria-sort="descending"]::after {
-  color: #DA291C !important;
-}
-
-/* ------------------------------------------
-   rt-estilo-ghost
-   ------------------------------------------ */
-
-.rt-estilo-ghost .rt-thead .rt-th {
-  border-top: none !important;
-  border-bottom: 0.5px solid #aaa !important;
-  border-right: none !important;
-  background-color: transparent !important;
-  font-size: 11px !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  color: #888 !important;
-  letter-spacing: 0;
-}
-.rt-estilo-ghost .rt-tbody .rt-td {
-  border-right: none !important;
-  border-bottom: none !important;
-  color: #888;
-}
-.rt-estilo-ghost .rt-tbody .rt-td.rt-col-header {
-  color: #1a1a1a !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
-  text-transform: none !important;
-}
-.rt-estilo-ghost .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  background-color: transparent !important;
-  color: #1a1a1a !important;
-  font-weight: 500 !important;
-  border-top: none !important;
-  border-bottom: none !important;
-}
-.rt-estilo-ghost .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
-  background-color: transparent !important;
-  color: #1a1a1a !important;
-  text-transform: none !important;
-  font-size: 12px !important;
-}
-.rt-estilo-ghost .rt-tbody .rt-tr.rt-fila-otros .rt-td {
-  background-color: transparent !important;
-  font-style: italic !important;
-  color: #bbb !important;
-}
-.rt-estilo-ghost .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
-  background-color: transparent !important;
-  color: #888 !important;
-  font-size: 12px !important;
-}
-.rt-estilo-ghost .rt-tbody .rt-tr-group:hover .rt-td {
-  background-color: #f9f9f9 !important;
-}
-.rt-estilo-ghost.rt-sortable .rt-thead .rt-th {
-  cursor: pointer !important;
-}
-.rt-estilo-ghost.rt-sortable .rt-thead .rt-th:hover {
+.rt-estilo-minimal2 .rt-tbody .rt-tr.rt-fila-total .rt-td.rt-col-header {
   background-color: #f5f5f5 !important;
-  color: #555 !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
 }
-.rt-estilo-ghost.rt-sortable .rt-thead .rt-th[aria-sort="ascending"]::after,
-.rt-estilo-ghost.rt-sortable .rt-thead .rt-th[aria-sort="descending"]::after {
-  color: #aaa !important;
+.rt-estilo-minimal2 .rt-tbody .rt-tr.rt-fila-otros .rt-td {
+  background-color: #f9f9f9 !important;
+  font-style: italic !important;
+  color: #666 !important;
+}
+.rt-estilo-minimal2 .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
+  background-color: #f9f9f9 !important;
+  font-size: 12px !important;
+}
+.rt-estilo-minimal2 .rt-tbody .rt-tr-group:hover .rt-td {
+  background-color: #f7f7f7 !important;
+}
+.rt-estilo-minimal2 .rt-tbody .rt-tr.rt-fila-total:hover .rt-td {
+  background-color: #eeeeee !important;
+}
+.rt-estilo-minimal2 .rt-tbody .rt-tr.rt-fila-otros:hover .rt-td {
+  background-color: #f2f2f2 !important;
 }
 
 /* ============================================================
