@@ -728,6 +728,9 @@ dropdown-menu.inner {
   text-transform: uppercase;
   color: #1a1a1a;
 }
+.rt-estilo-accent .rt-thead {
+  border-bottom: 2px solid #DA291C !important;
+}
 .rt-estilo-accent .rt-tbody .rt-td {
   border-right: none !important;
   border-bottom: none !important;
@@ -799,7 +802,7 @@ dropdown-menu.inner {
 .rt-estilo-ghost .rt-tbody .rt-td {
   border-right: none !important;
   border-bottom: none !important;
-  color: #888 !important;
+  color: #888;
 }
 .rt-estilo-ghost .rt-tbody .rt-td.rt-col-header {
   color: #1a1a1a !important;
