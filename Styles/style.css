@@ -620,7 +620,6 @@ dropdown-menu.inner {
    ------------------------------------------ */
 
 .rt-estilo-financial {
-  border: 0.5px solid #444441;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -734,9 +733,6 @@ dropdown-menu.inner {
   font-style: italic !important;
   color: #B35A54 !important;
 }
-.rt-estilo-accent .rt-tbody .rt-tr.rt-fila-otros .rt-td:first-child {
-  border-left: 2px solid #EAA39E !important;
-}
 .rt-estilo-accent .rt-tbody .rt-tr.rt-fila-otros .rt-td.rt-col-header {
   background-color: #FEF3F2 !important;
   font-size: 12px !important;
@@ -785,9 +781,6 @@ dropdown-menu.inner {
   font-weight: 500 !important;
   text-transform: none !important;
 }
-.rt-estilo-ghost .rt-tbody .rt-tr-group:last-child .rt-td {
-  border-bottom: 0.5px solid #ccc !important;
-}
 .rt-estilo-ghost .rt-tbody .rt-tr.rt-fila-total .rt-td {
   background-color: transparent !important;
   color: #1a1a1a !important;
@@ -813,9 +806,6 @@ dropdown-menu.inner {
 }
 .rt-estilo-ghost .rt-tbody .rt-tr-group:hover .rt-td {
   background-color: #f9f9f9 !important;
-}
-.rt-estilo-ghost .rt-tbody .rt-tr-group:last-child:hover .rt-td {
-  border-bottom: 0.5px solid #ccc !important;
 }
 .rt-estilo-ghost.rt-sortable .rt-thead .rt-th {
   cursor: pointer !important;
