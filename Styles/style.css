@@ -470,8 +470,8 @@ dropdown-menu.inner {
    ------------------------------------------ */
 
 .rt-estilo-minimal .rt-thead .rt-th {
-  border-top: 1.5px solid #1a1a1a !important;
-  border-bottom: 1.5px solid #1a1a1a !important;
+  border-top: 1px solid #A1A1A1 !important;
+  border-bottom: 1px solid #A1A1A1 !important;
   border-right: none !important;
   background-color: #fff !important;
   font-size: 12px;
@@ -492,8 +492,8 @@ dropdown-menu.inner {
   color: #1a1a1a !important;
 }
 .rt-estilo-minimal .rt-tbody .rt-tr.rt-fila-total .rt-td {
-  border-top: 1px solid #aaa !important;
-  border-bottom: none !important;
+  border-top: 1px solid #A1A1A1 !important;
+  border-bottom: 1px solid #A1A1A1 !important;
   background-color: #d6d6d6 !important;
   color: #111 !important;
   font-weight: 600 !important;
