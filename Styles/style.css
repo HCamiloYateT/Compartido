@@ -36,7 +36,7 @@ body {
   max-width: 96%;
 }
 
-dropdown-menu.inner {
+.dropdown-menu.inner {
   overflow-y: auto !important;
   white-space: normal !important;
   max-width: 100% !important;
@@ -846,6 +846,10 @@ dropdown-menu.inner {
 .app-badge--mantenimiento {
   background-color: #dc3545;
 }
+
+/* ========================================
+   BOTONES RACAFE — componente guardar
+   ======================================== */
 
 .racafe-btn-guardar {
   display: inline-flex;
