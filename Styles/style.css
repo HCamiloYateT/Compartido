@@ -540,11 +540,20 @@ dropdown-menu.inner {
   text-transform: uppercase;
 }
 .rt-estilo-minimal2 .rt-tbody .rt-td {
+  border-top: 1px solid transparent !important;
+  border-left: 1px solid transparent !important;
   border-right: none !important;
   border-bottom: none !important;
+  box-shadow: none !important;
 }
 .rt-estilo-minimal2 .rt-tbody .rt-tr .rt-td:last-child {
   border-right: none !important;
+}
+.rt-estilo-minimal2 .rt-table,
+.rt-estilo-minimal2 .rt-tbody .rt-tr-group,
+.rt-estilo-minimal2 .rt-tbody .rt-tr {
+  border: none !important;
+  box-shadow: none !important;
 }
 .rt-estilo-minimal2 .rt-tbody .rt-td.rt-col-header {
   font-size: 12px !important;
