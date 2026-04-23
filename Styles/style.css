@@ -260,6 +260,97 @@ dropdown-menu.inner {
   text-align: right;
 }
 
+/* ============================================================
+   BotonDescarga — racafe-btn-descarga
+   Espejo visual de .racafe-btn-guardar para elementos <a>
+   generados por shiny::downloadButton(). Clase base propia para
+   evitar cualquier interferencia con los selectores de Boton.
+   ============================================================ */
+
+/* Base del elemento <a> ----
+   Normaliza el modelo de caja de <a>.btn frente a <button>.btn:
+   vertical-align, line-height y text-decoration difieren por defecto. */
+.racafe-btn-descarga {
+  display:          inline-flex !important;
+  align-items:      center;
+  justify-content:  center;
+  border-radius:    4px;
+  line-height:      1.1;
+  box-sizing:       border-box;
+  text-decoration:  none    !important;
+  vertical-align:   baseline !important;
+  cursor:           pointer;
+
+  /* Neutraliza btn-default que downloadButton inyecta automaticamente */
+  background-color: #28a745 !important;
+  border-color:     #28a745 !important;
+  color:            #ffffff !important;
+}
+
+.racafe-btn-descarga:link,
+.racafe-btn-descarga:visited {
+  background-color: #28a745 !important;
+  border-color:     #28a745 !important;
+  color:            #ffffff !important;
+  text-decoration:  none    !important;
+}
+
+/* Hover / focus / active ----
+   Mismo mecanismo de variable CSS que Boton: el JS racafe-btn-hover.js
+   lee data-racafe-hover-color y setea --racafe-btn-hover en el elemento. */
+.racafe-btn-descarga:hover,
+.racafe-btn-descarga:focus,
+.racafe-btn-descarga:active {
+  background-color: var(--racafe-btn-hover, firebrick) !important;
+  border-color:     var(--racafe-btn-hover, firebrick) !important;
+  color:            #ffffff !important;
+  text-decoration:  none    !important;
+  outline:          none    !important;
+  box-shadow:       none    !important;
+}
+
+/* Disabled ----
+   <a> no tiene atributo disabled nativo; Shiny lo agrega como atributo
+   y como clase. Se replica el comportamiento visual de <button disabled>. */
+.racafe-btn-descarga[disabled],
+.racafe-btn-descarga.disabled {
+  opacity:          0.65        !important;
+  pointer-events:   none        !important;
+  cursor:           not-allowed !important;
+  background-color: #28a745    !important;
+  border-color:     #28a745    !important;
+  color:            #ffffff    !important;
+}
+
+/* Contenido interno — icono y label ---- */
+.racafe-btn-descarga .racafe-btn-icon  { display: block; margin: 0; }
+.racafe-btn-descarga .racafe-btn-label { display: block; font-weight: 500; text-align: center; white-space: nowrap; }
+
+.racafe-btn-descarga[data-racafe-label-pos="right"] .racafe-btn-label { text-align: left; }
+
+/* Tamaños — espejo exacto de racafe-btn-guardar--{size} ---- */
+.racafe-btn-descarga--xxs { min-width: 42px;  min-height: 1.4rem; padding: 0.1rem 0.3rem;  font-size: 0.66rem; }
+.racafe-btn-descarga--xxs .racafe-btn-icon { font-size: 0.75rem; }
+.racafe-btn-descarga--xxs.racafe-btn-content-host--column .racafe-btn-content { flex-direction: row; }
+
+.racafe-btn-descarga--xs  { min-width: 56px;  min-height: 1.8rem; padding: 0.2rem 0.45rem; font-size: 0.72rem; }
+.racafe-btn-descarga--xs  .racafe-btn-icon { font-size: 0.9rem; }
+
+.racafe-btn-descarga--sm  { min-width: 68px;  min-height: 2.2rem; padding: 0.3rem 0.6rem;  font-size: 0.84rem; }
+.racafe-btn-descarga--sm  .racafe-btn-icon { font-size: 1rem; }
+
+.racafe-btn-descarga--md  { min-width: 82px;  min-height: 2.6rem; padding: 0.4rem 0.75rem; font-size: 0.92rem; }
+.racafe-btn-descarga--md  .racafe-btn-icon { font-size: 1.15rem; }
+
+.racafe-btn-descarga--lg  { min-width: 96px;  min-height: 3rem;   padding: 0.5rem 0.9rem;  font-size: 1rem; }
+.racafe-btn-descarga--lg  .racafe-btn-icon { font-size: 1.3rem; }
+
+.racafe-btn-descarga--xl  { min-width: 112px; min-height: 3.4rem; padding: 0.65rem 1rem;   font-size: 1.08rem; }
+.racafe-btn-descarga--xl  .racafe-btn-icon { font-size: 1.45rem; }
+
+.racafe-btn-descarga--xxl { min-width: 132px; min-height: 3.8rem; padding: 0.75rem 1.15rem; font-size: 1.2rem; }
+.racafe-btn-descarga--xxl .racafe-btn-icon { font-size: 1.6rem; }
+
 /* ========================================
    PRELOADERS
    ======================================== */
