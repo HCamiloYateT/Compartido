@@ -938,12 +938,38 @@ dropdown-menu.inner {
   background-color: #dc3545;
 }
 
-.racafe-btn-guardar {
+/* ========================================
+   BOTONES RACAFE — SISTEMA UNIFICADO DE COLOR
+   CSS custom properties: --racafe-color-fondo, --racafe-color-fuente,
+   --racafe-color-hover. Se setean como style inline desde R.
+   BotonesRadiales usa <style> escopado en lugar de este mecanismo.
+   ======================================== */
+
+/* Base compartida: aplica a Boton y BotonDescarga */
+.racafe-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   line-height: 1.1;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Hover/focus/active unificado via CSS vars — sin JS */
+.racafe-btn:hover,
+.racafe-btn:focus,
+.racafe-btn:active {
+  background-color: var(--racafe-color-hover) !important;
+  border-color: var(--racafe-color-hover) !important;
+  color: var(--racafe-color-fuente) !important;
+}
+
+/* ========================================
+   BOTON (racafe-btn-guardar)
+   ======================================== */
+
+.racafe-btn-guardar {
+  /* Hereda display/align/radius de .racafe-btn */
 }
 
 .racafe-btn-content-host {
@@ -982,91 +1008,67 @@ dropdown-menu.inner {
   text-align: left;
 }
 
-.racafe-btn-guardar:hover,
-.racafe-btn-guardar:focus,
-.racafe-btn-guardar:active {
-  background-color: var(--racafe-btn-hover, firebrick) !important;
-  border-color: var(--racafe-btn-hover, firebrick) !important;
-  color: #fff !important;
+/* Tamaños — Boton */
+.racafe-btn-guardar--xxs { min-width: 42px; min-height: 1.4rem; padding: 0.1rem 0.3rem; font-size: 0.66rem; }
+.racafe-btn-guardar--xxs .racafe-btn-icon { font-size: 0.75rem; }
+.racafe-btn-guardar--xxs.racafe-btn-content-host--column .racafe-btn-content { flex-direction: row; }
+
+.racafe-btn-guardar--xs { min-width: 56px; min-height: 1.8rem; padding: 0.2rem 0.45rem; font-size: 0.72rem; }
+.racafe-btn-guardar--xs .racafe-btn-icon { font-size: 0.9rem; }
+
+.racafe-btn-guardar--sm { min-width: 68px; min-height: 2.2rem; padding: 0.3rem 0.6rem; font-size: 0.84rem; }
+.racafe-btn-guardar--sm .racafe-btn-icon { font-size: 1rem; }
+
+.racafe-btn-guardar--md { min-width: 82px; min-height: 2.6rem; padding: 0.4rem 0.75rem; font-size: 0.92rem; }
+.racafe-btn-guardar--md .racafe-btn-icon { font-size: 1.15rem; }
+
+.racafe-btn-guardar--lg { min-width: 96px; min-height: 3rem; padding: 0.5rem 0.9rem; font-size: 1rem; }
+.racafe-btn-guardar--lg .racafe-btn-icon { font-size: 1.3rem; }
+
+.racafe-btn-guardar--xl { min-width: 112px; min-height: 3.4rem; padding: 0.65rem 1rem; font-size: 1.08rem; }
+.racafe-btn-guardar--xl .racafe-btn-icon { font-size: 1.45rem; }
+
+.racafe-btn-guardar--xxl { min-width: 132px; min-height: 3.8rem; padding: 0.75rem 1.15rem; font-size: 1.2rem; }
+.racafe-btn-guardar--xxl .racafe-btn-icon { font-size: 1.6rem; }
+
+/* ========================================
+   BOTON DESCARGA (racafe-btn-descarga)
+   ======================================== */
+
+.racafe-btn-descarga {
+  /* Hereda display/align/radius/hover de .racafe-btn */
 }
 
-.racafe-btn-guardar--xxs {
-  min-width: 42px;
-  min-height: 1.4rem;
-  padding: 0.1rem 0.3rem;
-  font-size: 0.66rem;
-}
+/* Tamaños — BotonDescarga (misma escala que Boton) */
+.racafe-btn-descarga--xxs { min-width: 32px; min-height: 1.4rem; padding: 0.1rem 0.3rem; font-size: 0.66rem; }
+.racafe-btn-descarga--xxs .racafe-btn-icon { font-size: 0.75rem; }
 
-.racafe-btn-guardar--xxs .racafe-btn-icon {
-  font-size: 0.75rem;
-}
+.racafe-btn-descarga--xs { min-width: 38px; min-height: 1.8rem; padding: 0.2rem 0.45rem; font-size: 0.72rem; }
+.racafe-btn-descarga--xs .racafe-btn-icon { font-size: 0.9rem; }
 
-.racafe-btn-guardar--xxs.racafe-btn-content-host--column .racafe-btn-content {
-  flex-direction: row;
-}
+.racafe-btn-descarga--sm { min-width: 44px; min-height: 2.2rem; padding: 0.3rem 0.6rem; font-size: 0.84rem; }
+.racafe-btn-descarga--sm .racafe-btn-icon { font-size: 1rem; }
 
-.racafe-btn-guardar--xs {
-  min-width: 56px;
-  min-height: 1.8rem;
-  padding: 0.2rem 0.45rem;
-  font-size: 0.72rem;
-}
+.racafe-btn-descarga--md { min-width: 52px; min-height: 2.6rem; padding: 0.4rem 0.75rem; font-size: 0.92rem; }
+.racafe-btn-descarga--md .racafe-btn-icon { font-size: 1.15rem; }
 
-.racafe-btn-guardar--xs .racafe-btn-icon {
-  font-size: 0.9rem;
-}
+.racafe-btn-descarga--lg { min-width: 60px; min-height: 3rem; padding: 0.5rem 0.9rem; font-size: 1rem; }
+.racafe-btn-descarga--lg .racafe-btn-icon { font-size: 1.3rem; }
 
-.racafe-btn-guardar--sm {
-  min-width: 68px;
-  min-height: 2.2rem;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.84rem;
-}
+.racafe-btn-descarga--xl { min-width: 70px; min-height: 3.4rem; padding: 0.65rem 1rem; font-size: 1.08rem; }
+.racafe-btn-descarga--xl .racafe-btn-icon { font-size: 1.45rem; }
 
-.racafe-btn-guardar--sm .racafe-btn-icon {
-  font-size: 1rem;
-}
+.racafe-btn-descarga--xxl { min-width: 82px; min-height: 3.8rem; padding: 0.75rem 1.15rem; font-size: 1.2rem; }
+.racafe-btn-descarga--xxl .racafe-btn-icon { font-size: 1.6rem; }
 
-.racafe-btn-guardar--md {
-  min-width: 82px;
-  min-height: 2.6rem;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.92rem;
-}
+/* ========================================
+   BOTONES RADIALES (racafe-radio-group)
+   El hover/activo se maneja via <style> escopado emitido desde R.
+   Este bloque solo cubre layout del contenedor.
+   ======================================== */
 
-.racafe-btn-guardar--md .racafe-btn-icon {
-  font-size: 1.15rem;
-}
-
-.racafe-btn-guardar--lg {
-  min-width: 96px;
-  min-height: 3rem;
-  padding: 0.5rem 0.9rem;
-  font-size: 1rem;
-}
-
-.racafe-btn-guardar--lg .racafe-btn-icon {
-  font-size: 1.3rem;
-}
-
-.racafe-btn-guardar--xl {
-  min-width: 112px;
-  min-height: 3.4rem;
-  padding: 0.65rem 1rem;
-  font-size: 1.08rem;
-}
-
-.racafe-btn-guardar--xl .racafe-btn-icon {
-  font-size: 1.45rem;
-}
-
-.racafe-btn-guardar--xxl {
-  min-width: 132px;
-  min-height: 3.8rem;
-  padding: 0.75rem 1.15rem;
-  font-size: 1.2rem;
-}
-
-.racafe-btn-guardar--xxl .racafe-btn-icon {
-  font-size: 1.6rem;
+.racafe-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
