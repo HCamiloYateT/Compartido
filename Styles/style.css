@@ -210,6 +210,8 @@ dropdown-menu.inner {
 
 .rt-th-inner {
   background: inherit !important;
+  margin: -4px -6px !important;
+  padding: 4px 6px !important;
 }
 
 /* ------------------------------------------
