@@ -862,7 +862,8 @@ dropdown-menu.inner {
      --racafe-radio-fuente-inactivo
      --racafe-radio-activo
      --racafe-radio-fuente-activo
-     --racafe-radio-hover
+     --racafe-radio-hover-inactivo
+     --racafe-radio-hover-activo
    ======================================== */
 
 /* ----------------------------------------
@@ -966,7 +967,7 @@ dropdown-menu.inner {
 
 /* ----------------------------------------
    BOTONES RADIALES (racafe-radio-group)
-   Las vars se declaran en el contenedor y se heredan por los .btn hijos.
+   Las vars se declaran en el contenedor y los .btn hijos las heredan.
    ---------------------------------------- */
 
 .racafe-radio-group {
@@ -986,8 +987,8 @@ dropdown-menu.inner {
 /* Hover sobre botón inactivo — :not(.active) evita pisar el seleccionado */
 .racafe-radio-group .btn:hover:not(.active),
 .racafe-radio-group .btn:focus:not(.active) {
-  background-color: var(--racafe-radio-hover)           !important;
-  border-color:     var(--racafe-radio-hover)            !important;
+  background-color: var(--racafe-radio-hover-inactivo)  !important;
+  border-color:     var(--racafe-radio-hover-inactivo)  !important;
   color:            var(--racafe-radio-fuente-inactivo)  !important;
 }
 
