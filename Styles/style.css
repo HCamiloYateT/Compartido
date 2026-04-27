@@ -208,6 +208,10 @@ dropdown-menu.inner {
   min-height: unset !important;
 }
 
+.rt-th-inner {
+  background: inherit !important;
+}
+
 /* ------------------------------------------
    Cuerpo de tabla — sin bordes por defecto
    ------------------------------------------ */
