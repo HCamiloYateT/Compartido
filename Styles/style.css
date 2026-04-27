@@ -533,7 +533,9 @@ dropdown-menu.inner {
 .rt-estilo-minimal2 .rt-thead .rt-th {
   border-top: 1px solid #A1A1A1 !important;
   border-bottom: 1px solid #A1A1A1 !important;
+  border-left: none !important;
   border-right: none !important;
+  box-shadow: none !important;
   background-color: #fff !important;
   font-size: 12px;
   font-weight: 600;
