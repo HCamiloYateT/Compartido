@@ -1009,7 +1009,7 @@ dropdown-menu.inner {
   color:            var(--racafe-radio-fuente-activo)    !important;
 }
 
-[id^='wrap_'] .nav-link {
+.nav-link {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1024,14 +1024,14 @@ dropdown-menu.inner {
   position: relative;
   text-decoration: none;
 }
-[id^='wrap_'] .nav-link:not(.active) {
+.nav-link:not(.active) {
   color: #212529 !important;
   box-shadow: none;
 }
-[id^='wrap_'] .nav-link:not(.active):hover {
+.nav-link:not(.active):hover {
   background-color: rgba(0,0,0,.2) !important;
 }
-[id^='wrap_'] .nav-link.active {
+.nav-link.active {
   background-color: #dc3545 !important;
   box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24) !important;
   color: #fff !important;
