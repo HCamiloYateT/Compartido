@@ -53,19 +53,19 @@ dropdown-menu.inner {
   font-weight: bold !important;
 }
 
-/* Tabs: color y animacion */
-.nav-tabs > li > a, .nav-tabs .nav-link {
+/* Tabs/nav-links: color y animacion global */
+.nav-link, .nav-tabs > li > a, .nav-tabs .nav-link {
   color: #000 !important;
   font-weight: bold !important;
   transition: color 0.3s, border-bottom 0.3s;
   border-bottom: 2px solid transparent;
 }
-.nav-tabs > li > a:hover, .nav-tabs .nav-link:hover {
+.nav-link:hover, .nav-tabs > li > a:hover, .nav-tabs .nav-link:hover {
   color: #b3001b !important;
   border-bottom: 2px solid #d90429;
   background-color: transparent !important;
 }
-.nav-tabs > li.active > a, .nav-tabs .nav-link.active {
+.nav-link.active, .nav-tabs > li.active > a, .nav-tabs .nav-link.active {
   color: #d90429 !important;
   font-weight: bold !important;
   border-bottom: 2px solid #d90429;
