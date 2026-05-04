@@ -1036,3 +1036,30 @@ dropdown-menu.inner {
   box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24) !important;
   color: #fff !important;
 }
+
+/* ========================================
+   INPUT MES — air-datepicker
+   Inactivos: gris | Activo: danger #dc3545
+======================================== */
+
+.air-datepicker-cell.-month- {
+  color: #6c757d;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.air-datepicker-cell.-month-:hover {
+  background-color: rgba(108,117,125,0.15);
+  color: #495057;
+}
+
+.air-datepicker-cell.-month-.-selected- {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.air-datepicker-cell.-month-.-selected-:hover {
+  background-color: #b02a37 !important;
+}
