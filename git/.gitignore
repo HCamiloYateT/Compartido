@@ -8,8 +8,8 @@
 # Mantener estructura de carpetas para re-incluir patrones permitidos
 !*/
 
-# Mantener este archivo bajo versión
-!.gitignore
+# Ignorar también este archivo
+.gitignore
 
 # Versionar únicamente scripts R
 !*.R
