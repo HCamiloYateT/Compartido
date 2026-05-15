@@ -43,6 +43,28 @@
 }
 
 /* ========================================
+   BRAND SIDEBAR — titulo con wrap automatico
+   AdminLTE fija height y nowrap; se liberan ambos
+   para permitir multiples lineas cuando el titulo
+   excede el ancho del sidebar.
+   ======================================== */
+
+.brand-link {
+  height: auto !important;
+  min-height: 3.5rem;
+  align-items: flex-start !important;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.brand-link .brand-text {
+  white-space: normal !important;
+  word-break: break-word;
+  line-height: 1.3;
+  padding-top: 0.10rem;
+}
+
+/* ========================================
    TIPOGRAFIA Y FUENTES
    ======================================== */
 
