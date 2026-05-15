@@ -4,7 +4,7 @@
 
 /* Oculta mensajes de error de Shiny */
 
- :root {
+:root {
   --color-red-primary: #d90429;
   --color-red-secondary: #dc3545;
   --color-red-dark: #b3001b;
@@ -29,7 +29,6 @@
   --color-gray-950: #1a1a1a;
 }
 
-
 .shiny-output-error {
   visibility: hidden;
 }
@@ -37,7 +36,9 @@
   visibility: hidden;
 }
 
-.content-wrapper, .main-footer, .main-header {
+.content-wrapper,
+.main-footer,
+.main-header {
   background-color: #fff !important;
 }
 
@@ -46,13 +47,24 @@
    ======================================== */
 
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto", sans-serif;
 }
 .box-title {
-  font-family: 'Source Serif Pro';
+  font-family: "Source Serif Pro", serif;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Source Serif Pro';
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Serif Pro", serif;
 }
 
 /* ========================================
@@ -63,7 +75,7 @@ body {
   max-width: 96%;
 }
 
-dropdown-menu.inner {
+.dropdown-menu.inner {
   overflow-y: auto !important;
   white-space: normal !important;
   max-width: 100% !important;
@@ -76,23 +88,29 @@ dropdown-menu.inner {
   max-width: 100% !important;
 }
 
-.card-title, .bs4Card .card-title {
+.card-title,
+.bs4Card .card-title {
   font-weight: bold !important;
 }
 
 /* Tabs: color y animacion */
-.nav-tabs > li > a, .nav-tabs .nav-link {
+.nav-tabs > li > a,
+.nav-tabs .nav-link {
   color: #000 !important;
   font-weight: bold !important;
-  transition: color 0.3s, border-bottom 0.3s;
+  transition:
+    color 0.3s,
+    border-bottom 0.3s;
   border-bottom: 2px solid transparent;
 }
-.nav-tabs > li > a:hover, .nav-tabs .nav-link:hover {
+.nav-tabs > li > a:hover,
+.nav-tabs .nav-link:hover {
   color: var(--color-red-dark) !important;
   border-bottom: 2px solid var(--color-red-primary);
   background-color: transparent !important;
 }
-.nav-tabs > li.active > a, .nav-tabs .nav-link.active {
+.nav-tabs > li.active > a,
+.nav-tabs .nav-link.active {
   color: var(--color-red-primary) !important;
   font-weight: bold !important;
   border-bottom: 2px solid var(--color-red-primary);
@@ -117,21 +135,128 @@ dropdown-menu.inner {
 }
 .swal2-confirm {
   background-color: #28a745 !important;
-  color: white !important;
+  color: #fff !important;
   border: none !important;
   font-size: 12px !important;
   padding: 5px 15px !important;
 }
 .swal2-cancel {
   background-color: var(--color-red-secondary) !important;
-  color: white !important;
+  color: #fff !important;
   border: none !important;
   font-size: 12px !important;
   padding: 5px 15px !important;
 }
-.swal2-title, .swal2-html-container {
+.swal2-title,
+.swal2-html-container {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+.nav-link:not(.active) {
+  color: var(--color-gray-940) !important;
+  box-shadow: none;
+}
+.nav-link:not(.active):hover {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.nav-link.active {
+  background-color: var(--color-red-secondary) !important;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24) !important;
+  color: #fff !important;
+}
+
+/* ========================================
+   INPUT MES — air-datepicker
+   Inactivos: gris | Activo: danger var(--color-red-secondary)
+======================================== */
+
+.air-datepicker-cell.-month- {
+  color: var(--color-gray-850);
+  background-color: transparent;
+  border-radius: 4px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.air-datepicker-cell.-month-:hover {
+  background-color: rgba(108, 117, 125, 0.15);
+  color: var(--color-gray-920);
+}
+
+.air-datepicker-cell.-month-.-selected- {
+  background-color: var(--color-red-secondary) !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.air-datepicker-cell.-month-.-selected-:hover {
+  background-color: var(--color-red-hover) !important;
+}
+
+/* ========================================
+   BADGES DE ESTADO DE APLICACION
+   Etiquetas visuales para identificar el entorno activo en el navbar
+   ======================================== */
+
+.app-badge {
+  display: inline-block;
+  font-size: 0.67rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+  color: #fff;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Prototipo: gris oscuro — entorno de desarrollo inicial */
+.app-badge--prototipo {
+  background-color: var(--color-gray-850);
+}
+
+/* Pruebas: naranja — entorno QA o UAT */
+.app-badge--pruebas {
+  background-color: #fd7e14;
+}
+
+/* Staging: azul — entorno previo a produccion */
+.app-badge--staging {
+  background-color: #0d6efd;
+}
+
+/* Produccion: verde — entorno productivo estable */
+.app-badge--produccion {
+  background-color: #198754;
+}
+
+/* Demo: morado — entorno de demostracion a cliente */
+.app-badge--demo {
+  background-color: #6f42c1;
+}
+
+/* Mantenimiento: rojo — app en ventana de mantenimiento */
+.app-badge--mantenimiento {
+  background-color: var(--color-red-secondary);
 }
 
 /* ========================================
@@ -198,7 +323,7 @@ dropdown-menu.inner {
 
 /* Titulo principal — negrita, texto tipo titulo */
 .rt-titulo {
-  font-family: 'Source Serif Pro', serif;
+  font-family: "Source Serif Pro", serif;
   font-size: 15px;
   font-weight: 700;
   text-transform: capitalize;
@@ -270,116 +395,6 @@ dropdown-menu.inner {
   font-size: 14px;
   text-transform: uppercase;
   color: var(--color-gray-950);
-}
-
-/* ========================================
-   CALCULADORAS
-   ======================================== */
-
-/* Encabezado de columna en tablas de producto/viabilidad */
-.calc-header-col {
-  font-weight: bold;
-  font-size: 14pt;
-  border-bottom: 1px solid #000;
-  text-align: center;
-}
-
-.calc-header-col--left {
-  text-align: left;
-}
-
-/* Celda de output alineada a la derecha */
-.calc-output-right {
-  text-align: right;
-}
-
-/* ========================================
-   PRELOADERS
-   ======================================== */
-
-/* Contenedor base compartido por los tres preloaders
-   Posicionado en centro de pantalla con tarjeta flotante */
-.preloader-card {
-  width: 300px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 9999;
-}
-
-/* Logo compartido en los tres preloaders */
-.preloader-logo {
-  width: 70px;
-  margin-bottom: 16px;
-}
-
-/* Texto descriptivo compartido */
-.preloader-texto {
-  color: var(--color-gray-930);
-  font-size: 10pt;
-  font-weight: bold;
-  margin-bottom: 14px;
-}
-
-/* Spinner compartido: color rojo corporativo en las tres variantes */
-.preloader-spinner-inicio,
-.preloader-spinner-actualizar,
-.preloader-spinner-calculando {
-  width: 2rem;
-  height: 2rem;
-  color: var(--color-red-secondary);
-}
-
-/* Carga inicial: borde solido */
-.preloader-spinner-inicio {
-  border-width: 0.25em;
-}
-
-/* Actualizacion: grow pulsante (hereda color rojo) */
-.preloader-spinner-actualizar {
-  /* sin overrides adicionales: bootstrap spinner-grow usa currentColor */
-}
-
-/* Calculando: borde solido mas grueso para diferenciarlo visualmente */
-.preloader-spinner-calculando {
-  border-width: 0.3em;
-}
-
-/* Celda de output centrada (viabilidad y parametros de producto) */
-.calc-output-center {
-  text-align: center;
-}
-
-/* Fila de producto: alinea verticalmente texto y campos de entrada */
-.calc-producto-row.row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-/* Boton calcular centrado */
-.calc-btn-wrap {
-  text-align: center;
-}
-
-.calc-btn-wrap > div {
-  display: inline-block;
-  width: 40%;
-}
-
-/* Selector de segmento centrado */
-.calc-segmento-wrap {
-  width: 40%;
-  margin: 0 auto 15px auto;
 }
 
 /* ------------------------------------------
@@ -628,258 +643,114 @@ dropdown-menu.inner {
   background-color: var(--color-gray-300) !important;
 }
 
-/* ============================================================
-   tareas.css — Módulo Notas y Tareas (Tareas.R)
-   Incluir al final de style.css o via includeCSS("www/tareas.css")
-   ============================================================ */
-
-/* === Panel de filtros === */
-.tsk-filtros-wrap {
-  background: #f4f6f8;
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  padding: 10px 14px 8px;
-  margin-bottom: 14px;
-}
-.tsk-filtros-wrap .form-group { margin-bottom: 0; }
-.tsk-filtros-label {
-  font-size: 0.72em;
-  font-weight: 700;
-  color: var(--color-gray-800);
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  margin-bottom: 3px;
-}
-.tsk-filtros-switches {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding-top: 4px;
-}
-.tsk-filtros-switches .material-switch { margin-bottom: 0; }
-.tsk-filtros-acciones {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  height: 100%;
-  padding-bottom: 4px;
-}
-
-/* === Kanban contenedor === */
-.tsk-kanban-outer { width: 100%; }
-.tsk-kanban-wrap  {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  width: 100%;
-}
-.tsk-kanban-col {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,.1);
-  background: var(--color-gray-50);
-  display: flex;
-  flex-direction: column;
-}
-.tsk-kanban-col-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  color: #fff;
-  flex-shrink: 0;
-}
-.tsk-col-title  { font-weight: 700; font-size: 0.88em; letter-spacing: .4px; }
-.tsk-col-badge  {
-  background: rgba(255,255,255,.28);
-  border-radius: 12px;
-  padding: 1px 8px;
-  font-size: 0.8em;
-  font-weight: 600;
-}
-/* Scroll vertical por columna */
-.tsk-kanban-col-body {
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  overflow-y: auto;
-  max-height: 68vh;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-gray-500) var(--color-gray-200);
-}
-.tsk-kanban-col-body::-webkit-scrollbar { width: 4px; }
-.tsk-kanban-col-body::-webkit-scrollbar-track { background: var(--color-gray-200); }
-.tsk-kanban-col-body::-webkit-scrollbar-thumb { background: var(--color-gray-500); border-radius: 4px; }
-
-/* === Card === */
-.tsk-card {
-  border-radius: 6px;
-  border-left-width: 4px;
-  border-left-style: solid;
-  padding: 8px 10px;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.07);
-  transition: box-shadow .18s, transform .12s;
-}
-.tsk-card:hover       { box-shadow: 0 4px 12px rgba(0,0,0,.13); transform: translateY(-1px); }
-.tsk-card--done       { opacity: .62; }
-.tsk-card--archived   { opacity: .45; }
-
-/* Cabecera de card: título en su propia línea, botones debajo */
-.tsk-card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  border-bottom: 1px solid rgba(0,0,0,.08);
-  padding-bottom: 6px;
-  margin-bottom: 6px;
-}
-.tsk-card-title-wrap { display: flex; align-items: flex-start; width: 100%; }
-.tsk-card-title {
-  font-weight: 600;
-  font-size: 0.87em;
-  line-height: 1.35;
-  font-family: 'Source Serif Pro', serif;
-  white-space: normal;
-  word-break: break-word;
-  color: inherit;
-}
-/* Botones en fila separada debajo del título */
-.tsk-card-actions     { display: flex; gap: 3px; flex-wrap: wrap; }
-.tsk-card-actions .btn { padding: 2px 5px !important; font-size: 11px !important; }
-
-/* === Progress bar === */
-.tsk-progress-wrap  { margin: 4px 0 2px; }
-.tsk-progress-bar   { height: 4px; background: var(--color-gray-300); border-radius: 2px; overflow: hidden; }
-.tsk-progress-fill  { height: 100%; border-radius: 2px; transition: width .3s; }
-.tsk-progress-label { font-size: 0.73em; color: var(--color-gray-700); display: block; margin-top: 1px; }
-
-/* === Meta === */
-.tsk-meta-row {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.78em;
-  color: var(--color-gray-800);
-  margin-top: 3px;
-}
-.tsk-card-comment {
-  font-size: 0.76em;
-  color: var(--color-gray-900);
-  background: var(--color-gray-100);
-  border-radius: 4px;
-  padding: 4px 7px;
-  margin-top: 4px;
-  display: flex;
-  gap: 5px;
-  align-items: flex-start;
-}
-.tsk-tags-wrap { display: flex; flex-wrap: wrap; gap: 3px; margin: 4px 0 2px; }
-.tsk-badge {
-  display: inline-flex;
-  align-items: center;
-  color: #fff;
-  border-radius: 20px;
-  padding: 2px 8px;
-  font-size: 0.72em;
-  font-weight: 500;
-  white-space: nowrap;
-  margin: 1px;
-}
-
-/* === Checklist interactivo en card y modal === */
-.tsk-checklist-modal { margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
-.tsk-checklist-item  {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.86em;
-  padding: 3px 4px;
-  border-radius: 4px;
-  transition: background .12s;
-  cursor: pointer;
-}
-.tsk-checklist-item:hover { background: rgba(0,0,0,.04); }
-.tsk-checklist-item input[type="checkbox"] { cursor: pointer; margin: 0; }
-.tsk-item-done        { color: #1a7a3f; flex-shrink: 0; }
-.tsk-item-pending     { color: var(--color-gray-600);    flex-shrink: 0; }
-.tsk-item-label-done  { text-decoration: line-through; color: var(--color-gray-700); }
-
-/* === Modal detalle === */
-.tsk-modal-detalle    { margin: 0; }
-.tsk-modal-header-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
-.tsk-modal-desc       { margin: 8px 0; font-size: 0.9em; line-height: 1.5; }
-.tsk-modal-section    { margin: 10px 0; }
-
-/* Barra de acciones en footer del modal */
-.tsk-modal-footer-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;
-}
-
-/* === Estado vacío de columna === */
-.tsk-empty-col {
-  text-align: center;
-  padding: 24px 8px;
-  color: var(--color-gray-500);
-  font-size: 0.84em;
-}
-
-/* === Formulario — switch ancho contenido === */
-.tsk-switch-inline { display: inline-flex; align-items: center; gap: 8px; }
-.tsk-switch-inline .bootstrap-switch { margin-bottom: 0; }
-.tsk-form-item { margin-top: 5px; }
-
 /* ========================================
-   BADGES DE ESTADO DE APLICACION
-   Etiquetas visuales para identificar el entorno activo en el navbar
+   CALCULADORAS
    ======================================== */
 
-.app-badge {
+/* Encabezado de columna en tablas de producto/viabilidad */
+.calc-header-col {
+  font-weight: bold;
+  font-size: 14pt;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+.calc-header-col--left {
+  text-align: left;
+}
+
+/* Celda de output alineada a la derecha */
+.calc-output-right {
+  text-align: right;
+}
+
+/* Celda de output centrada (viabilidad y parametros de producto) */
+.calc-output-center {
+  text-align: center;
+}
+
+/* Fila de producto: alinea verticalmente texto y campos de entrada */
+.calc-producto-row.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Boton calcular centrado */
+.calc-btn-wrap {
+  text-align: center;
+}
+
+.calc-btn-wrap > div {
   display: inline-block;
-  font-size: 0.67rem;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 10px;
-  color: #ffffff;
-  letter-spacing: 0.03em;
-  vertical-align: middle;
-  white-space: nowrap;
+  width: 40%;
 }
 
-/* Prototipo: gris oscuro — entorno de desarrollo inicial */
-.app-badge--prototipo {
-  background-color: var(--color-gray-850);
+/* Selector de segmento centrado */
+.calc-segmento-wrap {
+  width: 40%;
+  margin: 0 auto 15px auto;
 }
 
-/* Pruebas: naranja — entorno QA o UAT */
-.app-badge--pruebas {
-  background-color: #fd7e14;
+/* ========================================
+   PRELOADERS
+   ======================================== */
+
+/* Contenedor base compartido por los tres preloaders
+   Posicionado en centro de pantalla con tarjeta flotante */
+.preloader-card {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
 }
 
-/* Staging: azul — entorno previo a produccion */
-.app-badge--staging {
-  background-color: #0d6efd;
+/* Logo compartido en los tres preloaders */
+.preloader-logo {
+  width: 70px;
+  margin-bottom: 16px;
 }
 
-/* Produccion: verde — entorno productivo estable */
-.app-badge--produccion {
-  background-color: #198754;
+/* Texto descriptivo compartido */
+.preloader-texto {
+  color: var(--color-gray-930);
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 14px;
 }
 
-/* Demo: morado — entorno de demostracion a cliente */
-.app-badge--demo {
-  background-color: #6f42c1;
+/* Spinner compartido: color rojo corporativo en las tres variantes */
+.preloader-spinner-inicio,
+.preloader-spinner-actualizar,
+.preloader-spinner-calculando {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-red-secondary);
 }
 
-/* Mantenimiento: rojo — app en ventana de mantenimiento */
-.app-badge--mantenimiento {
-  background-color: var(--color-red-secondary);
+/* Carga inicial: borde solido */
+.preloader-spinner-inicio {
+  border-width: 0.25em;
+}
+
+/* Actualizacion: grow pulsante (hereda color rojo) */
+.preloader-spinner-actualizar {
+  /* sin overrides adicionales: bootstrap spinner-grow usa currentColor */
+}
+
+/* Calculando: borde solido mas grueso para diferenciarlo visualmente */
+.preloader-spinner-calculando {
+  border-width: 0.3em;
 }
 
 /* ========================================
@@ -906,99 +777,212 @@ dropdown-menu.inner {
    ---------------------------------------- */
 
 .racafe-btn {
-  display:         inline-flex;
-  align-items:     center;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  border-radius:   4px;
-  line-height:     1.1;
-  transition:      background-color 0.15s ease, border-color 0.15s ease;
+  border-radius: 4px;
+  line-height: 1.1;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .racafe-btn:hover,
 .racafe-btn:focus,
 .racafe-btn:active {
   background-color: var(--racafe-color-hover) !important;
-  border-color:     var(--racafe-color-hover) !important;
-  color:            var(--racafe-color-fuente) !important;
+  border-color: var(--racafe-color-hover) !important;
+  color: var(--racafe-color-fuente) !important;
 }
 
 /* ----------------------------------------
    BOTON (racafe-btn-guardar)
    ---------------------------------------- */
 
-.racafe-btn-content-host { padding: 0; }
+.racafe-btn-content-host {
+  padding: 0;
+}
 
 .racafe-btn-content {
-  display:         inline-flex;
-  align-items:     center;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap:             0.3rem;
+  gap: 0.3rem;
 }
 
 .racafe-btn-content--column,
-.racafe-btn-content-host--column .racafe-btn-content { flex-direction: column; }
+.racafe-btn-content-host--column .racafe-btn-content {
+  flex-direction: column;
+}
 
-.racafe-btn-content-host[data-racafe-label-pos="right"] .racafe-btn-content { flex-direction: row; }
+.racafe-btn-content-host[data-racafe-label-pos="right"] .racafe-btn-content {
+  flex-direction: row;
+}
 
-.racafe-btn-guardar .racafe-btn-icon  { display: block; margin: 0; }
+.racafe-btn-guardar .racafe-btn-icon {
+  display: block;
+  margin: 0;
+}
 
 .racafe-btn-guardar .racafe-btn-label {
-  display:     block;
+  display: block;
   font-weight: 500;
-  text-align:  center;
+  text-align: center;
   white-space: nowrap;
 }
 
-.racafe-btn-content-host[data-racafe-label-pos="right"] .racafe-btn-label { text-align: left; }
+.racafe-btn-content-host[data-racafe-label-pos="right"] .racafe-btn-label {
+  text-align: left;
+}
 
 /* Tamaños — Boton */
-.racafe-btn-guardar--xxs { min-width: 42px;  min-height: 1.4rem; padding: 0.10rem 0.30rem; font-size: 0.66rem; }
-.racafe-btn-guardar--xxs .racafe-btn-icon { font-size: 0.75rem; }
-.racafe-btn-guardar--xxs.racafe-btn-content-host--column .racafe-btn-content { flex-direction: row; }
+.racafe-btn-guardar--xxs {
+  min-width: 42px;
+  min-height: 1.4rem;
+  padding: 0.1rem 0.3rem;
+  font-size: 0.66rem;
+}
+.racafe-btn-guardar--xxs .racafe-btn-icon {
+  font-size: 0.75rem;
+}
+.racafe-btn-guardar--xxs.racafe-btn-content-host--column .racafe-btn-content {
+  flex-direction: row;
+}
 
-.racafe-btn-guardar--xs  { min-width: 56px;  min-height: 1.8rem; padding: 0.20rem 0.45rem; font-size: 0.72rem; }
-.racafe-btn-guardar--xs  .racafe-btn-icon { font-size: 0.90rem; }
+.racafe-btn-guardar--xs {
+  min-width: 56px;
+  min-height: 1.8rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.72rem;
+}
+.racafe-btn-guardar--xs .racafe-btn-icon {
+  font-size: 0.9rem;
+}
 
-.racafe-btn-guardar--sm  { min-width: 68px;  min-height: 2.2rem; padding: 0.30rem 0.60rem; font-size: 0.84rem; }
-.racafe-btn-guardar--sm  .racafe-btn-icon { font-size: 1.00rem; }
+.racafe-btn-guardar--sm {
+  min-width: 68px;
+  min-height: 2.2rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.84rem;
+}
+.racafe-btn-guardar--sm .racafe-btn-icon {
+  font-size: 1rem;
+}
 
-.racafe-btn-guardar--md  { min-width: 82px;  min-height: 2.6rem; padding: 0.40rem 0.75rem; font-size: 0.92rem; }
-.racafe-btn-guardar--md  .racafe-btn-icon { font-size: 1.15rem; }
+.racafe-btn-guardar--md {
+  min-width: 82px;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.92rem;
+}
+.racafe-btn-guardar--md .racafe-btn-icon {
+  font-size: 1.15rem;
+}
 
-.racafe-btn-guardar--lg  { min-width: 96px;  min-height: 3.0rem; padding: 0.50rem 0.90rem; font-size: 1.00rem; }
-.racafe-btn-guardar--lg  .racafe-btn-icon { font-size: 1.30rem; }
+.racafe-btn-guardar--lg {
+  min-width: 96px;
+  min-height: 3rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 1rem;
+}
+.racafe-btn-guardar--lg .racafe-btn-icon {
+  font-size: 1.3rem;
+}
 
-.racafe-btn-guardar--xl  { min-width: 112px; min-height: 3.4rem; padding: 0.65rem 1.00rem; font-size: 1.08rem; }
-.racafe-btn-guardar--xl  .racafe-btn-icon { font-size: 1.45rem; }
+.racafe-btn-guardar--xl {
+  min-width: 112px;
+  min-height: 3.4rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.08rem;
+}
+.racafe-btn-guardar--xl .racafe-btn-icon {
+  font-size: 1.45rem;
+}
 
-.racafe-btn-guardar--xxl { min-width: 132px; min-height: 3.8rem; padding: 0.75rem 1.15rem; font-size: 1.20rem; }
-.racafe-btn-guardar--xxl .racafe-btn-icon { font-size: 1.60rem; }
+.racafe-btn-guardar--xxl {
+  min-width: 132px;
+  min-height: 3.8rem;
+  padding: 0.75rem 1.15rem;
+  font-size: 1.2rem;
+}
+.racafe-btn-guardar--xxl .racafe-btn-icon {
+  font-size: 1.6rem;
+}
 
 /* ----------------------------------------
    BOTON DESCARGA (racafe-btn-descarga)
    ---------------------------------------- */
 
 /* Tamaños — BotonDescarga */
-.racafe-btn-descarga--xxs { min-width: 32px; min-height: 1.4rem; padding: 0.10rem 0.30rem; font-size: 0.66rem; }
-.racafe-btn-descarga--xxs .racafe-btn-icon { font-size: 0.75rem; }
+.racafe-btn-descarga--xxs {
+  min-width: 32px;
+  min-height: 1.4rem;
+  padding: 0.1rem 0.3rem;
+  font-size: 0.66rem;
+}
+.racafe-btn-descarga--xxs .racafe-btn-icon {
+  font-size: 0.75rem;
+}
 
-.racafe-btn-descarga--xs  { min-width: 38px; min-height: 1.8rem; padding: 0.20rem 0.45rem; font-size: 0.72rem; }
-.racafe-btn-descarga--xs  .racafe-btn-icon { font-size: 0.90rem; }
+.racafe-btn-descarga--xs {
+  min-width: 38px;
+  min-height: 1.8rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.72rem;
+}
+.racafe-btn-descarga--xs .racafe-btn-icon {
+  font-size: 0.9rem;
+}
 
-.racafe-btn-descarga--sm  { min-width: 44px; min-height: 2.2rem; padding: 0.30rem 0.60rem; font-size: 0.84rem; }
-.racafe-btn-descarga--sm  .racafe-btn-icon { font-size: 1.00rem; }
+.racafe-btn-descarga--sm {
+  min-width: 44px;
+  min-height: 2.2rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.84rem;
+}
+.racafe-btn-descarga--sm .racafe-btn-icon {
+  font-size: 1rem;
+}
 
-.racafe-btn-descarga--md  { min-width: 52px; min-height: 2.6rem; padding: 0.40rem 0.75rem; font-size: 0.92rem; }
-.racafe-btn-descarga--md  .racafe-btn-icon { font-size: 1.15rem; }
+.racafe-btn-descarga--md {
+  min-width: 52px;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.92rem;
+}
+.racafe-btn-descarga--md .racafe-btn-icon {
+  font-size: 1.15rem;
+}
 
-.racafe-btn-descarga--lg  { min-width: 60px; min-height: 3.0rem; padding: 0.50rem 0.90rem; font-size: 1.00rem; }
-.racafe-btn-descarga--lg  .racafe-btn-icon { font-size: 1.30rem; }
+.racafe-btn-descarga--lg {
+  min-width: 60px;
+  min-height: 3rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 1rem;
+}
+.racafe-btn-descarga--lg .racafe-btn-icon {
+  font-size: 1.3rem;
+}
 
-.racafe-btn-descarga--xl  { min-width: 70px; min-height: 3.4rem; padding: 0.65rem 1.00rem; font-size: 1.08rem; }
-.racafe-btn-descarga--xl  .racafe-btn-icon { font-size: 1.45rem; }
+.racafe-btn-descarga--xl {
+  min-width: 70px;
+  min-height: 3.4rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.08rem;
+}
+.racafe-btn-descarga--xl .racafe-btn-icon {
+  font-size: 1.45rem;
+}
 
-.racafe-btn-descarga--xxl { min-width: 82px; min-height: 3.8rem; padding: 0.75rem 1.15rem; font-size: 1.20rem; }
-.racafe-btn-descarga--xxl .racafe-btn-icon { font-size: 1.60rem; }
+.racafe-btn-descarga--xxl {
+  min-width: 82px;
+  min-height: 3.8rem;
+  padding: 0.75rem 1.15rem;
+  font-size: 1.2rem;
+}
+.racafe-btn-descarga--xxl .racafe-btn-icon {
+  font-size: 1.6rem;
+}
 
 /* ----------------------------------------
    BOTONES RADIALES (racafe-radio-group)
@@ -1006,96 +990,347 @@ dropdown-menu.inner {
    ---------------------------------------- */
 
 .racafe-radio-group {
-  display:     flex;
-  flex-wrap:   wrap;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 /* Estado inactivo — todos los botones del grupo */
 .racafe-radio-group .btn {
-  background-color: var(--racafe-radio-inactivo)        !important;
-  color:            var(--racafe-radio-fuente-inactivo)  !important;
-  border-color:     var(--racafe-radio-inactivo)         !important;
-  transition:       background-color 0.15s ease, border-color 0.15s ease;
+  background-color: var(--racafe-radio-inactivo) !important;
+  color: var(--racafe-radio-fuente-inactivo) !important;
+  border-color: var(--racafe-radio-inactivo) !important;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 /* Hover sobre botón inactivo — :not(.active) evita pisar el seleccionado */
 .racafe-radio-group .btn:hover:not(.active),
 .racafe-radio-group .btn:focus:not(.active) {
-  background-color: var(--racafe-radio-hover-inactivo)  !important;
-  border-color:     var(--racafe-radio-hover-inactivo)  !important;
-  color:            var(--racafe-radio-fuente-inactivo)  !important;
+  background-color: var(--racafe-radio-hover-inactivo) !important;
+  border-color: var(--racafe-radio-hover-inactivo) !important;
+  color: var(--racafe-radio-fuente-inactivo) !important;
 }
 
 /* Estado activo — botón seleccionado, incluye hover para evitar parpadeo */
 .racafe-radio-group .btn.active,
 .racafe-radio-group .btn.active:hover,
 .racafe-radio-group .btn.active:focus {
-  background-color: var(--racafe-radio-activo)          !important;
-  border-color:     var(--racafe-radio-activo)           !important;
-  color:            var(--racafe-radio-fuente-activo)    !important;
+  background-color: var(--racafe-radio-activo) !important;
+  border-color: var(--racafe-radio-activo) !important;
+  color: var(--racafe-radio-fuente-activo) !important;
 }
 
-.nav-link {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  font-family: 'Roboto';
-  list-style: none;
-  display: block;
-  padding: .5rem 1rem;
-  border-radius: .25rem;
-  margin-bottom: .2rem;
-  white-space: nowrap;
+/* ============================================================
+   MODULO NOTAS Y TAREAS (Tareas.R)
+   ============================================================ */
+
+/* === Panel de filtros === */
+.tsk-filtros-wrap {
+  background: #f4f6f8;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 10px 14px 8px;
+  margin-bottom: 14px;
+}
+.tsk-filtros-wrap .form-group {
+  margin-bottom: 0;
+}
+.tsk-filtros-label {
+  font-size: 0.72em;
+  font-weight: 700;
+  color: var(--color-gray-800);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+.tsk-filtros-switches {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 4px;
+}
+.tsk-filtros-switches .material-switch {
+  margin-bottom: 0;
+}
+.tsk-filtros-acciones {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  padding-bottom: 4px;
+}
+
+/* === Kanban contenedor === */
+.tsk-kanban-outer {
+  width: 100%;
+}
+.tsk-kanban-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.tsk-kanban-col {
+  border-radius: 8px;
   overflow: hidden;
-  position: relative;
-  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  background: var(--color-gray-50);
+  display: flex;
+  flex-direction: column;
 }
-.nav-link:not(.active) {
-  color: var(--color-gray-940) !important;
-  box-shadow: none;
+.tsk-kanban-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: #fff;
+  flex-shrink: 0;
 }
-.nav-link:not(.active):hover {
-  background-color: rgba(0,0,0,.2) !important;
+.tsk-col-title {
+  font-weight: 700;
+  font-size: 0.88em;
+  letter-spacing: 0.4px;
 }
-.nav-link.active {
-  background-color: var(--color-red-secondary) !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24) !important;
-  color: #fff !important;
-}
-
-/* ========================================
-   INPUT MES — air-datepicker
-   Inactivos: gris | Activo: danger var(--color-red-secondary)
-======================================== */
-
-.air-datepicker-cell.-month- {
-  color: var(--color-gray-850);
-  background-color: transparent;
-  border-radius: 4px;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.air-datepicker-cell.-month-:hover {
-  background-color: rgba(108,117,125,0.15);
-  color: var(--color-gray-920);
-}
-
-.air-datepicker-cell.-month-.-selected- {
-  background-color: var(--color-red-secondary) !important;
-  color: #fff !important;
+.tsk-col-badge {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-size: 0.8em;
   font-weight: 600;
 }
+/* Scroll vertical por columna */
+.tsk-kanban-col-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: 68vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-500) var(--color-gray-200);
+}
+.tsk-kanban-col-body::-webkit-scrollbar {
+  width: 4px;
+}
+.tsk-kanban-col-body::-webkit-scrollbar-track {
+  background: var(--color-gray-200);
+}
+.tsk-kanban-col-body::-webkit-scrollbar-thumb {
+  background: var(--color-gray-500);
+  border-radius: 4px;
+}
 
-.air-datepicker-cell.-month-.-selected-:hover {
-  background-color: var(--color-red-hover) !important;
+/* === Card === */
+.tsk-card {
+  border-radius: 6px;
+  border-left-width: 4px;
+  border-left-style: solid;
+  padding: 8px 10px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  transition:
+    box-shadow 0.18s,
+    transform 0.12s;
+}
+.tsk-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.13);
+  transform: translateY(-1px);
+}
+.tsk-card--done {
+  opacity: 0.62;
+}
+.tsk-card--archived {
+  opacity: 0.45;
+}
+
+/* Cabecera de card: título en su propia línea, botones debajo */
+.tsk-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+.tsk-card-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+.tsk-card-title {
+  font-weight: 600;
+  font-size: 0.87em;
+  line-height: 1.35;
+  font-family: "Source Serif Pro", serif;
+  white-space: normal;
+  word-break: break-word;
+  color: inherit;
+}
+/* Botones en fila separada debajo del título */
+.tsk-card-actions {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+.tsk-card-actions .btn {
+  padding: 2px 5px !important;
+  font-size: 11px !important;
+}
+
+/* === Progress bar === */
+.tsk-progress-wrap {
+  margin: 4px 0 2px;
+}
+.tsk-progress-bar {
+  height: 4px;
+  background: var(--color-gray-300);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.tsk-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.tsk-progress-label {
+  font-size: 0.73em;
+  color: var(--color-gray-700);
+  display: block;
+  margin-top: 1px;
+}
+
+/* === Meta === */
+.tsk-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78em;
+  color: var(--color-gray-800);
+  margin-top: 3px;
+}
+.tsk-card-comment {
+  font-size: 0.76em;
+  color: var(--color-gray-900);
+  background: var(--color-gray-100);
+  border-radius: 4px;
+  padding: 4px 7px;
+  margin-top: 4px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+.tsk-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 4px 0 2px;
+}
+.tsk-badge {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 0.72em;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 1px;
+}
+
+/* === Checklist interactivo en card y modal === */
+.tsk-checklist-modal {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.tsk-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86em;
+  padding: 3px 4px;
+  border-radius: 4px;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+.tsk-checklist-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+.tsk-checklist-item input[type="checkbox"] {
+  cursor: pointer;
+  margin: 0;
+}
+.tsk-item-done {
+  color: #1a7a3f;
+  flex-shrink: 0;
+}
+.tsk-item-pending {
+  color: var(--color-gray-600);
+  flex-shrink: 0;
+}
+.tsk-item-label-done {
+  text-decoration: line-through;
+  color: var(--color-gray-700);
+}
+
+/* === Modal detalle === */
+.tsk-modal-detalle {
+  margin: 0;
+}
+.tsk-modal-header-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.tsk-modal-desc {
+  margin: 8px 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+.tsk-modal-section {
+  margin: 10px 0;
+}
+
+/* Barra de acciones en footer del modal */
+.tsk-modal-footer-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+/* === Estado vacío de columna === */
+.tsk-empty-col {
+  text-align: center;
+  padding: 24px 8px;
+  color: var(--color-gray-500);
+  font-size: 0.84em;
+}
+
+/* === Formulario — switch ancho contenido === */
+.tsk-switch-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tsk-switch-inline .bootstrap-switch {
+  margin-bottom: 0;
+}
+.tsk-form-item {
+  margin-top: 5px;
 }
 
 /* ========================================
    CCB MODULE — estilos corporativos
    Complementa style.css principal.
 
-   Color rojo corporativo único: #dc3545
+   Color rojo corporativo único: var(--color-red-secondary)
    ======================================== */
 
 /* ========================================
@@ -1105,15 +1340,14 @@ dropdown-menu.inner {
 
 .ccb-card .control-label,
 .ccb-card label.control-label {
-  font-family:    'Source Serif Pro', serif;
-  font-size:      0.82rem;
-  font-weight:    600;
-  color:          var(--color-gray-930);
-  margin-bottom:  4px;
-  display:        block;
+  font-family: "Source Serif Pro", serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gray-930);
+  margin-bottom: 4px;
+  display: block;
   letter-spacing: 0.01em;
 }
-
 
 /* ========================================
    FILE INPUT — contenedor raíz
@@ -1125,11 +1359,10 @@ dropdown-menu.inner {
 }
 
 .ccb-card .input-group {
-  display:     flex;
+  display: flex;
   align-items: stretch;
-  width:       100%;
+  width: 100%;
 }
-
 
 /* ========================================
    FILE INPUT — botón "Examinar"
@@ -1137,42 +1370,43 @@ dropdown-menu.inner {
    ======================================== */
 
 .ccb-card .btn-file {
-  display:          inline-flex;
-  align-items:      center;
-  gap:              0.35rem;
-  background-color: #dc3545;
-  color:            #ffffff;
-  border:           1px solid #dc3545;
-  border-radius:    4px 0 0 4px;
-  padding:          0.30rem 0.70rem;
-  font-size:        0.82rem;
-  font-weight:      500;
-  line-height:      1.4;
-  cursor:           pointer;
-  transition:       background-color 0.15s ease, border-color 0.15s ease;
-  white-space:      nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--color-red-secondary);
+  color: #fff;
+  border: 1px solid var(--color-red-secondary);
+  border-radius: 4px 0 0 4px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+  white-space: nowrap;
 }
 
 .ccb-card .btn-file:hover,
 .ccb-card .btn-file:focus {
-  background-color: #dc3545;
-  border-color:     #dc3545;
-  color:            #ffffff;
-  outline:          none;
+  background-color: var(--color-red-secondary);
+  border-color: var(--color-red-secondary);
+  color: #fff;
+  outline: none;
 }
 
 /* Oculta el <input type="file"> nativo dentro del span */
 .ccb-card .btn-file input[type="file"] {
   position: absolute;
-  filter:   alpha(opacity=0);
-  opacity:  0;
-  width:    100%;
-  height:   100%;
-  top:      0;
-  left:     0;
-  cursor:   pointer;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }
-
 
 /* ========================================
    FILE INPUT — campo de texto (nombre del archivo)
@@ -1180,50 +1414,48 @@ dropdown-menu.inner {
    ======================================== */
 
 .ccb-card .input-group .form-control[readonly] {
-  flex:             1 1 auto;
+  flex: 1 1 auto;
   background-color: var(--color-gray-100);
-  border:           1px solid var(--color-gray-400);
-  border-left:      none;
-  border-radius:    0 4px 4px 0;
-  color:            var(--color-gray-850);
-  font-size:        0.82rem;
-  padding:          0.30rem 0.60rem;
-  line-height:      1.4;
-  height:           auto;
-  box-shadow:       none;
+  border: 1px solid var(--color-gray-400);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: var(--color-gray-850);
+  font-size: 0.82rem;
+  padding: 0.3rem 0.6rem;
+  line-height: 1.4;
+  height: auto;
+  box-shadow: none;
 }
 
 .ccb-card .input-group .form-control[readonly]:focus {
-  outline:    none;
+  outline: none;
   box-shadow: none;
 }
 
 /* Placeholder más tenue */
 .ccb-card .input-group .form-control[readonly]::placeholder {
-  color:       var(--color-gray-600);
-  font-style:  italic;
-  font-size:   0.79rem;
+  color: var(--color-gray-600);
+  font-style: italic;
+  font-size: 0.79rem;
 }
-
 
 /* ========================================
    FILE INPUT — barra de progreso de carga
    ======================================== */
 
 .ccb-card .shiny-file-input-progress {
-  height:        4px;
-  margin-top:    6px;
+  height: 4px;
+  margin-top: 6px;
   margin-bottom: 0;
   border-radius: 2px;
-  background:    var(--color-gray-300);
-  overflow:      hidden;
+  background: var(--color-gray-300);
+  overflow: hidden;
 }
 
 .ccb-card .shiny-file-input-progress .progress-bar {
-  background-color: #dc3545;
-  transition:       width 0.25s ease;
+  background-color: var(--color-red-secondary);
+  transition: width 0.25s ease;
 }
-
 
 /* ========================================
    META BOX — resumen de metadatos del PDF
@@ -1231,21 +1463,20 @@ dropdown-menu.inner {
    ======================================== */
 
 .ccb-card .ccb-meta-box {
-  margin-top:    8px;
-  padding:       6px 8px;
-  background:    var(--color-gray-100);
-  border-left:   3px solid #dc3545;
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: var(--color-gray-100);
+  border-left: 3px solid var(--color-red-secondary);
   border-radius: 0 4px 4px 0;
-  font-size:     0.78rem;
-  color:         var(--color-gray-850);
-  line-height:   1.6;
+  font-size: 0.78rem;
+  color: var(--color-gray-850);
+  line-height: 1.6;
 }
 
 .ccb-card .ccb-meta-box b {
-  color:       var(--color-gray-930);
+  color: var(--color-gray-930);
   font-weight: 600;
 }
-
 
 /* ========================================
    BS4CALLOUT — alineación con sistema corporativo
@@ -1254,14 +1485,14 @@ dropdown-menu.inner {
 
 .ccb-card .callout {
   border-radius: 4px;
-  font-size:     0.85rem;
-  line-height:   1.5;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .ccb-card .callout h4,
 .ccb-card .callout .callout-title {
-  font-family: 'Source Serif Pro', serif;
-  font-size:   0.90rem;
+  font-family: "Source Serif Pro", serif;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
@@ -1270,9 +1501,8 @@ dropdown-menu.inner {
 .ccb-card .callout-success,
 .ccb-card .callout-danger,
 .ccb-card .callout-warning {
-  border-left-color: #dc3545;
+  border-left-color: var(--color-red-secondary);
 }
-
 
 /* ========================================
    BADGE DE CONTEO EN TÍTULO DE CARD
@@ -1280,16 +1510,15 @@ dropdown-menu.inner {
    ======================================== */
 
 .ccb-card .card-title .badge {
-  font-family:      'Roboto', sans-serif;
-  font-size:        0.72rem;
-  font-weight:      600;
-  background-color: #dc3545 !important;
-  color:            #ffffff !important;
-  border-radius:    10px;
-  padding:          2px 8px;
-  vertical-align:   middle;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background-color: var(--color-red-secondary) !important;
+  color: #fff !important;
+  border-radius: 10px;
+  padding: 2px 8px;
+  vertical-align: middle;
 }
-
 
 /* ========================================
    CARD FOOTER — alineación del BotonDescarga
@@ -1298,14 +1527,13 @@ dropdown-menu.inner {
    ======================================== */
 
 .ccb-card .card-footer {
-  background:    transparent;
-  border-top:    1px solid var(--color-gray-300);
-  padding:       8px 12px;
-  display:       flex;
-  align-items:   center;
-  gap:           8px;
+  background: transparent;
+  border-top: 1px solid var(--color-gray-300);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
 
 /* ========================================
    SPINNER DE CARGA (shinycssloaders)
@@ -1313,6 +1541,6 @@ dropdown-menu.inner {
    ======================================== */
 
 .ccb-card .load-container .loader {
-  color:            #dc3545 !important;
-  border-top-color: #dc3545 !important;
+  color: var(--color-red-secondary) !important;
+  border-top-color: var(--color-red-secondary) !important;
 }
