@@ -27,7 +27,17 @@
   --color-gray-930: #333333;
   --color-gray-940: #212529;
   --color-gray-950: #1a1a1a;
+
+  --font-size-xs: 0.72rem;
+  --font-size-sm: 0.82rem;
+  --font-size-base: 0.94rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.14rem;
+  --font-size-xl: 1.34rem;
+  --line-height-base: 1.55;
+  --line-height-compact: 1.28;
 }
+
 
 .shiny-output-error {
   visibility: hidden;
@@ -70,6 +80,11 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-gray-940);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .box-title {
   font-family: "Source Serif Pro", serif;
@@ -87,6 +102,48 @@ h4,
 h5,
 h6 {
   font-family: "Source Serif Pro", serif;
+  color: var(--color-gray-950);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+}
+
+h1,
+.h1 {
+  font-size: clamp(1.55rem, 1.15rem + 1.2vw, 2.1rem);
+}
+
+h2,
+.h2 {
+  font-size: clamp(1.35rem, 1.05rem + 0.9vw, 1.75rem);
+}
+
+h3,
+.h3 {
+  font-size: clamp(1.16rem, 1rem + 0.5vw, 1.42rem);
+}
+
+h4,
+.h4 {
+  font-size: 1.12rem;
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
+}
+
+h6,
+.h6 {
+  font-size: 0.9rem;
+}
+
+p,
+.form-control,
+.selectize-input,
+.dropdown-menu,
+.card-body {
+  line-height: var(--line-height-base);
 }
 
 /* ========================================
@@ -112,7 +169,12 @@ h6 {
 
 .card-title,
 .bs4Card .card-title {
-  font-weight: bold !important;
+  font-family: "Source Serif Pro", serif;
+  font-size: clamp(1rem, 0.94rem + 0.25vw, 1.16rem);
+  font-weight: 700 !important;
+  letter-spacing: -0.005em;
+  line-height: var(--line-height-compact);
+  color: var(--color-gray-950);
 }
 
 /* Tabs: color y animacion */
@@ -176,13 +238,13 @@ h6 {
 }
 
 .nav-link {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.35;
   font-family: "Roboto", sans-serif;
   list-style: none;
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 0.85rem;
   border-radius: 0.25rem;
   margin-bottom: 0.2rem;
   white-space: nowrap;
@@ -346,7 +408,7 @@ h6 {
 /* Titulo principal — negrita, texto tipo titulo */
 .rt-titulo {
   font-family: "Source Serif Pro", serif;
-  font-size: 15px;
+  font-size: 0.98rem;
   font-weight: 700;
   text-transform: capitalize;
   color: var(--color-gray-950);
@@ -356,7 +418,7 @@ h6 {
 
 /* Subtitulo — 80% del titulo, tono secundario */
 .rt-subtitulo {
-  font-size: 80%;
+  font-size: 0.82rem;
   font-weight: 400;
   color: var(--color-gray-800);
   margin-bottom: 6px;
@@ -372,8 +434,9 @@ h6 {
 .reactable-wrap .rt-thead.-header .rt-th {
   border-top: 1px solid #000 !important;
   border-bottom: 1px solid #000 !important;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
   background-color: #fff;
   padding: 0;
@@ -395,7 +458,7 @@ h6 {
 .reactable-wrap .rt-tbody .rt-td {
   border-right: none !important;
   border-bottom: none !important;
-  font-size: 12px;
+  font-size: 0.76rem;
   padding: 0;
   margin: 0;
   line-height: 1;
@@ -414,7 +477,7 @@ h6 {
 
 .reactable-wrap .rt-tbody .rt-td.rt-col-header {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.82rem;
   text-transform: uppercase;
   color: var(--color-gray-950);
 }
@@ -671,8 +734,8 @@ h6 {
 
 /* Encabezado de columna en tablas de producto/viabilidad */
 .calc-header-col {
-  font-weight: bold;
-  font-size: 14pt;
+  font-weight: 700;
+  font-size: 1rem;
   border-bottom: 1px solid #000;
   text-align: center;
 }
@@ -746,8 +809,8 @@ h6 {
 /* Texto descriptivo compartido */
 .preloader-texto {
   color: var(--color-gray-930);
-  font-size: 10pt;
-  font-weight: bold;
+  font-size: 0.82rem;
+  font-weight: 700;
   margin-bottom: 14px;
 }
 
