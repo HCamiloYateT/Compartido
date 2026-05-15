@@ -1090,3 +1090,229 @@ dropdown-menu.inner {
 .air-datepicker-cell.-month-.-selected-:hover {
   background-color: var(--color-red-hover) !important;
 }
+
+/* ========================================
+   CCB MODULE — estilos corporativos
+   Complementa style.css principal.
+
+   Color rojo corporativo único: #dc3545
+   ======================================== */
+
+/* ========================================
+   LABEL DE INPUTS
+   Tipografía y peso coherente con card-title corporativo
+   ======================================== */
+
+.ccb-card .control-label,
+.ccb-card label.control-label {
+  font-family:    'Source Serif Pro', serif;
+  font-size:      0.82rem;
+  font-weight:    600;
+  color:          var(--color-gray-930);
+  margin-bottom:  4px;
+  display:        block;
+  letter-spacing: 0.01em;
+}
+
+
+/* ========================================
+   FILE INPUT — contenedor raíz
+   Shiny genera .shiny-input-container > .input-group
+   ======================================== */
+
+.ccb-card .shiny-input-container {
+  width: 100%;
+}
+
+.ccb-card .input-group {
+  display:     flex;
+  align-items: stretch;
+  width:       100%;
+}
+
+
+/* ========================================
+   FILE INPUT — botón "Examinar"
+   Reemplaza el .btn-default de Bootstrap con rojo corporativo
+   ======================================== */
+
+.ccb-card .btn-file {
+  display:          inline-flex;
+  align-items:      center;
+  gap:              0.35rem;
+  background-color: #dc3545;
+  color:            #ffffff;
+  border:           1px solid #dc3545;
+  border-radius:    4px 0 0 4px;
+  padding:          0.30rem 0.70rem;
+  font-size:        0.82rem;
+  font-weight:      500;
+  line-height:      1.4;
+  cursor:           pointer;
+  transition:       background-color 0.15s ease, border-color 0.15s ease;
+  white-space:      nowrap;
+}
+
+.ccb-card .btn-file:hover,
+.ccb-card .btn-file:focus {
+  background-color: #dc3545;
+  border-color:     #dc3545;
+  color:            #ffffff;
+  outline:          none;
+}
+
+/* Oculta el <input type="file"> nativo dentro del span */
+.ccb-card .btn-file input[type="file"] {
+  position: absolute;
+  filter:   alpha(opacity=0);
+  opacity:  0;
+  width:    100%;
+  height:   100%;
+  top:      0;
+  left:     0;
+  cursor:   pointer;
+}
+
+
+/* ========================================
+   FILE INPUT — campo de texto (nombre del archivo)
+   Borde izquierdo suprimido para fusionarse con el botón
+   ======================================== */
+
+.ccb-card .input-group .form-control[readonly] {
+  flex:             1 1 auto;
+  background-color: var(--color-gray-100);
+  border:           1px solid var(--color-gray-400);
+  border-left:      none;
+  border-radius:    0 4px 4px 0;
+  color:            var(--color-gray-850);
+  font-size:        0.82rem;
+  padding:          0.30rem 0.60rem;
+  line-height:      1.4;
+  height:           auto;
+  box-shadow:       none;
+}
+
+.ccb-card .input-group .form-control[readonly]:focus {
+  outline:    none;
+  box-shadow: none;
+}
+
+/* Placeholder más tenue */
+.ccb-card .input-group .form-control[readonly]::placeholder {
+  color:       var(--color-gray-600);
+  font-style:  italic;
+  font-size:   0.79rem;
+}
+
+
+/* ========================================
+   FILE INPUT — barra de progreso de carga
+   ======================================== */
+
+.ccb-card .shiny-file-input-progress {
+  height:        4px;
+  margin-top:    6px;
+  margin-bottom: 0;
+  border-radius: 2px;
+  background:    var(--color-gray-300);
+  overflow:      hidden;
+}
+
+.ccb-card .shiny-file-input-progress .progress-bar {
+  background-color: #dc3545;
+  transition:       width 0.25s ease;
+}
+
+
+/* ========================================
+   META BOX — resumen de metadatos del PDF
+   Texto pequeño debajo del fileInput
+   ======================================== */
+
+.ccb-card .ccb-meta-box {
+  margin-top:    8px;
+  padding:       6px 8px;
+  background:    var(--color-gray-100);
+  border-left:   3px solid #dc3545;
+  border-radius: 0 4px 4px 0;
+  font-size:     0.78rem;
+  color:         var(--color-gray-850);
+  line-height:   1.6;
+}
+
+.ccb-card .ccb-meta-box b {
+  color:       var(--color-gray-930);
+  font-weight: 600;
+}
+
+
+/* ========================================
+   BS4CALLOUT — alineación con sistema corporativo
+   Ajuste fino de tipografía y bordes para el panel de validación
+   ======================================== */
+
+.ccb-card .callout {
+  border-radius: 4px;
+  font-size:     0.85rem;
+  line-height:   1.5;
+}
+
+.ccb-card .callout h4,
+.ccb-card .callout .callout-title {
+  font-family: 'Source Serif Pro', serif;
+  font-size:   0.90rem;
+  font-weight: 700;
+}
+
+/* Estados de validación — rojo corporativo único */
+.ccb-card .callout-info,
+.ccb-card .callout-success,
+.ccb-card .callout-danger,
+.ccb-card .callout-warning {
+  border-left-color: #dc3545;
+}
+
+
+/* ========================================
+   BADGE DE CONTEO EN TÍTULO DE CARD
+   Pequeño contador blanco junto al título de administradores
+   ======================================== */
+
+.ccb-card .card-title .badge {
+  font-family:      'Roboto', sans-serif;
+  font-size:        0.72rem;
+  font-weight:      600;
+  background-color: #dc3545 !important;
+  color:            #ffffff !important;
+  border-radius:    10px;
+  padding:          2px 8px;
+  vertical-align:   middle;
+}
+
+
+/* ========================================
+   CARD FOOTER — alineación del BotonDescarga
+   Garantiza que el botón de descarga quede alineado
+   a la izquierda y con espacio superior coherente
+   ======================================== */
+
+.ccb-card .card-footer {
+  background:    transparent;
+  border-top:    1px solid var(--color-gray-300);
+  padding:       8px 12px;
+  display:       flex;
+  align-items:   center;
+  gap:           8px;
+}
+
+
+/* ========================================
+   SPINNER DE CARGA (shinycssloaders)
+   Color rojo corporativo para el spinner del módulo
+   ======================================== */
+
+.ccb-card .load-container .loader {
+  color:            #dc3545 !important;
+  border-top-color: #dc3545 !important;
+}
