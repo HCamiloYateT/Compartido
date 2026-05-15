@@ -268,6 +268,36 @@ p,
 }
 
 /* ========================================
+   NAVBAR SUPERIOR — alineacion vertical
+   ======================================== */
+
+.main-header.navbar {
+  align-items: center;
+}
+
+.main-header.navbar .navbar-nav {
+  align-items: center;
+}
+
+.main-header.navbar .nav-item,
+.main-header.navbar .dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.main-header.navbar .nav-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.main-header.navbar #user,
+.main-header.navbar #user > span {
+  display: flex;
+  align-items: center;
+}
+
+/* ========================================
    INPUT MES — air-datepicker
    Inactivos: gris | Activo: danger var(--color-red-secondary)
 ======================================== */
