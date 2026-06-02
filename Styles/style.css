@@ -155,8 +155,60 @@ p,
    COMPONENTES DE INTERFAZ
    ======================================== */
 
+/* Modales — tamanos reutilizables
+   Usar las clases en el contenedor del modal o directamente en .modal-dialog:
+   ventana, subventana1, subventana2, subventana3, subventana4, subventana5, aviso. */
 .modal-dialog {
   max-width: 96%;
+}
+
+.modal.ventana .modal-dialog,
+.modal.modal-ventana .modal-dialog,
+.modal-dialog.ventana,
+.modal-dialog.modal-ventana {
+  max-width: min(96vw, 1200px);
+}
+
+.modal.subventana1 .modal-dialog,
+.modal.modal-subventana1 .modal-dialog,
+.modal-dialog.subventana1,
+.modal-dialog.modal-subventana1 {
+  max-width: min(94vw, 1050px);
+}
+
+.modal.subventana2 .modal-dialog,
+.modal.modal-subventana2 .modal-dialog,
+.modal-dialog.subventana2,
+.modal-dialog.modal-subventana2 {
+  max-width: min(92vw, 900px);
+}
+
+.modal.subventana3 .modal-dialog,
+.modal.modal-subventana3 .modal-dialog,
+.modal-dialog.subventana3,
+.modal-dialog.modal-subventana3 {
+  max-width: min(90vw, 760px);
+}
+
+.modal.subventana4 .modal-dialog,
+.modal.modal-subventana4 .modal-dialog,
+.modal-dialog.subventana4,
+.modal-dialog.modal-subventana4 {
+  max-width: min(88vw, 620px);
+}
+
+.modal.subventana5 .modal-dialog,
+.modal.modal-subventana5 .modal-dialog,
+.modal-dialog.subventana5,
+.modal-dialog.modal-subventana5 {
+  max-width: min(86vw, 500px);
+}
+
+.modal.aviso .modal-dialog,
+.modal.modal-aviso .modal-dialog,
+.modal-dialog.aviso,
+.modal-dialog.modal-aviso {
+  max-width: min(84vw, 380px);
 }
 
 .dropdown-menu.inner {
