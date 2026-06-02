@@ -10,6 +10,23 @@ El archivo `style.css` define estilos globales reutilizables entre aplicaciones.
 - Clases utilitarias para footers de cajas modales.
 - Estilos globales para tablas `reactable`.
 
+
+## Tamaños de modales
+
+Para evitar que todos los modales compartan el mismo ancho, el CSS expone clases de tamaño reutilizables. Pueden aplicarse al contenedor `.modal` o directamente a `.modal-dialog`, según cómo construya el modal cada app; también existen alias con prefijo `modal-` para integraciones que siguen la convención de Bootstrap (`modal-ventana`, `modal-subventana1`, etc.).
+
+| Clase | Uso sugerido | Ancho máximo |
+| --- | --- | --- |
+| `ventana` | Modal principal o vista amplia | `1200px` |
+| `subventana1` | Submodal amplio | `1050px` |
+| `subventana2` | Submodal medio-amplio | `900px` |
+| `subventana3` | Submodal medio | `760px` |
+| `subventana4` | Submodal compacto | `620px` |
+| `subventana5` | Submodal pequeño | `500px` |
+| `aviso` | Confirmaciones, alertas o mensajes breves | `380px` |
+
+Todos los tamaños usan límites responsivos en `vw` para no desbordar pantallas pequeñas.
+
 ## Cómo extender sin romper compatibilidad
 
 - Agregar nuevas clases en lugar de modificar comportamiento existente cuando sea posible.
