@@ -155,6 +155,12 @@ p,
    COMPONENTES DE INTERFAZ
    ======================================== */
 
+.form-bloqueado {
+  pointer-events: none;
+  opacity: 0.5;
+  filter: grayscale(30%);
+}
+
 /* Modales — tamanos reutilizables
    Usar las clases en el contenedor del modal o directamente en .modal-dialog:
    ventana, subventana1, subventana2, subventana3, subventana4, subventana5, aviso. */
