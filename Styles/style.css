@@ -1742,6 +1742,17 @@ p,
 }
 
 /* ------------------------------------------
+   Sincroniza el borde de fila calculada entre el panel congelado
+   (columna Item, fixedColumnsLeft) y el panel principal de la tabla —
+   Handsontable renderiza ambos como tablas clonadas independientes
+   ------------------------------------------ */
+
+.tabla-presupuesto .ht_clone_left .htCore tbody tr td,
+.tabla-presupuesto .ht_master .htCore tbody tr td {
+  box-sizing: border-box !important;
+}
+
+/* ------------------------------------------
    Encabezado — negrita, centrado, borde inferior
    ------------------------------------------ */
 
