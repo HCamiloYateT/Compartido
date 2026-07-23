@@ -1730,6 +1730,18 @@ p,
    ======================================== */
 
 /* ------------------------------------------
+   Tipografia compacta, negra y sin bordes interiores
+   ------------------------------------------ */
+
+.tabla-presupuesto .handsontable .htCore td,
+.tabla-presupuesto .handsontable .htCore th {
+  color: #000 !important;
+  font-size: 0.85rem !important;
+  border: 0 !important;
+  padding: 2px 6px !important;
+}
+
+/* ------------------------------------------
    Encabezado — negrita, centrado, borde inferior
    ------------------------------------------ */
 
@@ -1760,16 +1772,6 @@ p,
 
 .tabla-presupuesto .htCore tbody td {
   text-align: center;
-}
-
-/* ------------------------------------------
-   Limpieza general de bordes y espaciado
-   ------------------------------------------ */
-
-.tabla-presupuesto .handsontable .htCore td,
-.tabla-presupuesto .handsontable .htCore th {
-  border-color: var(--color-gray-400) !important;
-  padding: 2px 6px !important;
 }
 
 .tabla-presupuesto .handsontable .wtBorder {
