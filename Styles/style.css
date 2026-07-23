@@ -1722,3 +1722,56 @@ p,
   color: var(--color-red-secondary) !important;
   border-top-color: var(--color-red-secondary) !important;
 }
+
+/* ========================================
+   TABLA RHANDSONTABLE — modulo Presupuesto
+   Clase asignada via className = "tabla-presupuesto" en
+   ConstruirRHandsontable()
+   ======================================== */
+
+/* ------------------------------------------
+   Encabezado — negrita, centrado, borde inferior
+   ------------------------------------------ */
+
+.tabla-presupuesto .htCore thead th {
+  font-weight: 700 !important;
+  text-align: center !important;
+  border-bottom: 2px solid var(--color-gray-910) !important;
+  background-color: #fff !important;
+}
+
+.tabla-presupuesto .htCore thead th .colHeader {
+  text-align: center !important;
+}
+
+/* ------------------------------------------
+   Primera columna (Item) — negrita, alineada a la izquierda
+   ------------------------------------------ */
+
+.tabla-presupuesto .htCore tbody th,
+.tabla-presupuesto .htCore tbody td:first-child {
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+
+/* ------------------------------------------
+   Resto de columnas — centradas por defecto
+   ------------------------------------------ */
+
+.tabla-presupuesto .htCore tbody td {
+  text-align: center;
+}
+
+/* ------------------------------------------
+   Limpieza general de bordes y espaciado
+   ------------------------------------------ */
+
+.tabla-presupuesto .handsontable .htCore td,
+.tabla-presupuesto .handsontable .htCore th {
+  border-color: var(--color-gray-400) !important;
+  padding: 2px 6px !important;
+}
+
+.tabla-presupuesto .handsontable .wtBorder {
+  background-color: var(--color-red-secondary) !important;
+}
