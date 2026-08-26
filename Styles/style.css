@@ -161,6 +161,11 @@ p,
   filter: grayscale(30%);
 }
 
+.input-numerico-compacto {
+  height: 25px !important;
+  font-size: 14px;
+}
+
 /* Modales — tamanos reutilizables
    Usar las clases en el contenedor del modal o directamente en .modal-dialog:
    ventana, subventana1, subventana2, subventana3, subventana4, subventana5, aviso. */
