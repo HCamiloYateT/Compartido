@@ -1788,7 +1788,8 @@ p,
 
 .tabla-presupuesto tbody td {
   font-size: 10px !important;
-  padding: 2px 1px !important;
+  padding-left: 1px !important;
+  padding-right: 1px !important;
   text-align: center;
 }
 
@@ -1819,7 +1820,7 @@ p,
 .fila-destacada-ppto {
   border-top: 2px solid #000000 !important;
   font-weight: bold;
-  background-color: #eaeded;
+  background-color: #eaeded !important;
 }
 
 .tabla-ppto-comentario {
@@ -1865,6 +1866,58 @@ p,
 .tabla-ppto-leyenda-texto {
   font-weight: bold;
   font-size: 12px;
+}
+
+/* ========================================
+   ENCABEZADOS — periodo y modulo Sacos y Margen
+   ======================================== */
+
+.sm-periodo-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 6px 0 10px 0;
+}
+
+.sm-periodo-titulo {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ppto-modo-mini .btn {
+  height: 19px !important;
+  min-height: 19px !important;
+  padding: 1px 6px !important;
+  font-size: 10px !important;
+  line-height: 15px !important;
+}
+
+.ppto-modo-mini .btn-group {
+  height: 19px !important;
+  min-height: 19px !important;
+}
+
+.ppto-modo-mini .form-group,
+.ppto-modo-mini .btn-group-container-sw {
+  min-height: 19px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sm-encabezado {
+  margin-bottom: 8px;
+}
+
+.sm-encabezado-titulo {
+  margin: 0;
+  font-weight: 600;
+}
+
+.sm-encabezado-subtitulo {
+  color: #6c757d;
+  font-size: 13px;
 }
 
 /* ========================================
