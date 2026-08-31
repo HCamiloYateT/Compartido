@@ -1821,6 +1821,18 @@ p,
   background-color: #eaeded;
 }
 
+.tabla-ppto-comentario {
+  margin-bottom: 8px;
+  padding: 6px;
+  border-left: 3px solid #1c398e;
+  background-color: #f4f6f8;
+}
+
+.tabla-ppto-comentario-meta {
+  font-size: 0.8em;
+  color: #5a6370;
+}
+
 /* ========================================
    LEYENDA — tabla Presupuesto
    ======================================== */
