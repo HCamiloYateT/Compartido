@@ -1867,26 +1867,6 @@ p,
 }
 
 /* ========================================
-   TABS — Sacos y Margen
-   ======================================== */
-
-.sm-tabs-wrapper .nav-tabs {
-  border-bottom: 1px solid #dee2e6;
-}
-
-.sm-tabs-wrapper .nav-tabs .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-
-.sm-tabs-wrapper .nav-tabs .nav-link.active {
-  color: #495057;
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
-}
-
-/* ========================================
    KANBAN — Embudo
    Filtros, columnas, tarjetas, metricas y acciones del tablero
    ======================================== */
