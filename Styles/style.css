@@ -1759,10 +1759,11 @@ p,
    Encabezado — negrita, centrado, borde inferior
    ------------------------------------------ */
 
-.tabla-presupuesto thead th {
+.tabla-presupuesto.handsontable thead th,
+.tabla-presupuesto .htCore thead th {
   font-size: 12px !important;
-  font-weight: bold;
-  text-align: center;
+  font-weight: bold !important;
+  text-align: center !important;
   border-bottom: 2px solid #000000 !important;
   background-color: #fff !important;
 }
