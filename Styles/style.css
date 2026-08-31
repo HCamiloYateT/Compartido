@@ -1804,11 +1804,11 @@ p,
 }
 
 .celda-editable-ppto {
-  background-color: #d4e6f1;
+  background-color: #d4e6f1 !important;
 }
 
 .celda-calculada-ppto {
-  background-color: #eaeded;
+  background-color: #eaeded !important;
 }
 
 .celda-borde-ppto {
@@ -1853,11 +1853,11 @@ p,
 }
 
 .tabla-ppto-leyenda-editable {
-  background-color: #d4e6f1;
+  background-color: #d4e6f1 !important;
 }
 
 .tabla-ppto-leyenda-calculada {
-  background-color: #eaeded;
+  background-color: #eaeded !important;
   margin-left: 18px;
 }
 
