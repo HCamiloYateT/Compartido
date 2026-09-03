@@ -1775,19 +1775,22 @@ p,
 
 /* ------------------------------------------
    Encabezado — negrita, centrado, borde inferior
+   Incluye clones de Handsontable
    ------------------------------------------ */
 
-.tabla-presupuesto.handsontable thead th,
+.tabla-presupuesto.handsontable .ht_clone_top thead th,
+.tabla-presupuesto.handsontable .ht_clone_top_left_corner thead th,
+.tabla-presupuesto.handsontable .ht_master thead th,
+.tabla-presupuesto .handsontable thead th,
 .tabla-presupuesto .htCore thead th {
   font-size: 12px !important;
   font-weight: 600 !important;
   text-align: center !important;
-  border-bottom: 2px solid #000000 !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #000000 !important;
   background-color: #fff !important;
-}
-
-.tabla-presupuesto .htCore thead th .colHeader {
-  text-align: center !important;
 }
 
 /* ------------------------------------------
