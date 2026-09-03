@@ -1735,9 +1735,27 @@ p,
    ======================================== */
 
 /* ------------------------------------------
-   Tipografia compacta, negra y sin bordes interiores
+   Tipografia comun — TablaPresupuesto y gt
    ------------------------------------------ */
 
+.tabla-presupuesto .handsontable .htCore td,
+.tabla-presupuesto .handsontable .htCore th,
+.gt_table,
+.gt_table td,
+.gt_table th {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* Encabezados de tablas gt */
+.gt_table .gt_col_heading,
+.gt_table .gt_column_spanner {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* Celdas de TablaPresupuesto — texto negro y sin bordes interiores */
 .tabla-presupuesto .handsontable .htCore td,
 .tabla-presupuesto .handsontable .htCore th {
   color: #000 !important;
@@ -1762,7 +1780,7 @@ p,
 .tabla-presupuesto.handsontable thead th,
 .tabla-presupuesto .htCore thead th {
   font-size: 12px !important;
-  font-weight: bold !important;
+  font-weight: 600 !important;
   text-align: center !important;
   border-bottom: 2px solid #000000 !important;
   background-color: #fff !important;
