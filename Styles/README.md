@@ -8,7 +8,7 @@ El archivo `style.css` define estilos globales reutilizables entre aplicaciones.
 - Tipografía base y títulos.
 - Componentes UI (tabs, modales, popups, tarjetas).
 - Clases utilitarias para footers de cajas modales.
-- Estilos globales para tablas `reactable`.
+- Estilos globales para tablas `reactable`, `TablaPresupuesto` y `gt`.
 
 
 ## Tamaños de modales
