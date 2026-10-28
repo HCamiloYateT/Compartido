@@ -133,29 +133,30 @@ shiny::tags$img(src = "img/logo.png", alt = "Logo")
 Esta opción permite que cada aplicación fije y despliegue su propia copia de
 los assets. Si el repositorio se actualiza, las copias no se actualizan solas.
 
-### Opción B: servir el repositorio con `addResourcePath()`
+### Opción B: servir solo los directorios de recursos con `addResourcePath()`
 
 Si `Compartido` está disponible en el entorno donde se ejecuta la aplicación,
-se puede asignar un prefijo URL a su directorio raíz antes de construir la UI:
+se pueden registrar únicamente los tres directorios de recursos antes de construir la UI:
 
 ```r
 compartido_dir <- normalizePath("ruta/a/Compartido", mustWork = TRUE)
-shiny::addResourcePath("compartido", compartido_dir)
+shiny::addResourcePath("compartido-styles", file.path(compartido_dir, "Styles"))
+shiny::addResourcePath("compartido-scripts", file.path(compartido_dir, "Scripts"))
+shiny::addResourcePath("compartido-img", file.path(compartido_dir, "img"))
 
 ui <- shiny::fluidPage(
   shiny::tags$head(
     shiny::tags$link(
       rel = "stylesheet",
-      href = "compartido/Styles/style.css"
+      href = "compartido-styles/style.css"
     ),
-    shiny::tags$script(src = "compartido/Scripts/scripts")
+    shiny::tags$script(src = "compartido-scripts/scripts")
   ),
-  shiny::tags$img(src = "compartido/img/logo.png", alt = "Logo")
+  shiny::tags$img(src = "compartido-img/logo.png", alt = "Logo")
 )
 ```
 
-El prefijo `compartido` es una URL pública, no una carpeta que deba existir en
-la app. Esta alternativa evita copiar archivos, pero exige que la ruta esté
+Estos prefijos son URL públicas, no carpetas que deban existir dentro de la app. Esta alternativa evita copiar archivos, pero exige que la ruta esté
 presente y sea accesible en cada entorno de ejecución. No se debe exponer así
 el repositorio completo si contiene o llega a contener información sensible;
 en ese caso, registrar por separado solo `Styles/`, `Scripts/` e `img/`.
@@ -206,3 +207,58 @@ Cuando haya cambios relevantes, usar tags (`vMAJOR.MINOR.PATCH`):
 
 Responsable sugerido: el equipo de analítica/plataforma que gestione los assets
 compartidos y revise cambios en estilos, scripts, imágenes y utilidades.
+
+## Integración versionada con racafeForms 0.3.0
+
+La fuente de verdad de los nuevos componentes es Compartido. El paquete R aporta
+constructores y mensajes Shiny; los estilos e interacciones nuevos están aquí:
+
+- `ASSETS_VERSION`: versión del contrato de recursos, actualmente `1.0.0`.
+- `Styles/style.css`: punto de entrada compatible; importa `Styles/racafe-forms.css`.
+- `Scripts/scripts`: tooltips delegados e idempotentes para Bootstrap 3/4.
+- `Scripts/clipboard.js`: copia real de texto/PNG y resultado asíncrono a Shiny.
+- `Scripts/forms.js`: activación optativa de tarjetas y reset por binding Shiny.
+- `img/logo.png` y `img/logo2.png`: imágenes existentes, sin duplicarlas en el paquete R.
+
+Ejemplo de carga local, sin GitHub Raw durante la ejecución:
+
+```r
+assets <- racafeForms::racafeSharedAssets("vendor/Compartido", version = "1.0.0")
+ui <- shiny::fluidPage(
+  assets,
+  shiny::tags$img(src = paste0(attr(assets, "image_url"), "/logo.png"), alt = "Racafé"),
+  racafeForms::racafePanel("Información", racafeForms::racafeInfoItem("Estado", "Disponible"))
+)
+```
+
+El cargador publica **solo** Styles, Scripts e img con prefijos versionados; nunca
+publica la raíz, `.git` o utils. El cargador automatiza el registro acotado de directorios y versiona sus URL. También admite `RACAFE_SHARED_PATH` o la
+opción R `racafeForms.shared_path`. `css = FALSE`, `javascript = FALSE` e
+`images = FALSE` permiten desactivar cada grupo de recursos compartidos.
+
+Fije el commit o tag de Compartido durante el despliegue y solicite explícitamente
+la versión de `ASSETS_VERSION`. La función verifica la versión declarada; no verifica
+firmas Git ni descarga o actualiza archivos. Pruebe una revisión nueva antes de
+reemplazar la copia controlada en OEAPP. No se han modificado rutas de ese servidor.
+
+### Compatibilidad
+
+| Compartido | racafeForms | Uso |
+|---|---|---|
+| Revisión anterior sin ASSETS_VERSION | 0.2.1 o anterior | Integración manual anterior. |
+| 1.0.0 | 0.3.0 | Cargador local y componentes nuevos. |
+| No cargado | 0.3.0 | API previa y estilos base conservados. |
+
+El portapapeles requiere HTTPS o localhost, permisos del navegador y soporte de
+ClipboardItem para PNG. El resultado real llega a Shiny; una denegación no se informa
+como éxito. El sistema no registra texto, imágenes ni datos personales en consola.
+
+### Validación de integración
+
+La demo y las pruebas de navegador se mantienen en
+`Libreria-Racafe/racafeForms/inst/examples/corporate-components.R` y
+`Libreria-Racafe/racafeForms/tests/browser/test-corporate-components.cjs`.
+Permiten probar Shiny, bs4Dash, módulos simultáneos, UI dinámica, los siete tamaños
+de modal, descarga nativa, copia de texto/PNG, errores de permisos, móvil y ausencia
+de peticiones externas. El informe de resultados se guarda junto a la documentación
+de racafeForms; no se modifica Firma Digital.
