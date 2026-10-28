@@ -262,3 +262,10 @@ Permiten probar Shiny, bs4Dash, módulos simultáneos, UI dinámica, los siete t
 de modal, descarga nativa, copia de texto/PNG, errores de permisos, móvil y ausencia
 de peticiones externas. El informe de resultados se guarda junto a la documentación
 de racafeForms; no se modifica Firma Digital.
+
+## Correo corporativo
+
+[`email/`](email/) contiene las cuatro plantillas y la configuración R de `racafeMail` 0.1.0.
+El motor vive exclusivamente en `Libreria-Racafe/racafeMail`; no se publica esta carpeta
+como recursos web ni se envían correos al instalarla. Su contrato tiene versión propia
+en `email/VERSION`, independiente de los recursos de formularios.

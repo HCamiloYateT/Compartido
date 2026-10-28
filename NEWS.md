@@ -1,3 +1,10 @@
+# Correo 0.1.0
+
+- Añade email/config.R, VERSION, base y firma común para racafeMail.
+- Añade invitación, OTP, notificación y confirmación con HTML de tablas y estilos inline.
+- Centraliza colores y URLs de marca; conserva el motor únicamente en Libreria-Racafe.
+- Añade guía de instalación versionada, validación y rollback sin cambios de servicios.
+
 # Recursos 1.0.0
 
 - Añade ASSETS_VERSION para consumo local versionado desde racafeForms 0.3.0.
