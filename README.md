@@ -269,3 +269,17 @@ de racafeForms; no se modifica Firma Digital.
 El motor vive exclusivamente en `Libreria-Racafe/racafeMail`; no se publica esta carpeta
 como recursos web ni se envían correos al instalarla. Su contrato tiene versión propia
 en `email/VERSION`, independiente de los recursos de formularios.
+
+## Componentes visuales racafeForms 0.4.0
+
+`ASSETS_VERSION` 1.1.0 añade el badge semántico, densidades de tarjeta/indicador,
+altura por contenido y uniformidad de campos. Use la copia local fijada a un commit
+aprobado y `racafeSharedAssets(version = "1.1.0")`. El cargador y los scripts existentes
+se reutilizan; no registre JavaScript adicional por módulo.
+
+Los colores `--color-success`, `--color-warning`, `--color-info` y los colores rojos/grises
+existentes alimentan los badges. Los badges de entorno anteriores conservan sus colores.
+La paleta inicial de estados tiene contraste de texto >= 4,5:1; compruébelo de nuevo si
+personaliza los tokens. Las dimensiones y fuentes de componentes permanecen en
+`Styles/racafe-forms.css`, usando la identidad corporativa de `Styles/style.css`.
+Los siete tamaños de modal y los recursos de racafeMail no cambian.
