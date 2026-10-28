@@ -223,7 +223,7 @@ constructores y mensajes Shiny; los estilos e interacciones nuevos están aquí:
 Ejemplo de carga local, sin GitHub Raw durante la ejecución:
 
 ```r
-assets <- racafeForms::racafeSharedAssets("vendor/Compartido", version = "1.0.0")
+assets <- racafeForms::racafeSharedAssets("vendor/Compartido", version = "1.1.0")
 ui <- shiny::fluidPage(
   assets,
   shiny::tags$img(src = paste0(attr(assets, "image_url"), "/logo.png"), alt = "Racafé"),
