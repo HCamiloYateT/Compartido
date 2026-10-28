@@ -1,3 +1,10 @@
+# Recursos 1.1.0
+
+- Amplía los estilos de racafeForms 0.4.0 con badges semánticos y densidades de tarjeta/indicador.
+- Centraliza tokens de controles y colores semánticos; conserva los valores existentes de badges de entorno.
+- Evita estirar tarjetas vecinas, uniforma campos dentro/fuera del formulario y mejora el wrap de acciones.
+- Reutiliza las dimensiones corporativas de modal y los scripts de portapapeles/reset sin duplicarlos.
+
 # Correo 0.1.0
 
 - Añade email/config.R, VERSION, base y firma común para racafeMail.
