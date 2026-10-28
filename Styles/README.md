@@ -38,3 +38,21 @@ Todos los tamaños usan límites responsivos en `vw` para no desbordar pantallas
 1. Confirmar que no se degradan pantallas existentes.
 2. Revisar que colores y tipografía mantengan coherencia visual.
 3. Verificar en resolución desktop (mínimo) y, si aplica, móvil.
+
+## Componentes racafeForms (recursos 1.0.0)
+
+`style.css` conserva las reglas anteriores e importa `racafe-forms.css` como módulo.
+Este módulo añade exclusivamente variables `--rf-*` y clases `rf-*` para paneles,
+tarjetas, métricas, cuadrículas informativas, barras de acciones, validación, campos
+readonly y mensajes. Los colores y las familias de fuente proceden de las variables
+y tipografías corporativas del propio `style.css`; no descarga fuentes ni recursos externos.
+
+Los modales usan las clases de tamaño de la tabla anterior directamente. No se
+mantiene una segunda tabla de anchos en racafeForms ni se busca contenido mediante JS.
+Las nuevas reglas de contenido están acotadas a `.rf-modal`. Las reglas globales
+anteriores se conservan para no cambiar las aplicaciones existentes.
+
+La adopción es explícita con `racafeForms::racafeSharedAssets()`. Las aplicaciones
+que continúen usando solo los assets base de racafeForms conservan su apariencia.
+Dentro de aplicaciones que adopten Compartido, el acento usa `--color-red-primary`
+y la tipografía corporativa, con alternativas locales si no están instaladas las fuentes.
