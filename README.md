@@ -3,10 +3,9 @@
 Repositorio de **recursos compartidos** para aplicaciones de analítica y
 prototipos de dashboards, especialmente aplicaciones Shiny.
 
-> **Alcance actual:** este repositorio no contiene una aplicación Shiny ni una
-> plantilla `bs4Dash` ejecutable. Proporciona assets y utilidades que deben
-> integrarse en una aplicación existente. Por tanto, no se puede ejecutar con
-> `shiny::runApp()` por sí solo.
+> **Alcance actual:** este repositorio proporciona assets y utilidades para aplicaciones
+> existentes. La raíz no es una aplicación Shiny. Incluye una app mínima de regresión
+> en `tests/styles-regression/`, sin servicios externos ni datos empresariales.
 
 ## Objetivo
 
@@ -27,12 +26,17 @@ Compartido/
 │   └── scripts
 ├── Styles/
 │   ├── README.md
-│   └── style.css
+│   ├── tokens.css
+│   ├── racafe-forms.css
+│   ├── components.css
+│   ├── application.css
+│   └── style.css (generado)
 ├── img/
 │   ├── Readme.md
 │   ├── logo.png
 │   └── logo2.png
 └── utils/
+    ├── build_styles.R
     └── dane_utils.R
 ```
 
@@ -214,7 +218,7 @@ La fuente de verdad de los nuevos componentes es Compartido. El paquete R aporta
 constructores y mensajes Shiny; los estilos e interacciones nuevos están aquí:
 
 - `ASSETS_VERSION`: versión del contrato de recursos, actualmente `1.0.0`.
-- `Styles/style.css`: punto de entrada compatible; importa `Styles/racafe-forms.css`.
+- `Styles/style.css`: punto de entrada autocontenido, generado con tokens, componentes y reglas generales.
 - `Scripts/scripts`: tooltips delegados e idempotentes para Bootstrap 3/4.
 - `Scripts/clipboard.js`: copia real de texto/PNG y resultado asíncrono a Shiny.
 - `Scripts/forms.js`: activación optativa de tarjetas y reset por binding Shiny.
@@ -291,3 +295,42 @@ usar componentes corporativos en bs4Dash sin alterar el layout, los títulos o l
 errores de Shiny de la aplicación. `style.css` conserva sus reglas generales y
 reutiliza la misma fuente de variables. El rojo principal se fija en `#DA291C`.
 La galería de racafeForms incluye una instantánea de estos recursos para funcionar localmente.
+
+## CSS autocontenido para includeCSS
+
+`Styles/style.css` es un archivo generado y autocontenido. Las aplicaciones existentes
+pueden conservar exactamente su llamada actual, sin modificar body.R ni ui.R:
+
+```r
+shiny::includeCSS(
+  "https://raw.githubusercontent.com/HCamiloYateT/Compartido/refs/heads/main/Styles/style.css"
+)
+```
+
+Para obtener este comportamiento en producción debe integrarse primero la corrección en
+main. En pruebas utilice `shiny::includeCSS("/ruta/a/Compartido/Styles/style.css")`.
+No depende de que el navegador pueda resolver imports relativos desde una etiqueta style.
+
+Edite únicamente las fuentes: `tokens.css`, `racafe-forms.css` y `application.css`.
+Después reconstruya y compruebe el archivo generado, que también se incluye en Git:
+
+```sh
+Rscript utils/build_styles.R
+Rscript utils/build_styles.R --check
+Rscript tests/test-build-styles.R
+```
+
+El script funciona desde cualquier directorio, no requiere paquetes adicionales y produce
+UTF-8 con finales LF. Conserva el orden indicado, comentarios y selectores, y no reescribe
+un resultado idéntico. Rechaza imports no consolidados y fuentes ausentes; nunca lee
+style.css como fuente. CI comprueba que el resultado no esté desactualizado.
+
+`components.css` conserva su función independiente para consumidores que cargan CSS como
+recurso URL con rutas relativas disponibles. **No es la alternativa a style.css para
+includeCSS()**: su estructura de imports es intencional. El CSS de componentes sigue acotado
+a clases rf- y variables corporativas. No se cambian los selectores de navegación existentes
+ni las reglas de AdminLTE/Bootstrap.
+
+Consulte la [guía de construcción y regresión](Styles/README.md#construcción-y-regresión).
+La app mínima incluye sidebar con submenús, navbar, footer, tarjetas y formularios modulares.
+No se ha modificado CRM Nacional ni ninguna aplicación consumidora.

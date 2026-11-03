@@ -1,6 +1,7 @@
 # Guía de estilos compartidos
 
-El archivo `style.css` define estilos globales reutilizables entre aplicaciones.
+El archivo generado `style.css` reúne los estilos corporativos en un único CSS compatible
+con includeCSS(). No debe editarse directamente.
 
 ## Bloques principales incluidos
 
@@ -41,7 +42,8 @@ Todos los tamaños usan límites responsivos en `vw` para no desbordar pantallas
 
 ## Componentes racafeForms (recursos 1.0.0)
 
-`style.css` conserva las reglas anteriores e importa `racafe-forms.css` como módulo.
+`style.css` contiene tokens, reglas de `racafe-forms.css` y reglas generales de
+`application.css`, en ese orden y sin imports relativos.
 Este módulo añade exclusivamente variables `--rf-*` y clases `rf-*` para paneles,
 tarjetas, métricas, cuadrículas informativas, barras de acciones, validación, campos
 readonly y mensajes. Los colores y las familias de fuente proceden de las variables
@@ -56,3 +58,64 @@ La adopción es explícita con `racafeForms::racafeSharedAssets()`. Las aplicaci
 que continúen usando solo los assets base de racafeForms conservan su apariencia.
 Dentro de aplicaciones que adopten Compartido, el acento usa `--color-red-primary`
 y la tipografía corporativa, con alternativas locales si no están instaladas las fuentes.
+
+## Construcción y regresión
+
+| Archivo | Función |
+| --- | --- |
+| tokens.css | Variables corporativas; rojo principal #DA291C |
+| racafe-forms.css | Componentes limitados a clases rf- y variables --rf-* |
+| application.css | Reglas generales anteriores, sin cambios de selectores |
+| style.css | Resultado generado autocontenido para includeCSS o link |
+| components.css | Entrada independiente mediante imports, para recursos servidos por URL |
+| ../utils/build_styles.R | Construcción y verificación sin dependencias adicionales |
+
+Desde la raíz del repositorio:
+
+```sh
+Rscript utils/build_styles.R
+Rscript utils/build_styles.R --check
+Rscript tests/test-build-styles.R --reference=/tmp/compartido-reference.css
+```
+
+También puede invocar el script por ruta absoluta desde otro directorio, o pasar una raíz
+alternativa como último argumento. --check devuelve un error si falta style.css o no coincide
+con sus fuentes; no modifica el archivo. No usa timestamps ni el contenido del destino para
+generar la salida, por lo que no acumula reglas. La construcción elimina únicamente imports
+incondicionales de las fuentes consolidadas; rechaza otros imports para evitar un bundle
+incompleto. No modifica comentarios ni literales que contengan el texto @import.
+
+La referencia de navegador utiliza el commit `38b65d4`, anterior a esta corrección, expandiendo
+sus imports en el orden solicitado. Se genera fuera del repositorio: no se mantiene una
+segunda copia manual de CSS. Requiere disponer de ese commit en Git.
+
+Instale shiny, bs4Dash, htmltools y la revisión de racafeForms que incluye variantes y
+racafeInputDateTime. Para las pruebas de navegador instale Playwright y Chromium. La app
+mínima usa el mismo `includeCSS()` inline que los consumidores; no llama al loader de
+Compartido ni añade CSS de corrección local.
+
+```sh
+COMPARTIDO_REFERENCE_CSS=/tmp/compartido-reference.css Rscript -e \
+  'shiny::runApp("tests/styles-regression", port=4011, launch.browser=FALSE)'
+COMPARTIDO_TEST_URL=http://127.0.0.1:4011 node tests/browser/test-styles.cjs
+```
+
+El test admite NODE_PATH, CHROMIUM_PATH y CI=1. `?mode=reference` abre el CSS de referencia;
+la URL predeterminada usa el generado. `?forms=0` permite comprobar que añadir formularios
+no altera el sidebar. La referencia y el generado deben producir las mismas reglas CSSOM,
+estilos calculados y captura del sidebar. Se prueban menús activos/inactivos, submenús,
+marca, header, content y footer, y se repite la comparación en móvil. Se verifican controles,
+calendario fecha-hora, mensajes, modal y las nueve variantes/densidades del formulario.
+
+No se demuestra una comparación con CRM Nacional: no se modificó ni ejecutó esa aplicación.
+Las reglas generales heredadas, incluida su tipografía, navegación y modales, se conservan;
+la corrección restaura su acceso a las variables al cargar inline. Las nuevas reglas rf-
+no se extienden a iconos, menús ni controles ajenos. components.css sigue requiriendo un
+contexto URL para sus imports; use style.css con includeCSS().
+
+Resultados de esta corrección: **26 comprobaciones R** y **69 comprobaciones de navegador**
+superadas con Chromium. La captura del sidebar coincide píxel a píxel con la referencia
+expandida de 38b65d4; las reglas CSSOM y los estilos calculados de los selectores indicados
+son iguales. No se registraron errores JavaScript, fallos HTTP ni solicitudes de los imports
+relativos incorporados. Se conserva íntegramente el contenido de las tres fuentes originales,
+exceptuando los dos imports retirados al separar application.css.
