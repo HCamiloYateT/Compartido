@@ -1,0 +1,17 @@
+name: Estilos autocontenidos
+on:
+  pull_request:
+    paths: ['Styles/**', 'utils/build_styles.R', 'tests/test-build-styles.R', '.github/workflows/styles.yml']
+  push:
+    branches: [main]
+    paths: ['Styles/**', 'utils/build_styles.R', 'tests/test-build-styles.R', '.github/workflows/styles.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+      - run: Rscript utils/build_styles.R --check
+      - run: Rscript tests/test-build-styles.R

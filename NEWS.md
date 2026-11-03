@@ -1,3 +1,12 @@
+# Compatibilidad CSS con includeCSS (sin nueva versión)
+
+- Genera Styles/style.css autocontenido a partir de tokens, componentes rf- y application.css.
+- Conserva las reglas, comentarios y selectores de navegación y formularios existentes.
+- Añade construcción determinista/idempotente, --check y verificación automática en CI.
+- Mantiene tokens.css, racafe-forms.css y components.css como recursos independientes.
+- Incluye app de regresión bs4Dash con includeCSS y pruebas de construcción/navegador.
+- No modifica aplicaciones consumidoras ni incrementa ASSETS_VERSION.
+
 # Recursos 1.1.0
 
 - Amplía los estilos de racafeForms 0.4.0 con badges semánticos y densidades de tarjeta/indicador.
