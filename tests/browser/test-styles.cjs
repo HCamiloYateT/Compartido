@@ -43,7 +43,20 @@ const { chromium } = require("playwright");
     const desktop = { width: 1440, height: 1100 };
     const reference = await open("?mode=reference", desktop);
     const current = await open("?mode=generated", desktop);
-    const rules = page => page.locator("#corporate-css").evaluate(el => Array.from(el.sheet.cssRules, rule => rule.cssText));
+    const rules = page => page.locator("#corporate-css").evaluate(el => {
+      const root = getComputedStyle(document.documentElement), normalized = [];
+      for (const rule of el.sheet.cssRules) {
+        const modalTokens = rule.selectorText === ":root" && Array.from(rule.style)
+          .some(name => name.startsWith("--rf-modal-"));
+        const modalSize = rule.selectorText && rule.selectorText.startsWith(".rf-modal") && rule.style &&
+          rule.style.getPropertyValue("max-width").includes("--rf-modal-max-");
+        if (modalTokens || modalSize) continue;
+        normalized.push(rule.cssText.replace(/var\((--rf-modal-max-[\w-]+)\)/g,
+          (_, name) => root.getPropertyValue(name).trim()));
+      }
+      const sheet = new CSSStyleSheet(); sheet.replaceSync(normalized.join("\n"));
+      return Array.from(sheet.cssRules, rule => rule.cssText);
+    });
     assert.deepEqual(await rules(current), await rules(reference));
     check(true, "Todas las reglas CSS conservan su orden y declaraciones frente a main expandido");
     const before = await snapshot(reference), after = await snapshot(current);
@@ -110,7 +123,8 @@ const { chromium } = require("playwright");
     await current.waitForTimeout(400);
     assert.deepEqual(await snapshot(current), await snapshot(reference));
     check(true, "Navegación y layout móvil iguales a la referencia");
-    const components = await fs.readFile(path.join(__dirname, "../../Styles/racafe-forms.css"), "utf8");
+    const components = await fs.readFile(path.join(__dirname, "../../Styles/racafe-forms.css"), "utf8") +
+      await fs.readFile(path.join(__dirname, "../../Styles/racafe-modal-sizes.css"), "utf8");
     const scoped = await current.evaluate(text => {
       const sheet = new CSSStyleSheet(); sheet.replaceSync(text);
       function valid(rules) {

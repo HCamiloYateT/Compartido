@@ -42,8 +42,8 @@ Todos los tamaños usan límites responsivos en `vw` para no desbordar pantallas
 
 ## Componentes racafeForms (recursos 1.0.0)
 
-`style.css` contiene tokens, reglas de `racafe-forms.css` y reglas generales de
-`application.css`, en ese orden y sin imports relativos.
+`style.css` contiene tokens, componentes RF, tamaños RF (`racafe-modal-sizes.css`)
+y reglas generales (`application.css`), en ese orden y sin imports relativos.
 Este módulo añade exclusivamente variables `--rf-*` y clases `rf-*` para paneles,
 tarjetas, métricas, cuadrículas informativas, barras de acciones, validación, campos
 readonly y mensajes. Los colores y las familias de fuente proceden de las variables
@@ -65,6 +65,7 @@ y la tipografía corporativa, con alternativas locales si no están instaladas l
 | --- | --- |
 | tokens.css | Variables corporativas; rojo principal #DA291C |
 | racafe-forms.css | Componentes limitados a clases rf- y variables --rf-* |
+| racafe-modal-sizes.css | Variables y tamaños RF precargables, sin modificar modales ajenos |
 | application.css | Reglas generales anteriores, sin cambios de selectores |
 | style.css | Resultado generado autocontenido para includeCSS o link |
 | components.css | Entrada independiente mediante imports, para recursos servidos por URL |
@@ -119,3 +120,20 @@ expandida de 38b65d4; las reglas CSSOM y los estilos calculados de los selectore
 son iguales. No se registraron errores JavaScript, fallos HTTP ni solicitudes de los imports
 relativos incorporados. Se conserva íntegramente el contenido de las tres fuentes originales,
 exceptuando los dos imports retirados al separar application.css.
+
+## Precarga y fuente canónica de modales
+
+racafe-modal-sizes.css reúne las dimensiones existentes en variables --rf-modal-max-* y
+reglas limitadas a .rf-modal. El constructor lee esa cuarta fuente antes de application.css;
+los selectores heredados de tamaño usan las mismas variables, sin cambiar sus límites.
+El resultado generado sigue siendo autocontenido. No se cambian los estilos de navegación.
+
+racafeForms distribuye este archivo idéntico en inst/www y gallery-assets/Styles, cargándolo
+en su dependencia inicial. La galería usa esa precarga; showModal tiene además una espera
+segura cuando una aplicación todavía no incluyó componentes RF al iniciar.
+
+La regresión compara las declaraciones generales con las anteriores resolviendo las nuevas
+variables de dimensiones y excluyendo únicamente los nuevos tokens/reglas RF de tamaño.
+Los estilos calculados y la imagen del sidebar siguen comparándose íntegramente. Pasan
+27 comprobaciones de construcción y 69 de navegador; el nuevo caso modal/controlbar pasa
+58 verificaciones. La revisión se entrega mediante PR sin cambiar ASSETS_VERSION.
