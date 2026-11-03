@@ -1,3 +1,10 @@
+# Modales precargables (sin publicar)
+
+- Centraliza dimensiones de modal RF y las reutiliza en los selectores heredados sin cambiar valores.
+- Incluye la fuente de tamaños en style.css autocontenido y en components.css para cargas URL.
+- Mantiene las reglas nuevas acotadas a rf-, sin modificar navegación ni Bootstrap global.
+- Conserva la construcción determinista y amplía las pruebas de compatibilidad.
+
 # Compatibilidad CSS con includeCSS (sin nueva versión)
 
 - Genera Styles/style.css autocontenido a partir de tokens, componentes rf- y application.css.

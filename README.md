@@ -29,6 +29,7 @@ Compartido/
 │   ├── tokens.css
 │   ├── racafe-forms.css
 │   ├── components.css
+│   ├── racafe-modal-sizes.css
 │   ├── application.css
 │   └── style.css (generado)
 ├── img/
@@ -311,7 +312,8 @@ Para obtener este comportamiento en producción debe integrarse primero la corre
 main. En pruebas utilice `shiny::includeCSS("/ruta/a/Compartido/Styles/style.css")`.
 No depende de que el navegador pueda resolver imports relativos desde una etiqueta style.
 
-Edite únicamente las fuentes: `tokens.css`, `racafe-forms.css` y `application.css`.
+Edite únicamente las fuentes: `tokens.css`, `racafe-forms.css`, `racafe-modal-sizes.css`
+y `application.css`.
 Después reconstruya y compruebe el archivo generado, que también se incluye en Git:
 
 ```sh
@@ -334,3 +336,14 @@ ni las reglas de AdminLTE/Bootstrap.
 Consulte la [guía de construcción y regresión](Styles/README.md#construcción-y-regresión).
 La app mínima incluye sidebar con submenús, navbar, footer, tarjetas y formularios modulares.
 No se ha modificado CRM Nacional ni ninguna aplicación consumidora.
+
+## Tamaños de modal compartidos
+
+`Styles/racafe-modal-sizes.css` es la fuente única de dimensiones de modales RF. El bundle
+style.css incluye esas reglas antes de application.css; sigue siendo compatible con
+includeCSS() sin imports relativos. Los selectores generales antiguos conservan sus valores
+mediante las variables canónicas. components.css también importa el archivo para recursos URL.
+La misma fuente se distribuye con racafeForms y se precarga con racafeFormsDependencies().
+Las copias del paquete deben mantenerse idénticas: no mantenga otra tabla de anchos.
+No se modifican sidebar, navbar o clases de Bootstrap ajenas; las reglas nuevas usan rf-.
+Esta revisión se entrega mediante PR; no incrementa ASSETS_VERSION ni publica una versión de recursos.
