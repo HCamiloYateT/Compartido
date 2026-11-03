@@ -283,3 +283,11 @@ La paleta inicial de estados tiene contraste de texto >= 4,5:1; compruébelo de 
 personaliza los tokens. Las dimensiones y fuentes de componentes permanecen en
 `Styles/racafe-forms.css`, usando la identidad corporativa de `Styles/style.css`.
 Los siete tamaños de modal y los recursos de racafeMail no cambian.
+
+## Componentes sin estilos globales
+
+`Styles/components.css` carga únicamente `tokens.css` y `racafe-forms.css`. Permite
+usar componentes corporativos en bs4Dash sin alterar el layout, los títulos o los
+errores de Shiny de la aplicación. `style.css` conserva sus reglas generales y
+reutiliza la misma fuente de variables. El rojo principal se fija en `#DA291C`.
+La galería de racafeForms incluye una instantánea de estos recursos para funcionar localmente.
