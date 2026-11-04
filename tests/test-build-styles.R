@@ -12,7 +12,7 @@ checks <- 0L
 .read <- function(path) readBin(path, "raw", n = file.info(path)$size)
 fixture <- tempfile("styles con espacios ")
 dir.create(file.path(fixture, "Styles"), recursive = TRUE)
-sources <- c("tokens.css", "racafe-forms.css", "racafe-modal-sizes.css", "application.css")
+sources <- c("tokens.css", "racafe-forms.css", "racafe-modal-sizes.css", "racafe-controls.css", "application.css")
 invisible(file.copy(file.path(root, "Styles", sources), file.path(fixture, "Styles")))
 
 # Determinismo, precedencia y conservación literal de fuentes ----
