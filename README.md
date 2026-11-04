@@ -347,3 +347,109 @@ La misma fuente se distribuye con racafeForms y se precarga con racafeFormsDepen
 Las copias del paquete deben mantenerse idénticas: no mantenga otra tabla de anchos.
 No se modifican sidebar, navbar o clases de Bootstrap ajenas; las reglas nuevas usan rf-.
 Esta revisión se entrega mediante PR; no incrementa ASSETS_VERSION ni publica una versión de recursos.
+
+## Controlbar bs4Dash: interacciones compartidas
+
+`Scripts/controlbar.js` mantiene abierto el controlbar al usar sus controles y los emergentes
+asociados. No fija el panel ni modifica `data-pin`. Conserva los botones del navbar, el cierre
+por clic fuera y los handlers de Shiny, Bootstrap y AdminLTE en el propio documento.
+No requiere IDs de una aplicación y no hace nada con los clics si no hay un panel abierto.
+
+La referencia URL solicitada, disponible después de integrar estos cambios en main, es:
+
+```r
+shiny::tags$head(
+  shiny::tags$script(
+    src = paste0(
+      "https://raw.githubusercontent.com/HCamiloYateT/",
+      "Compartido/refs/heads/main/Scripts/controlbar.js"
+    )
+  )
+)
+```
+
+GitHub Raw responde con `Content-Type: text/plain` y `X-Content-Type-Options: nosniff`,
+por lo que el navegador puede bloquear ese `src`. Para ejecutar el script de forma fiable,
+use una copia local (la opción utilizada por la demo):
+
+```r
+shiny::tags$head(shiny::includeScript("/ruta/Compartido/Scripts/controlbar.js"))
+```
+
+También puede servirlo mediante `addResourcePath()` con MIME JavaScript, o leer la URL desde
+R con `shiny::includeScript(URL)`. La inclusión es explícita: no se cambia `Scripts/scripts`
+ni se incorpora automáticamente el recurso en las aplicaciones existentes.
+
+### Alcance de la protección
+
+El controlador se registra una vez por página. La fase de captura registra el origen sin bloquear
+eventos. En fase bubble de `document`, solo
+detiene la subida a `window` de clics internos o de popups asociados; nunca utiliza
+`preventDefault()` ni `stopImmediatePropagation()`. Así conserva los handlers del documento,
+incluidos la selección del picker, el cierre de modales y los bindings reactivos de Shiny.
+Los clics externos continúan hasta el cierre nativo de bs4Dash.
+
+La procedencia se reconoce al abrir el emergente desde el panel y, cuando existe, mediante
+`aria-controls`, `aria-owns` o el identificador del select original. No se protege indiscriminadamente
+cualquier modal abierto. Un modal ajeno sigue siendo externo al controlbar. Los botones nativos
+`controlbar-toggle` y `controlbarPin` se reconocen como controles de bs4Dash; no son IDs de negocio.
+
+Además de los selectores iniciales de modales/calendarios, la inspección de racafeForms identificó:
+
+- `.air-datepicker`: calendario de `racafeInputDate()` y fecha/hora de shinyWidgets.
+- `.bs-container`: menú de `pickerInput(container = "body")` fuera del panel.
+- `.rf-select-menu`: menú corporativo en portal, con referencia `data-rf-select-id` al select original.
+
+Los rangos actuales de racafeForms utilizan el datepicker Bootstrap, ya cubierto por
+`.datepicker` y `.datepicker-dropdown`. La protección admite también las familias Select2,
+Flatpickr, jQuery UI, daterangepicker, datetimepicker, clockpicker y SweetAlert indicadas
+por sus clases específicas. Los controles incorporados con `renderUI()` se reconocen sin
+registrar listeners por input ni repetir el controlador.
+
+### Demo y pruebas locales
+
+Requiere `shiny`, `bs4Dash` y `shinyWidgets`; `racafeForms` es opcional para `?rf=1`.
+Desde la raíz de Compartido:
+
+```r
+shiny::runApp("tests/controlbar", port = 4061)
+```
+
+- `/`: controles nativos, picker simple/múltiple con búsqueda y portal, texto y número,
+  Air Datepicker, rango, confirmación, tabs y selector reconstruido con `renderUI()`.
+- `/?rf=1`: los mismos casos con componentes de racafeForms y confirmación SweetAlert.
+- `/?bar=0`: aplicación sin controlbar.
+- `/?script=0`: comparación sin el controlador para reproducir el cierre al editar un modal asociado.
+
+La demo carga `Styles/style.css` mediante `includeCSS()` y el script local mediante
+`includeScript()`. No tiene persistencia ni conexiones empresariales.
+
+Instale Playwright en un entorno de pruebas (`npm install --no-save playwright@1.62.1` y
+`npx playwright install chromium`) y, con la app abierta, ejecute:
+
+```sh
+node tests/browser/test-controlbar.cjs
+Rscript tests/test-build-styles.R
+Rscript utils/build_styles.R --check
+```
+
+Se admiten `COMPARTIDO_CONTROLBAR_URL` y `CHROMIUM_PATH` para una URL o Chromium ya instalado.
+La prueba de navegador comprueba bindings, selector dinámico, tabs, confirmación, cierres nativos,
+repetición del script, popups asociados/ajenos, ausencia de controlbar y alcance del CSS del Cotizador.
+
+## Estilos del Cotizador
+
+Las clases `.cotizador-producto-grid`, `.cot-product-total` y `.cot-resumen-modal` se conservan
+en `Styles/application.css`, con sus valores originales. El bundle `Styles/style.css` se genera
+con `Rscript utils/build_styles.R`; no debe editarse manualmente. Las reglas de tablas están
+limitadas a `.cot-resumen-modal .cot-resumen-tabla`, sin afectar otras tablas ni añadir `!important`.
+No se ha modificado CRM Nacional ni retirado CSS de sus archivos.
+
+Una revisión posterior puede evaluar el espaciado como `racafeStack()`, el total como
+`racafeMoneyTotal()` y la tabla como `racafeSummaryTable()`. La altura máxima de 55vh del resumen
+necesitaría un contenedor general desplazable. Esta tarea conserva el comportamiento y no realiza
+esas sustituciones ni modifica racafeForms.
+
+Validación local de esta revisión: 51 comprobaciones de interacciones/bindings/popups/Cotizador,
+28 de construcción determinista y 69 de regresión CSS/bs4Dash. Se verificó la inclusión con
+`includeCSS()` y se conservaron las reglas anteriores y la apariencia del sidebar.

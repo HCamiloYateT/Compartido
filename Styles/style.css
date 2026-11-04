@@ -2345,4 +2345,42 @@ p,
     gap: 4px;
   }
 }
+
+/* Cotizador ---- */
+.cotizador-producto-grid + .cotizador-producto-grid {
+  margin-top: 10px;
+}
+
+.cot-product-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-top: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.cot-product-total .shiny-html-output {
+  margin: 0;
+}
+
+.cot-resumen-modal {
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.cot-resumen-modal .cot-resumen-tabla,
+.cot-resumen-modal .cot-resumen-tabla table {
+  font-size: 11px;
+}
+
+.cot-resumen-modal .cot-resumen-tabla th {
+  font-size: 10.5px;
+}
+
+.cot-resumen-modal .cot-resumen-tabla th,
+.cot-resumen-modal .cot-resumen-tabla td {
+  padding: 4px 5px;
+}
 /* FIN Styles/application.css */
