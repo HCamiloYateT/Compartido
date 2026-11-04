@@ -53,10 +53,18 @@ ui <- function(request) {
       racafeForms::racafePanel("Formulario corporativo", forms),
       racafeForms::racafeMetricGrid(racafeForms::racafeMetric(12, "Pedidos"),
                                    racafeForms::racafeMetric(4, "Clientes"), columns = 2)),
+    controlbar = bs4Dash::dashboardControlbar(
+      .form_ui("bar", "compact", "plain"),
+      racafeForms::racafeStack(
+        racafeForms::racafeSummaryTable(data.frame(Producto = "Café", Importe = 1234.56)),
+        racafeForms::racafeMoneyTotal("Total", 1234.56),
+        racafeForms::racafeNoticeList("Advertencia informativa", "warning")),
+      id = "regression_controlbar", width = 440, pinned = FALSE),
     footer = bs4Dash::dashboardFooter(left = "Racafé · Prueba local", right = "Sin datos empresariales"))
   shiny::tagList(htmltools::suppressDependencies("googlefonts", "ionicons"), page)
 }
 server <- function(input, output, session) {
+  .form_server("bar", "compact", "plain")
   for (i in seq_len(nrow(.combinations))) .form_server(paste0("demo", i),
     .combinations$size[[i]], .combinations$variant[[i]])
 }

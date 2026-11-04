@@ -40,7 +40,7 @@
       match <- regmatches(remaining, regexec(pattern, remaining, perl = TRUE))[[1]]
       if (length(match)) {
         target <- sub("^[.]/", "", paste0(match[[2]], match[[3]]))
-        if (!target %in% c("tokens.css", "racafe-forms.css", "racafe-modal-sizes.css", "application.css")) {
+        if (!target %in% c("tokens.css", "racafe-forms.css", "racafe-modal-sizes.css", "racafe-controls.css", "application.css")) {
           stop("Import no autocontenido en ", source, ": ", target, call. = FALSE)
         }
         end <- i + nchar(match[[1]]) - 1L
@@ -60,7 +60,7 @@
 # Las fuentes nunca incluyen el archivo de destino ----
 .build_styles <- function(root, check = FALSE) {
   root <- normalizePath(root, winslash = "/", mustWork = TRUE)
-  sources <- file.path("Styles", c("tokens.css", "racafe-forms.css", "racafe-modal-sizes.css", "application.css"))
+  sources <- file.path("Styles", c("tokens.css", "racafe-forms.css", "racafe-modal-sizes.css", "racafe-controls.css", "application.css"))
   paths <- file.path(root, sources)
   missing <- sources[!file.exists(paths) | dir.exists(paths)]
   if (length(missing)) stop("Faltan fuentes CSS: ", paste(missing, collapse = ", "), call. = FALSE)
@@ -75,7 +75,7 @@
     paste0("/* INICIO ", sources[[i]], " */\n", text, "\n/* FIN ", sources[[i]], " */\n")
   }, character(1))
   header <- paste0("/* ARCHIVO GENERADO: no editar. Fuentes: tokens.css, racafe-forms.css, ",
-                   "racafe-modal-sizes.css, application.css.\n",
+                   "racafe-modal-sizes.css, racafe-controls.css, application.css.\n",
                    "   Reconstruir: Rscript utils/build_styles.R\n",
                    "   Compatible con includeCSS(): no depende de imports relativos. */\n\n")
   bytes <- charToRaw(enc2utf8(paste0(header, paste(sections, collapse = "\n"))))

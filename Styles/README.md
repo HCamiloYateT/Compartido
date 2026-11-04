@@ -137,3 +137,19 @@ variables de dimensiones y excluyendo únicamente los nuevos tokens/reglas RF de
 Los estilos calculados y la imagen del sidebar siguen comparándose íntegramente. Pasan
 27 comprobaciones de construcción y 69 de navegador; el nuevo caso modal/controlbar pasa
 58 verificaciones. La revisión se entrega mediante PR sin cambiar ASSETS_VERSION.
+
+## Controles y resúmenes corporativos
+
+`racafe-controls.css` centraliza menús picker, mayúsculas visuales, checks rojos, tablas compactas,
+totales, separación vertical, listas de avisos y advertencias de validación. Solo utiliza clases rf-.
+Los tamaños de modal permanecen en su archivo canónico racafe-modal-sizes.css.
+
+`style.css` consolida tokens, racafe-forms, racafe-modal-sizes, racafe-controls y application,
+en ese orden. Sigue siendo autocontenido para includeCSS(URL); no edite el resultado generado.
+`components.css` importa los mismos componentes sin application.css. Se conservan los recursos
+individuales y las reglas de navegación anteriores. Reconstruya con `Rscript utils/build_styles.R`
+y compruebe con `--check` y `Rscript tests/test-build-styles.R`.
+
+racafeForms distribuye copias exactas para funcionamiento local; sincronice desde Libreria-Racafe
+con `Rscript racafeForms/tools/sync_shared.R /ruta/Compartido`. No edite las copias de la galería.
+Esta revisión conserva ASSETS_VERSION 1.1.0 y no constituye una publicación.
