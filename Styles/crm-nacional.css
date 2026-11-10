@@ -149,3 +149,25 @@
   
 
 .crm-convenciones .rf-notice-list--footnote > ul {display:flex;flex-wrap:wrap;gap:6px 18px;}
+
+/* Presentación comercial: conservar valores originales de filtros y registros. */
+.bootstrap-select .dropdown-toggle .filter-option,
+.bootstrap-select .dropdown-menu .text,
+.selectize-input .item,.selectize-dropdown .option,select option,
+.rf-status-badge,.badge,
+.gt_table .gt_row,.rt-tbody .rt-td {
+  text-transform:uppercase;
+}
+
+/* Columnas legibles con desplazamiento horizontal en contenedores estrechos. */
+div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
+.gt_table .gt_col_heading,.gt_table .gt_row {min-width:110px;}
+.gt_table th[id="Orden"],.gt_table td[headers~="Orden"],
+.gt_table th[id="Eliminar"],.gt_table td[headers~="Eliminar"] {min-width:36px;}
+.reactable .rt-table {overflow-x:auto;}
+.reactable .rt-th,.reactable .rt-td {min-width:110px;flex-shrink:0;}
+
+/* El tamaño del widget también se garantiza desde el renderizador de la app. */
+.plotly.html-widget,.plotly.html-widget-output {min-height:450px;}
+.plotly .xtick text,.plotly .ytick text,.plotly .legendtext,
+.plotly .hovertext text,.plotly .slicetext {text-transform:uppercase;}
