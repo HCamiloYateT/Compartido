@@ -1,0 +1,151 @@
+/* Estilos del CRM Nacional: carga explícita, sin alterar otras aplicaciones. */
+.crm-caja-con-nota {min-width:0;display:flex;flex-direction:column;}
+.crm-caja-con-nota > .rmcv-card {min-height:74px;}
+.crm-caja-con-nota > .rsh-table-note {margin-top:4px;padding-left:0;}
+.rsh-table-note p {margin:0;font-size:inherit;color:inherit;}
+.modal .gt_table {font-size:11px!important;}
+.modal .gt_row {padding-top:2px!important;padding-bottom:2px!important;}
+.tooltip .tooltip-inner {background:#E9ECEF;color:#343A40;border:1px solid #ADB5BD;font-size:11px;}
+.bs-tooltip-top .arrow::before {border-top-color:#ADB5BD;}
+.bs-tooltip-right .arrow::before {border-right-color:#ADB5BD;}
+.bs-tooltip-bottom .arrow::before {border-bottom-color:#ADB5BD;}
+.bs-tooltip-left .arrow::before {border-left-color:#ADB5BD;}
+
+/* Convenciones compactas y descargas separadas de las métricas. */
+.crm-convenciones > .rsh-table-note {display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;}
+.crm-descargas {display:flex;justify-content:flex-end;gap:8px;margin:0 0 16px;}
+.rf-field[data-rf-kind="logical"] .material-switch {display:flex;align-items:center;gap:12px;min-height:28px;}
+.rf-field[data-rf-kind="logical"] .material-switch > label.switch {flex:0 0 36px;width:36px;height:18px;margin:0;background:transparent!important;}
+.rf-field[data-rf-kind="logical"] .material-switch > label.switch::before {
+  width:36px;height:18px;top:0;margin-top:0;border-radius:10px;background:#ADB5BD;opacity:1;box-shadow:none;
+}
+.rf-field[data-rf-kind="logical"] .material-switch > label.switch::after {
+  width:14px;height:14px;left:2px;top:2px;margin-top:0;background:#fff;box-shadow:none;
+}
+.rf-field[data-rf-kind="logical"] .material-switch > input:checked + label.switch::before {
+  background:#DA291C;opacity:1;
+}
+.rf-field[data-rf-kind="logical"] .material-switch > input:checked + label.switch::after {
+  background:#fff;left:20px;
+}
+.rf-field[data-rf-kind="logical"] .material-switch > label:not(.switch) {margin:0;padding-left:0!important;}
+.rf-field[data-rf-kind="logical"] .material-switch > input:focus-visible + label.switch::before {
+  outline:2px solid #495057;outline-offset:3px;
+}
+.rf-field[data-rf-kind="logical"] .material-switch > input[type="checkbox"] {
+  display:block;position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;
+}
+
+
+.calc-output-right {text-align:right;}.calc-output-center {text-align:center;}
+.calc-resultado {font-size:12px;color:#343A40;font-weight:600;}
+.calc-producto-row {padding:5px 0;border-bottom:1px solid #DEE2E6;align-items:center;}
+.calc-header-col {font-size:11px;font-weight:600;text-align:center;}
+.calc-header-col--left {text-align:left;}.calc-segmento-wrap {margin-bottom:14px;}
+
+
+/* Encabezado y tarjetas compactas del tablero de tareas. */
+.crm-tareas-form .rf-form > .rf-action-bar {margin-bottom:10px;}
+.crm-tareas-switches {display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px 20px;margin:10px 0;}
+.crm-tareas-switches > .rf-field {width:auto!important;min-width:0;margin-bottom:0;}
+.rf-form .calc-segmento-wrap {width:100%;max-width:300px;margin:0 0 14px;text-align:left;}
+
+/* Campos en filas: etiquetas y botones comparten altura; la grilla corporativa permite apilarlos. */
+.rf-row {align-items:end;}
+.rf-row .rf-field > label.control-label {display:flex;align-items:end;min-height:2.4em;margin-bottom:5px;}
+.rf-row .bootstrap-select > .dropdown-toggle {min-height:36px;}
+.rf-action-bar {margin-bottom:12px;}
+/* Tooltip de select: se posiciona en el viewport, fuera del control y sin interceptar el puntero. */
+.shiny-output-error {color:#495057;font-size:12px;line-height:1.5;}
+/* Compartido oculta esta clase; también contiene las validaciones de selección vacía. */
+.shiny-output-error,.shiny-output-error::before {visibility:visible!important;}
+.shiny-output-error-validation::before {content:none;}
+
+/* Pestañas corporativas con la versión anterior de racafeForms. */
+.rf-tabs>.tabbable>.nav .nav-link{color:#495057;}
+.rf-tabs>.tabbable>.nav .nav-link.active{color:#DA291C;border-bottom:2px solid #DA291C;}
+.rf-tabs>.tabbable>.tab-content{padding-top:14px;}
+.crm-prospeccion{margin-bottom:14px;}
+
+/* Separación breve entre controles, métricas y detalle. */
+.rf-row,.rf-form>.rf-field,.rf-form>.rf-action-bar{margin-bottom:10px;}
+.rf-form>.shiny-html-output+.row,.rf-form>.rf-row+.row{margin-top:10px;}
+.crm-embudo-resumen{display:flex;flex-direction:column;gap:10px;}
+.crm-identidad-badges{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px;}
+.crm-identidad-badges .badge{padding:6px 9px;font-size:12px;line-height:1.3;background:#F1F3F5;color:#343A40;}
+.crm-identidad-badges .badge-tipo{background:#7A2028;color:white;}
+.tooltip{z-index:2147483647!important;pointer-events:none;}
+.crm-basket-guia{margin:10px 0;}
+.crm-basket-guia .rf-notice-list{font-size:13px!important;line-height:1.6;}
+.crm-basket-guia li{margin:0 0 8px;}
+
+.tabbable>.tab-content{padding-top:10px;}
+
+/* APP/misc/modules/consulta_individual/04_ficha_presentacion.R */
+.in-ficha-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px 32px;position:relative;align-items:start;margin-bottom:20px;}
+      .in-ficha .in-ficha-caja{border:1px solid #dee2e6;border-radius:12px;background:transparent;margin:0 0 16px;
+        padding:0;min-width:0;box-sizing:border-box;}
+      .in-ficha-grid>.in-ficha-caja{margin:0;}.in-ficha-grid>.in-ficha-caja[open]{align-self:stretch;}
+      .in-ficha .in-ficha-caja>summary{padding:12px 14px;flex-wrap:wrap;gap:8px;font-size:14px;line-height:1.4;}
+      .in-ficha .in-ficha-caja>.rsh-collapsible-content{padding:4px 14px 14px;min-width:0;}
+      .in-ficha-identidad{border-bottom:1px solid #DA291C;padding-bottom:10px;margin-bottom:12px;}
+      .in-ficha-identidad h4{font-family:inherit;}.in-ficha-secundario{color:#596168;font-size:12px;margin:4px 0;}
+      .in-ficha-badges{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;}
+      .in-ficha .rf-status-badge,.in-ficha-identidad .rf-status-badge{width:fit-content;max-width:100%;
+        justify-self:start;align-self:center;white-space:normal;flex:0 0 auto;}
+      .in-ficha .rf-status-badge--success,.in-ficha-identidad .rf-status-badge--success{background:#e4f3e9;
+        color:#21653b;}
+      .in-ficha .rf-status-badge--info,.in-ficha-identidad .rf-status-badge--info{background:#e7eff9;color:#31577f;}
+      .in-ficha .rf-status-badge--danger,.in-ficha-identidad .rf-status-badge--danger{background:#f9e6e9;
+        color:#9b303b;}
+      .in-ficha .rf-status-badge--warning,.in-ficha-identidad .rf-status-badge--warning{background:#fff0d2;
+        color:#805b12;}
+      .in-ficha .rf-status-badge--neutral,.in-ficha-identidad .rf-status-badge--neutral{background:#eef0f2;
+        color:#495057;}
+      .in-ficha .in-ficha-valor{min-width:0;}
+      .in-ficha .in-ficha-kpi{display:block;font-size:1.2rem;line-height:1.35;}
+      .in-ficha .in-ficha-valor .rmcv-card{height:auto;}
+      .in-ficha .in-ficha-valor>.rf-notice-list{margin-top:6px;}
+      .in-ficha .in-ficha-registro .rf-info-grid{grid-template-columns:minmax(0,1fr);gap:2px;margin-bottom:6px;}
+      .in-ficha .in-ficha-registro .rf-info-item{display:grid;grid-template-columns:minmax(100px,.4fr) minmax(0,1fr);
+        gap:10px;padding:4px 0;min-height:0;}.in-ficha .in-ficha-registro .rf-info-item dt{margin:0;}
+      .in-ficha .in-ficha-registro+.in-ficha-registro{border-top:1px solid #dee2e6;margin-top:8px;padding-top:8px;}
+      .in-ficha-cuenta{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;}
+      .in-ficha-cuenta+.in-ficha-cuenta{border-top:1px solid #dee2e6;}
+      .in-ficha-cuenta-datos{min-width:0;overflow-wrap:anywhere;}.in-ficha-asesor-comun{margin-top:8px;}
+      .in-ficha-complemento+.in-ficha-complemento{border-top:1px solid #dee2e6;margin-top:12px;padding-top:8px;}
+      @media(max-width:767px){.in-ficha-grid{grid-template-columns:minmax(0,1fr);gap:14px;}
+      }
+
+/* APP/misc/modules/generalidades/indicadores_mercado/01_modulo.R */
+.mercado-filtros .form-group {margin-bottom:0;}
+
+/* Resumen ejecutivo */
+
+    .resumen-ejecutivo {position:relative;min-height:260px;}
+    .resumen-ejecutivo .re-seccion {display:flex;align-items:center;gap:8px;
+      margin:15px 0 8px;padding-bottom:5px;border-bottom:1px solid #e2e8f0;}
+    .resumen-ejecutivo .re-seccion i {color:#DA291C;font-size:12px;}
+    .resumen-ejecutivo .re-seccion span {font-size:12px;font-weight:700;
+      color:#374151;text-transform:uppercase;letter-spacing:.02em;}
+    .resumen-ejecutivo .re-columna {margin-bottom:10px;}
+    .resumen-ejecutivo .re-navegar {cursor:pointer;outline:none;}
+    .resumen-ejecutivo .racafe-caja-valor:not(.rmcv-card) {min-height:92px;padding:10px 12px;
+      gap:7px;border:1px solid #e5e7eb;box-shadow:0 1px 2px rgba(0,0,0,.04);
+      transition:border-color .12s,box-shadow .12s;}
+    .resumen-ejecutivo .re-navegar:hover .racafe-caja-valor:not(.rmcv-card),
+    .resumen-ejecutivo .re-navegar:focus .racafe-caja-valor:not(.rmcv-card) {
+      border-color:#DA291C;box-shadow:0 2px 7px rgba(0,0,0,.08);}
+    .resumen-ejecutivo .racafe-caja-valor:not(.rmcv-card) > div:first-child > div:first-child {
+      min-width:0;align-items:center!important;gap:8px!important;}
+    .resumen-ejecutivo .racafe-caja-valor:not(.rmcv-card) > div:first-child > div:first-child > div:first-child {
+      font-size:1.2em!important;margin-right:0!important;flex-shrink:0;
+      color:#DA291C!important;}
+    .resumen-ejecutivo .racafe-caja-valor:not(.rmcv-card) > div:first-child > div:first-child > div:last-child {
+      font-size:11px!important;line-height:1.3;overflow-wrap:anywhere;}
+    .resumen-ejecutivo .racafe-caja-valor:not(.rmcv-card) > div:last-child {font-size:1.3em!important;
+      line-height:1.15;}
+  
+
+.crm-convenciones .rf-notice-list--footnote > ul {display:flex;flex-wrap:wrap;gap:6px 18px;}

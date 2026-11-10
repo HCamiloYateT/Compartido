@@ -2,6 +2,7 @@
 (function ($) {
   "use strict";
   $(function () {
+    if (document.querySelector("[data-rf-interactions]")) return;
     if (!$.fn.tooltip || $.data(document, "rfSharedTooltips")) return;
     $.data(document, "rfSharedTooltips", true);
     $(document.body).tooltip({ selector: "[title]", placement: "right", container: "body" });
