@@ -2,6 +2,24 @@
   "use strict";
   if (window.racafeCrmKanban) return;
   window.racafeCrmKanban = true;
+  $(document).on("click.crmKanbanCollapse", "[data-kb-toggle]", function (event) {
+    event.preventDefault();
+    var slot = this.closest("[data-kb-stage]");
+    if (!slot) return;
+    var collapsed = slot.classList.toggle("kb-collapsed"), body = slot.querySelector(".kpb-col-body");
+    this.setAttribute("aria-expanded", String(!collapsed));
+    this.setAttribute("title", (collapsed ? "Expandir " : "Colapsar ") + slot.dataset.kbStage);
+    this.setAttribute("data-original-title", this.getAttribute("title"));
+    var icon = this.querySelector("i");
+    if (icon) {
+      icon.classList.toggle("fa-chevron-right", collapsed);
+      icon.classList.toggle("fa-chevron-down", !collapsed);
+    }
+    if (body) {
+      body.setAttribute("aria-hidden", String(collapsed));
+      $(body).trigger(collapsed ? "hidden" : "shown");
+    }
+  });
   var dragging = null;
   function clear() {
     document.querySelectorAll(".kb-drop-ready").forEach(function (node) { node.classList.remove("kb-drop-ready"); });
