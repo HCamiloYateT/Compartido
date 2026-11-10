@@ -205,3 +205,17 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
   border-radius:4px;padding:4px;font-size:12px;}
 .kpb-slot .kpb-col-header .rf-btn {width:24px;height:24px;min-width:24px;padding:3px;line-height:1;}
 .kpb-col-header .kb-alert.activo:hover {background:#DA291C!important;color:#fff!important;}
+
+/* Contexto del Kanban: color de etapa limitado al borde, tarjetas separadas. */
+.kpb-slot .kb-cards {display:flex;flex-direction:column;gap:10px;}
+.kpb-slot .kb-cards > .kpb-card {margin:0;}
+.kpb-slot .kpb-col-header {background:#fff!important;border-bottom:3px solid var(--kb-stage-color,#495057);}
+.kpb-slot .kpb-col-titulo {color:#343a40;}
+.kpb-slot .kpb-col-count {background:#e9ecef;color:#343a40;}
+.kb-scale-menu {min-width:220px;padding:12px;color:#495057;font-size:11px;}
+.kb-scale-menu > strong {display:block;margin-bottom:8px;}
+.kb-scale-menu > div {display:flex;align-items:center;gap:8px;padding:3px 0;}
+.kb-scale-swatch {display:inline-block;width:12px;height:12px;border-radius:2px;}
+.kpb-actions-panel a.rm-action-option {text-decoration:none;}
+.kpb-card-compact .kb-contexto {display:block;max-width:100%;font-size:10px;line-height:1.2;color:#6c757d;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}

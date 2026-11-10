@@ -20,6 +20,20 @@
       $(body).trigger(collapsed ? "hidden" : "shown");
     }
   });
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest("[data-kb-consultar]");
+    if (!link) return;
+    // Enlace nativo: conserva el gesto del usuario y no cambia la sesión del Kanban.
+    var url = new URL(window.location.href);
+    url.searchParams.set("crm_tab", "IN_Consulta");
+    url.searchParams.set("crm_nit", link.dataset.kbNit || "");
+    if (link.dataset.kbCodigo) url.searchParams.set("crm_codigo", link.dataset.kbCodigo);
+    else url.searchParams.delete("crm_codigo");
+    url.hash = "";
+    link.href = url.toString();
+    var panel = link.closest(".rc-panel-acciones");
+    if (panel) panel.style.display = "none";
+  }, true);
   var dragging = null;
   function clear() {
     document.querySelectorAll(".kb-drop-ready").forEach(function (node) { node.classList.remove("kb-drop-ready"); });
@@ -32,7 +46,7 @@
     return board && board === slot.closest("[data-kanban-ns]") &&
       (dragging.dataset.kbTargets || "").split(/\s+/).indexOf(slot.dataset.kbStage) >= 0;
   }
-  $(document).on("dragstart.crmKanban", ".kpb-card[draggable]", function (event) {
+  $(document).on("dragstart.crmKanban", '.kpb-card[draggable="true"]', function (event) {
     clear();
     dragging = this;
     this.classList.add("kb-dragging");
