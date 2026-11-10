@@ -171,3 +171,21 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .plotly.html-widget,.plotly.html-widget-output {min-height:450px;}
 .plotly .xtick text,.plotly .ytick text,.plotly .legendtext,
 .plotly .hovertext text,.plotly .slicetext {text-transform:uppercase;}
+
+/* Kanban CRM: búsquedas y renderizado independientes por columna. */
+.kpb-board > .kpb-slot {flex:1 0 270px;min-width:270px;max-width:360px;align-self:flex-start;}
+.kpb-slot > .form-group,.kpb-slot .rf-field {margin-bottom:10px;}
+.kpb-slot .kpb-col {width:100%;min-width:0;}
+.kpb-slot .kpb-col-body {max-height:70vh;overflow-y:auto;}
+.kpb-card-compact {display:block;cursor:grab;}
+.kpb-card-compact summary {cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:4px;}
+.kpb-card-compact summary strong {font-size:12px;line-height:1.4;overflow-wrap:anywhere;}
+.kpb-card-compact .kpb-card-body {padding:8px 4px;font-size:11px;}
+.kpb-card-compact .kpb-responsables {display:flex;flex-wrap:wrap;gap:4px;}
+.kpb-card-compact .kpb-card-menu {padding-top:6px;text-align:right;}
+.kpb-card-menu .rm-action-trigger {width:auto;border-radius:5px;padding:4px 8px;font-size:11px;}
+.kpb-slot.kb-drop-ready {outline:2px dashed #495057;outline-offset:3px;background:#f1f3f5;}
+.kpb-card.kb-dragging {opacity:.55;}
+.kpb-actions-panel {flex-direction:column!important;align-items:stretch;min-width:185px;max-height:70vh;overflow-y:auto;}
+.kpb-actions-panel .rm-action-option {width:auto;display:flex;align-items:center;justify-content:flex-start;gap:7px;
+  border-radius:4px;padding:7px 10px;font-size:12px;white-space:nowrap;}
