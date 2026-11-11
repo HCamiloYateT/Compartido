@@ -224,3 +224,23 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .kb-linea {border-top:1px solid #dee2e6;margin-top:6px;padding-top:6px;}
 .crm-prospeccion .gt_table {min-width:100%;}
 .crm-prospeccion .gt_table td,.crm-prospeccion .gt_table th {min-width:95px;}
+
+/* Acciones de Prospección: mismo botón circular y panel también al moverse al body. */
+.pr-action-trigger.rm-action-trigger.rc-boton-acciones,
+.pr-action-panel .rm-action-option {
+  display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;min-width:24px;
+  border-radius:50%!important;border:1px solid #a9adb1!important;padding:0!important;
+  background:transparent!important;color:#495057!important;box-shadow:none!important;font-size:11px;
+  --rm-action-color:#495057!important;
+}
+.pr-action-trigger:hover,.pr-action-panel .rm-action-option:hover {background:#e9ecef!important;}
+.pr-action-trigger:focus-visible,.pr-action-panel .rm-action-option:focus-visible {outline:2px solid #495057;}
+.pr-action-panel {gap:4px;flex-direction:row!important;flex-wrap:wrap;padding:6px;max-width:230px;}
+.pr-action-panel .rm-action-option i {color:inherit!important;}
+.kpb-card.kpb-card-compact {border-right:0!important;}
+.kb-cliente-tabla {width:100%;table-layout:fixed;border-collapse:collapse;font-size:9px;line-height:1.25;}
+.kb-cliente-tabla th,.kb-cliente-tabla td {padding:4px 2px;border-bottom:1px solid #e9ecef;
+  vertical-align:top;overflow-wrap:anywhere;}
+.kb-cliente-tabla thead th {font-size:9px;border-bottom:1.5px solid #495057;}
+.kb-cliente-tabla th:first-child {width:34%;text-align:left;font-weight:500;}
+.kb-cliente-tabla td {text-align:right;}
