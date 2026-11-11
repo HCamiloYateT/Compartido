@@ -244,3 +244,11 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .kb-cliente-tabla thead th {font-size:9px;border-bottom:1.5px solid #495057;}
 .kb-cliente-tabla th:first-child {width:34%;text-align:left;font-weight:500;}
 .kb-cliente-tabla td {text-align:right;}
+
+/* Consulta individual: ritmo uniforme sin alterar la distribución de la ficha. */
+.in-analitica .tab-content > .tab-pane.active {display:flex;flex-direction:column;gap:10px;}
+.in-analitica .tab-content > .tab-pane > * {margin-top:0;margin-bottom:0;}
+.in-analitica .row {row-gap:10px;margin-left:-5px;margin-right:-5px;}
+.in-analitica .row > [class*="col-"] {padding-left:5px;padding-right:5px;}
+.in-analitica .in-ficha-grid {gap:10px;}
+.in-analitica .plotly.html-widget {min-height:450px;}
