@@ -99,7 +99,7 @@
 .rf-form--comfortable {--rf-control-height:var(--rf-control-height-comfortable);--rf-font:var(--rf-component-title);}
 .rf-field {font-family:var(--rf-body-font);font-size:var(--rf-font);margin-bottom:var(--rf-field-space);min-width:0;}
 .rf-field .control-label {font-family:inherit;font-size:var(--rf-font);color:var(--color-gray-850);font-weight:600;}
-.rf-field input.form-control,.rf-field .bootstrap-select > .dropdown-toggle {
+.rf-field input.form-control,.rf-field textarea.form-control,.rf-field .bootstrap-select > .dropdown-toggle {
  box-sizing:border-box;height:var(--rf-control-height);min-height:var(--rf-control-height);
  border:1px solid var(--rf-gray-300);border-radius:var(--rf-input-radius);background:var(--rf-white);
  font-family:inherit;font-size:var(--rf-font);line-height:1.25;padding:6px 12px;box-shadow:none;
@@ -107,7 +107,10 @@
 }
 .rf-field.rf-date-range .input-daterange > input.form-control {padding:6px 12px!important;}
 .rf-field .bootstrap-select > .dropdown-toggle .filter-option {font-family:inherit;}
-.rf-field input.form-control:focus {border-color:var(--color-red-primary);}
+.rf-field input.form-control:focus,.rf-field textarea.form-control:focus {
+ border-color:var(--color-red-primary);background:var(--rf-white);box-shadow:0 0 0 2px rgb(218 41 28 / 10%);
+}
+.rf-field textarea.form-control {height:auto;min-height:80px;}
 .rf-panel-header,.rf-card-header {margin-bottom:var(--rf-space);}
 .rf-metric.rf-padding--compact .rf-metric-value {font-size:max(20px,var(--font-size-lg));margin:4px 0;}
 .rf-action-bar--wrap .rf-btn {max-width:100%;white-space:normal;overflow-wrap:anywhere;}

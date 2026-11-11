@@ -16,12 +16,15 @@
   }, true);
   // Una señal por montaje, cuando Shiny ya enlazó los controles del formulario.
   $(document).on("shiny:bound.crmFormulario", function (event) {
-    var root = event.target.closest && event.target.closest("[data-crm-form-ready]");
-    if (!root || root.dataset.crmFormSent) return;
-    root.dataset.crmFormSent = "true";
-    window.setTimeout(function () {
-      if (root.isConnected && window.Shiny) Shiny.setInputValue(root.dataset.crmFormReady,
-        Date.now(), {priority: "event"});
-    }, 0);
+    // Un control puede pertenecer a un submódulo y al formulario contenedor.
+    $(event.target).parents("[data-crm-form-ready]").addBack("[data-crm-form-ready]").each(function () {
+      var root = this;
+      if (root.dataset.crmFormSent) return;
+      root.dataset.crmFormSent = "true";
+      window.setTimeout(function () {
+        if (root.isConnected && window.Shiny) Shiny.setInputValue(root.dataset.crmFormReady,
+          Date.now(), {priority: "event"});
+      }, 0);
+    });
   });
 }(window.jQuery));
