@@ -252,3 +252,12 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .in-analitica .row > [class*="col-"] {padding-left:5px;padding-right:5px;}
 .in-analitica .in-ficha-grid {gap:10px;}
 .in-analitica .plotly.html-widget {min-height:450px;}
+
+/* Navegación legible, sin modificar el ancho del sidebar. */
+.main-sidebar .nav-sidebar>.nav-item>.nav-link {font-size:13px;}
+.main-sidebar .nav-treeview>.nav-item>.nav-link {font-size:12px;}
+.main-sidebar .nav-sidebar .nav-link p {white-space:normal;line-height:1.3;}
+
+.crm-seccion.rsh-collapsible {border:1px solid #ADB5BD;border-radius:12px;background:#fff;margin:10px 0;}
+.crm-seccion.rsh-collapsible>summary {padding:10px 12px;}
+.crm-seccion.rsh-collapsible>.rsh-collapsible-content {padding:10px 12px;}

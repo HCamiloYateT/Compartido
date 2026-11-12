@@ -124,3 +124,54 @@
   });
 }(window.jQuery));
 
+
+// Presentación en estilo oración: solo palabras de interfaz conocidas, nunca valores de controles o tablas.
+(function () {
+  "use strict";
+  var selector = 'h1,h2,h3,h4,h5,h6,label.control-label,.main-sidebar .nav-link>p,.nav-tabs .nav-link,th,[role="columnheader"]';
+  var comunes = new Set(('resumen ejecutivo validación financiera evolución del negocio participación y composición indicadores de mercado ' +
+    'gestión comercial pendientes notas tareas fidelidad riesgo potencial cohortes clientes consulta individual ' +
+    'categoría producto productos línea líneas asesor segmento fecha creación factura facturas lote lotes pedido pedidos ' +
+    'sacos margen total precio por kilogramo presupuesto presupuestado presupuestados acumulado mensual anual ' +
+    'cantidad estado detalle información contacto contactos prospectos prospecto lead leads cliente directora directorio ' +
+    'origen destino canal tipo prioridad responsable responsables oportunidad oportunidades antigüedad tasa cumplimiento ' +
+    'estimado estimada estimados disponible disponibles cierre financiero sin con desde hasta para en entre análisis ' +
+    'cuenta principal relacionada relacionadas registros complementarios identificación geografía ubicación dirección ' +
+    'comparación conversión seguimiento datos compra compras selección actual histórico históricos historial proporción ' +
+    'valor vigencia observación observaciones actividad actividades frecuencia recencia monetario mora vencimiento ' +
+    'concentración corte rango rangos saldo saldos vencido vigente exposición encabezado avance distribución trazabilidad ' +
+    'asignación producción despacho facturación exterior preferencia preferencias capacidad consumo homologación ' +
+    'calculadoras inventarios administrar catálogos recuperado recuperación periodo período').split(/\s+/));
+  function normalizar(texto) {
+    var salida = texto.replace(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/g, function (palabra) {
+      return comunes.has(palabra.toLocaleLowerCase('es')) ? palabra.toLocaleLowerCase('es') : palabra;
+    });
+    return salida.replace(/\S/, function (c) { return c.toLocaleUpperCase('es'); });
+  }
+  function aplicar(raiz) {
+    if (!raiz || raiz.nodeType !== 1) return;
+    var nodos = raiz.matches(selector) ? [raiz] : [];
+    nodos = nodos.concat(Array.from(raiz.querySelectorAll(selector)));
+    nodos.forEach(function (elemento) {
+      if (elemento.closest('select,option,.dropdown-menu,.kpb-card,.reactable-data-cell')) return;
+      Array.from(elemento.childNodes).forEach(function (n) {
+        if (n.nodeType !== 3 || !n.textContent.trim()) return;
+        var texto = normalizar(n.textContent);
+        if (texto !== n.textContent) n.textContent = texto;
+      });
+    });
+  }
+  function iniciar() {
+    aplicar(document.body);
+    new MutationObserver(function (cambios) {
+      cambios.forEach(function (cambio) {
+        Array.from(cambio.addedNodes).forEach(function (n) {
+          if (n.nodeType === 1) aplicar(n);
+          else if (n.nodeType === 3 && n.parentElement && n.parentElement.matches(selector)) aplicar(n.parentElement);
+        });
+      });
+    }).observe(document.body, {childList: true, subtree: true});
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciar);
+  else iniciar();
+}());
