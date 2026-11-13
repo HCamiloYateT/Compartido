@@ -168,9 +168,9 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .reactable .rt-th,.reactable .rt-td {min-width:110px;flex-shrink:0;}
 
 /* El tamaño del widget también se garantiza desde el renderizador de la app. */
-.plotly.html-widget,.plotly.html-widget-output {min-height:450px;}
+.plotly.html-widget,.plotly.html-widget-output {min-height:500px;}
 .plotly .xtick text,.plotly .ytick text,.plotly .legendtext,
-.plotly .hovertext text,.plotly .slicetext {text-transform:uppercase;}
+.plotly .slicetext {text-transform:uppercase;}
 
 /* Kanban CRM: búsquedas y renderizado independientes por columna. */
 .kpb-board > .kpb-slot {flex:1 0 270px;min-width:270px;max-width:360px;align-self:flex-start;}
@@ -197,7 +197,7 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .kpb-col-header .kb-alert.activo {background:#DA291C!important;color:#fff!important;border-color:#DA291C;}
 .kpb-col-header .kb-alert:hover,.kpb-col-header .kb-col-toggle:hover {background:#e9ecef!important;color:#343a40!important;}
 .kpb-col-header .kb-alert i,.kpb-col-header .kb-col-toggle i {color:inherit!important;}
-.kpb-slot.kb-drop-ready {outline:2px dashed #495057;outline-offset:3px;background:#f1f3f5;}
+.kpb-slot.kb-drop-ready {outline:1px solid #adb5bd;outline-offset:2px;background:#f8f9fa;}
 .kpb-card.kb-dragging {opacity:.55;}
 .kpb-actions-panel {flex-direction:row!important;align-items:center;gap:4px;min-width:0;max-height:70vh;
   flex-wrap:wrap;max-width:230px;padding:6px;}
@@ -251,7 +251,7 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .in-analitica .row {row-gap:10px;margin-left:-5px;margin-right:-5px;}
 .in-analitica .row > [class*="col-"] {padding-left:5px;padding-right:5px;}
 .in-analitica .in-ficha-grid {gap:10px;}
-.in-analitica .plotly.html-widget {min-height:450px;}
+.in-analitica .plotly.html-widget {min-height:500px;}
 
 /* Navegación legible, sin modificar el ancho del sidebar. */
 .main-sidebar .nav-sidebar>.nav-item>.nav-link {font-size:13px;}
@@ -261,3 +261,31 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .crm-seccion.rsh-collapsible {border:1px solid #ADB5BD;border-radius:12px;background:#fff;margin:10px 0;}
 .crm-seccion.rsh-collapsible>summary {padding:10px 12px;}
 .crm-seccion.rsh-collapsible>.rsh-collapsible-content {padding:10px 12px;}
+
+/* Identidad compacta, tablas legibles y ayudas corporativas */
+.crm-unidad-resumen {padding:8px 0;border-bottom:1px solid #dee2e6;}
+.crm-unidad-resumen:last-child {border-bottom:0;}
+.crm-unidad-resumen .rf-info-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:6px 12px;}
+.crm-unidad-resumen .rf-info-item {font-size:11px;margin:0;}
+.crm-ayuda {padding:0 4px!important;min-height:18px!important;font-size:10px!important;background:#6c757d!important;}
+.crm-caja-con-nota {margin-bottom:10px;}
+.rmcv-value {font-size:22px;line-height:1.15;}
+.gt_table .gt_row,.gt_table .gt_col_heading {white-space:nowrap;min-width:95px;}
+.gt_table tbody tr > :first-child,.gt_table .gt_col_headings > :first-child {
+  position:sticky;left:0;z-index:2;background-color:#fff;box-shadow:1px 0 #dee2e6;
+}
+.gt_table .gt_col_headings > :first-child {z-index:3;}
+.kpb-card[draggable="true"] {cursor:move;}
+@media(max-width:767px) {
+  .crm-unidad-resumen .rf-info-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+.crm-timeline {border-left:1px solid #adb5bd;padding-left:12px;}
+.crm-timeline-item {position:relative;margin:0 0 10px!important;padding:10px!important;}
+.crm-timeline-item::before {content:"";position:absolute;left:-18px;top:13px;width:8px;height:8px;
+  border-radius:50%;background:#6c757d;border:2px solid #fff;}
+.crm-timeline-header {display:flex;align-items:start;justify-content:space-between;gap:8px;font-size:11px;}
+.crm-timeline-text {font-size:12px;margin-top:5px;white-space:pre-wrap;}
+.rf-form > .rf-card,.rf-form > .rf-panel {margin-bottom:10px;}
+
+.kb-scale-menu {max-height:75vh;overflow-y:auto;width:360px;max-width:90vw;}
