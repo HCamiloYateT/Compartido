@@ -27,4 +27,20 @@
       }, 0);
     });
   });
+  // Cerrar por el usuario suspende lectores; las confirmaciones SweetAlert conservan el formulario.
+  function cerrarAccion(modal) {
+    var control = modal && modal.querySelector("[data-crm-action-close]");
+    if (control && window.Shiny) Shiny.setInputValue(control.dataset.crmActionClose, Date.now(), {priority:"event"});
+  }
+  $(document).on("click.crmActionLifecycle", "#shiny-modal [data-dismiss='modal']", function () {
+    cerrarAccion(this.closest("#shiny-modal"));
+  });
+  $(document).on("click.crmActionBackdrop", "#shiny-modal", function (event) {
+    if (event.target === this) cerrarAccion(this);
+  });
+  $(document).on("keydown.crmActionEscape", function (event) {
+    if (event.key === "Escape" && !document.querySelector(".swal2-container")) {
+      cerrarAccion(document.querySelector("#shiny-modal"));
+    }
+  });
 }(window.jQuery));
