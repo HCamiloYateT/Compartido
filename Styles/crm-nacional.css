@@ -289,3 +289,22 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .rf-form > .rf-card,.rf-form > .rf-panel {margin-bottom:10px;}
 
 .kb-scale-menu {max-height:75vh;overflow-y:auto;width:360px;max-width:90vw;}
+
+/* Controles compactos y estados vacíos sin espacio reservado. */
+@media(min-width:992px){
+  .content-wrapper .rf-form .rf-row:not(.rf-row--actions){grid-template-columns:repeat(4,minmax(0,1fr));}
+  .content-wrapper .rf-form > .rf-field{width:25%;max-width:25%;}
+  .content-wrapper .rf-form .row > [class*="col-"]:has(> .rf-field){flex:0 0 25%;max-width:25%;}
+}
+@media(max-width:991px){
+  .content-wrapper .rf-form > .rf-field{width:100%;max-width:100%;}
+}
+.content-wrapper .rf-form .rf-row{align-items:start;}
+.plotly.shiny-output-error,.plotly.shiny-output-error-validation{height:auto!important;min-height:0!important;
+  padding:8px 0;}
+.crm-plot-frame:has(.shiny-output-error){height:auto!important;min-height:0!important;}
+.crm-plot-frame .shiny-output-error{font-size:12px;color:#495057;}
+.crm-plot-frame-compact .plotly.html-widget,
+.crm-plot-frame-compact .plotly.html-widget-output{min-height:0!important;}
+.crm-plot-frame:has(.crm-plot-message) > .plotly{display:none!important;}
+.crm-plot-message{padding:6px 0;min-height:0;color:#495057;}
