@@ -308,3 +308,30 @@ div:has(> table.gt_table) {max-width:100%;overflow-x:auto;}
 .crm-plot-frame-compact .plotly.html-widget-output{min-height:0!important;}
 .crm-plot-frame:has(.crm-plot-message) > .plotly{display:none!important;}
 .crm-plot-message{padding:6px 0;min-height:0;color:#495057;}
+
+/* Leyendas: mantener las medidas de texto calculadas por Plotly. */
+.plotly .legendtext{text-transform:none!important;letter-spacing:normal!important;}
+.crm-plot-frame,.crm-plot-frame>.plotly{width:100%;min-width:0;max-width:100%;}
+.crm-unidad-compacta{padding:6px 0;margin-bottom:8px;}
+.crm-unidad-metricas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px 10px;margin:6px 0;}
+.crm-unidad-metricas>div{display:flex;flex-direction:column;min-width:0;}
+.crm-unidad-metricas small{font-size:10px;color:#6C757D;line-height:1.3;}
+.crm-unidad-metricas strong{font-size:13px;line-height:1.4;}
+.crm-unidad-fechas{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:10px;color:#495057;}
+.crm-escala-fila{display:grid;grid-template-columns:38px minmax(0,1fr) 85px;align-items:center;gap:8px;
+  margin-bottom:8px;min-width:0;}
+.crm-escala-fila>small{grid-column:2/-1;}
+.crm-escala-fila input[type=color]{width:32px;height:24px;padding:1px;border:1px solid #ADB5BD;}
+.crm-paleta-propuesta{display:inline-flex;align-items:center;gap:6px;margin:4px 10px 4px 0;}
+.crm-paleta-propuesta>span{display:inline-block;width:20px;height:16px;}
+.kb-scale-menu{max-width:min(520px,calc(100vw - 24px))!important;overflow-x:hidden!important;overflow-y:auto;}
+.kb-scale-menu div:has(>.kb-scale-swatch){display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px;
+  align-items:center;white-space:normal;overflow-wrap:anywhere;margin:5px 0;}
+.kb-scale-swatch{display:inline-block;width:13px;height:13px;min-width:13px;}
+.crm-pedido-enlace{color:#495057!important;text-decoration:underline!important;cursor:pointer;}
+.crm-pedido-enlace:hover{color:#343A40!important;text-decoration-thickness:2px!important;}
+@media(max-width:767px){.crm-unidad-metricas{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.kb-scale-menu>div.shiny-html-output{display:block;min-width:0;}
+.kb-scale-menu .kb-scale-swatch{flex-shrink:0;}
+.crm-escala-fila>span{overflow-wrap:anywhere;}
+.rm-timeline-grupo>summary{font-size:11px;line-height:1.35;cursor:pointer;}
