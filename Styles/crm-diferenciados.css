@@ -1,0 +1,126 @@
+/* Ajustes de layout propios; la presentación de controles se hereda de Compartido. */
+:root {
+  --crm-red: var(--color-red-primary, #DA291C);
+  --crm-muted: var(--color-gray-920, #495057);
+  --crm-rule: var(--color-gray-400, #d6d6d6);
+}
+.crm-header-identidad { display: flex; align-items: center; gap: 8px; padding: 8px 12px; }
+.crm-identidad {
+  display: inline-flex; align-items: center; gap: .25rem; padding: 0; border: 0;
+  background: transparent; color: #686e73; font-size: .68rem; font-weight: 600; white-space: nowrap;
+}
+.crm-identidad .badge { font-size: .8rem; padding: .35em .55em; }
+.crm-header-identidad :is(#actualizar, #descarga_clientes, #glosario, #escalas_color) {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 27px;
+  min-height: 22px; padding: 2px 6px; border: 0; border-radius: 50rem;
+  background: #6c757d; color: #fff; font-size: .7rem; line-height: 1;
+}
+.crm-header-identidad #actualizar { min-width: 42px; border-radius: 4px; }
+.crm-header-identidad :is(#actualizar, #descarga_clientes, #glosario, #escalas_color):hover {
+  background: var(--crm-red); color: #fff;
+}
+.main-header .navbar-right > li { display: flex; align-items: center; }
+.main-header .navbar-right > li > :is(.nav-link, button) {
+  display: inline-flex; align-items: center; justify-content: center; position: relative;
+  min-width: 48px; min-height: 40px; padding: 0; border: 0;
+  background: transparent; color: #202428; font-size: .82rem;
+}
+.main-header .navbar-right > li > :is(.nav-link, button):hover { color: var(--crm-red); }
+.crm-vista { padding: .75rem .5rem 1rem; }
+.crm-vista-cabecera { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+.crm-vista h1 { font-size: 1.5rem; margin: 0 0 .75rem; }
+.crm-panel, .crm-kpi { border: 1px solid var(--crm-rule); background: #fff; border-radius: .45rem; padding: .95rem; }
+.crm-panel { margin-bottom: .85rem; min-width: 0; }
+.crm-panel h2, .crm-control h2 { font-size: 1.05rem; font-weight: 650; margin: 0 0 .75rem; }
+.crm-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .7rem; margin-bottom: 1rem; }
+.crm-kpi { display: flex; flex-direction: column; gap: .35rem; }
+.crm-kpi span { color: var(--crm-muted); }
+.crm-kpi strong { font-size: 1.16rem; font-variant-numeric: tabular-nums; }
+.crm-tabla table { width: max-content; min-width: 100%; }
+.crm-tabla th { border-bottom: 2px solid var(--crm-red) !important; white-space: nowrap; }
+.crm-tabla td { white-space: nowrap; }
+.crm-tabla td, .crm-tabla th { padding: .48rem .68rem !important; }
+.crm-control { padding: 1rem; }
+.crm-control h2 { margin-top: 1rem; }
+.crm-control details, .crm-filtro-ausente { font-size: .85rem; margin: .45rem 0 .7rem; color: var(--crm-muted); }
+.crm-acciones-grid, .crm-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.crm-bloqueado { display: inline-flex; gap: .55rem; align-items: center; }
+.crm-carga[hidden] { display: none; }
+.crm-carga { position: fixed; inset: 0; z-index: 2100; display: grid; place-items: center; background: #252c2a42; }
+.crm-carga-card { display: grid; gap: .7rem; justify-items: center; background: #fff; border-radius: .65rem; padding: 1.3rem 2rem; }
+.crm-carga-card img { width: 5.5rem; }
+@media (max-width: 850px) {
+  .main-header.navbar { flex-wrap: wrap; row-gap: .3rem; }
+  .crm-header-identidad { flex-wrap: wrap; }
+  .control-sidebar { max-width: 100vw; }
+}
+@media (max-width: 450px) {
+  .crm-kpis, .crm-form-grid { grid-template-columns: 1fr; }
+  .crm-acciones-grid { grid-template-columns: 1fr; }
+}
+.crm-controles-registro { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .45rem; }
+
+.crm-indicadores-filtros { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem; margin-bottom: 1rem; }
+.crm-indicadores-filtros > .btn { margin-bottom: 1rem; }
+.crm-indicadores-filtros .shiny-input-container { width: min(14rem, 100%); }
+.crm-indicadores-carga .crm-tabla td:last-child { text-align: right; }
+
+.crm-indicador-unidad { color: #343a40; font-size: .8em; font-weight: normal; }
+
+.kb-scale-menu.crm-glosario {
+  width: 420px; min-width: 0; max-width: calc(100vw - 24px); max-height: 70vh;
+  overflow-y: auto; padding: 16px;
+}
+.crm-glosario dd { margin-bottom: 10px; }
+
+.crm-nota-selectize .selectize-control.form-control {
+  background: transparent !important; border: 0 !important; padding: 0 !important;
+  height: auto !important; min-height: 0 !important;
+}
+.crm-nota-selectize .selectize-input { box-sizing: border-box; width: 100%; }
+
+.nota-actividad-row:has([aria-pressed="true"]) .nota-actividad-texto input {
+  color: #6c757d !important;
+  background-color: #f4f6f7 !important;
+  text-decoration: line-through;
+}
+
+/* El panel de opciones cubre los campos que quedan detrás mientras está abierto. */
+.selectize-control > .selectize-dropdown,
+.bootstrap-select > .dropdown-menu {
+  background-color: #fff !important;
+  color: #202428;
+  border: 1px solid var(--crm-rule);
+  box-shadow: 0 .25rem .65rem rgba(32, 36, 40, .16);
+}
+.selectize-control > .selectize-dropdown .selectize-dropdown-content,
+.bootstrap-select > .dropdown-menu > .inner {
+  background-color: #fff;
+}
+
+/* Selectize hereda form-control también en el menú, que debe crecer con sus opciones. */
+.rf-form .crm-nota-selectize .selectize-dropdown.form-control {
+  height: auto !important; min-height: 0 !important; padding: 0 !important;
+  border-radius: .4rem !important; overflow: hidden;
+}
+.rf-form .crm-nota-selectize .selectize-dropdown-content {
+  max-height: 13rem; overflow-y: auto;
+}
+
+.crm-tareas-form :is(.kpb-card-menu .btn, .rm-action-trigger) {
+  background: #fff !important; color: #495057 !important; border: 1px solid #adb5bd !important;
+  border-radius: 50%; box-shadow: none; width: 28px; height: 28px;
+}
+.crm-tareas-form .kb-collapse-toggle { background: transparent; border: 0; color: #495057; padding: 4px; }
+.crm-tareas-form .kpb-card { margin-bottom: 10px; }
+
+.crm-etiquetas { gap: .35rem; }
+.crm-etiquetas > li { min-width: 0; max-width: 100%; }
+.crm-etiquetas .rf-status-badge { white-space: normal; overflow-wrap: anywhere; }
+
+.crm-tareas-form .rm-task-board-shared { overflow-x: auto; }
+.crm-tareas-form .rm-task-board-shared > .kpb-slot {
+  flex: 1 0 220px;
+  min-width: 220px;
+  max-width: none;
+}
