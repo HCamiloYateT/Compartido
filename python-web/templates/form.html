@@ -1,0 +1,44 @@
+{% extends "page.html" %}
+
+{% block page_content %}
+  <form class="rfw-card rfw-card--padded rfw-form" method="{{ form_method|default('post', true) }}"
+        action="{{ form_action|default('', true) }}" novalidate>
+    <div class="rfw-section-heading">
+      <div>
+        {% if form_eyebrow %}<p class="rfw-eyebrow">{{ form_eyebrow }}</p>{% endif %}
+        <h2>{{ form_title|default('Información requerida', true) }}</h2>
+      </div>
+      {% if form_help %}<p>{{ form_help }}</p>{% endif %}
+    </div>
+
+    {% block form_fields %}
+      <div class="rfw-form-grid">
+        <label class="rfw-field">
+          <span>Nombre</span>
+          <input name="nombre" type="text" autocomplete="name" required>
+        </label>
+        <label class="rfw-field">
+          <span>Correo electrónico</span>
+          <input name="correo" type="email" autocomplete="email" required>
+        </label>
+      </div>
+    {% endblock %}
+
+    {% if form_message %}
+      <div class="rfw-notice" data-state="{{ form_message_state|default('info', true) }}" role="status">
+        {{ form_message }}
+      </div>
+    {% endif %}
+
+    <div class="rfw-form-actions">
+      {% block form_actions %}
+        <a class="rfw-button rfw-button--secondary" href="{{ cancel_url|default(home_url|default('/', true), true) }}">
+          Cancelar
+        </a>
+        <button class="rfw-button rfw-button--primary" type="submit">
+          {{ submit_label|default('Guardar', true) }}
+        </button>
+      {% endblock %}
+    </div>
+  </form>
+{% endblock %}
