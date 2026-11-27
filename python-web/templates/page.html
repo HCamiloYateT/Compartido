@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title|default('Página', true) }} | Racafé{% endblock %}
+
+{% block content %}
+  <header class="rfw-page-heading">
+    <div>
+      {% if eyebrow %}<p class="rfw-eyebrow">{{ eyebrow }}</p>{% endif %}
+      <h1>{{ page_title|default('Título de la página', true) }}</h1>
+      {% if page_description %}<p class="rfw-lead">{{ page_description }}</p>{% endif %}
+    </div>
+    {% block page_meta %}{% endblock %}
+  </header>
+
+  {% block page_content %}
+    <section class="rfw-card rfw-card--padded">
+      <h2>Contenido principal</h2>
+      <p>Reemplace este bloque en la plantilla específica de la aplicación.</p>
+    </section>
+  {% endblock %}
+{% endblock %}
