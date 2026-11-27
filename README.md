@@ -22,9 +22,6 @@ duplicar código entre proyectos:
 ```text
 Compartido/
 ├── README.md
-├── python-web/
-│   ├── templates/
-│   └── static/css/
 ├── Scripts/
 │   └── scripts
 ├── Styles/
@@ -45,16 +42,6 @@ Compartido/
 ```
 
 ## Contenido principal
-
-### Plantillas web para Python
-
-[`python-web/`](python-web/) contiene templates Jinja2 y un CSS corporativo independiente
-de Shiny, Bootstrap y jQuery. Puede usarse con FastAPI o Flask copiando únicamente
-`templates/`, `static/css/racafe-web.css` y los logos existentes de `img/`.
-
-La guía de integración, variables y ejemplos está en
-[`python-web/README.md`](python-web/README.md). Este recurso tiene versión propia y no modifica
-`ASSETS_VERSION` ni el contrato de estilos para aplicaciones Shiny.
 
 ### 1) Estilos compartidos
 
